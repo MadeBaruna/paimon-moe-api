@@ -14,6 +14,17 @@ module.exports = {
     '@typescript-eslint/semi': ['error', 'always'],
     'no-void': ['error', { allowAsStatement: true }],
     'comma-dangle': ['error', 'always-multiline'],
-    '@typescript-eslint/space-before-function-paren': 'off'
+    '@typescript-eslint/space-before-function-paren': 'off',
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      'multiline': {
+        'delimiter': 'semi',
+        'requireLast': true
+      },
+      'singleline': {
+        'delimiter': 'semi',
+        'requireLast': false
+      },
+      'multilineDetection': 'brackets'
+    }]
   }
 }

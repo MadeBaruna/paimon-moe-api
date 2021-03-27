@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "firstPulls",
+    "legendaryPulls",
+    "rarePulls",
+    "banner",
+    "total",
+    "legendary",
+    "rare"
+  ],
+  "properties": {
+    "firstPulls": {
+      "type": "array",
+      "minItems": 5,
+      "additionalItems": false,
+      "items": {
+        "type": "array",
+        "strictTuples": true,
+        "items": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    "legendaryPulls": {
+      "type": "array",
+      "additionalItems": false,
+      "strictTuples": true,
+      "items": {
+        "type": "array",
+        "strictTuples": true,
+        "items": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string",
+            "enum": ["character", "weapon"]
+          },
+          {
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    "rarePulls": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "number",
+        "min": 0
+      }
+    },
+    "banner": {
+      "type": "number"
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "legendary": {
+      "type": "number",
+      "minimum": 0
+    },
+    "rare": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}
