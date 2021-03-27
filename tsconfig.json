@@ -12,6 +12,7 @@
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "outDir": "./build",
     "paths": {
       "xxhash": ["./src/types/xxhash"],
       "nano-memoize": ["./src/types/nano-memoize"]

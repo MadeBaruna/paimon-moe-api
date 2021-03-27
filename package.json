@@ -20,7 +20,6 @@
     "fastify": "^3.14.0",
     "fastify-cors": "^5.2.0",
     "fastify-plugin": "^3.0.0",
-    "fastify-typeorm": "^2.1.2",
     "nano-memoize": "^1.2.1",
     "node-fetch": "^2.6.1",
     "node-schedule": "^2.0.0",

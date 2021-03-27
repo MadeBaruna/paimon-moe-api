@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify';
 import XXHash from 'xxhash';
 import dayjs from 'dayjs';
 import memoize from 'nano-memoize';
+import { getManager, getRepository } from 'typeorm';
 
 import { Banner } from '../entities/banner';
 import { Pull } from '../entities/pull';
@@ -47,7 +48,7 @@ export default async function (server: FastifyInstance): Promise<void> {
       },
     },
     async function (req, reply) {
-      const bannerRepo = this.orm.getRepository(Banner);
+      const bannerRepo = getRepository(Banner);
 
       let banner;
       try {
@@ -62,7 +63,7 @@ export default async function (server: FastifyInstance): Promise<void> {
       const firstWishes = req.body.firstPulls.map(e => e.join(';')).join(';');
       const uniqueId = XXHash.hash(Buffer.from(firstWishes), seed, 'hex');
 
-      const pullRepo = this.orm.getRepository(Pull);
+      const pullRepo = getRepository(Pull);
 
       const pulls: Pull[] = [];
       for (const pull of req.body.legendaryPulls) {
@@ -81,7 +82,7 @@ export default async function (server: FastifyInstance): Promise<void> {
         }));
       }
 
-      const wishRepo = this.orm.getRepository(Wish);
+      const wishRepo = getRepository(Wish);
 
       const savedWish = await wishRepo.findOne({ where: { uniqueId } });
 
@@ -95,7 +96,7 @@ export default async function (server: FastifyInstance): Promise<void> {
         pulls,
       });
 
-      await this.orm.manager.transaction(async transactionalEntityManager => {
+      await getManager().transaction(async transactionalEntityManager => {
         if (savedWish !== undefined) {
           await transactionalEntityManager.remove(savedWish);
         }

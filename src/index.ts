@@ -1,10 +1,12 @@
 import * as dotenv from 'dotenv';
 
 import fastify from 'fastify';
+import { createConnection } from 'typeorm';
 
 import { Banner } from './entities/banner';
 import { Wish } from './entities/wish';
 import { Pull } from './entities/pull';
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
 dotenv.config();
 
@@ -14,10 +16,14 @@ void server.register(import('fastify-cors'), {
   origin: ['https://paimon.moe', 'https://www.paimon.moe', 'http://localhost:3000'],
 });
 
-void server.register(import('fastify-typeorm'), {
-  type: process.env.DB_TYPE,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
+void server.register(import('./routes/version'));
+void server.register(import('./routes/wish'));
+void server.register(import('./routes/corsProxy'));
+
+const dbOptions: PostgresConnectionOptions = {
+  type: 'postgres',
+  host: process.env.DB_HOST ?? '127.0.0.1',
+  port: Number(process.env.DB_PORT ?? 5432),
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
@@ -28,14 +34,12 @@ void server.register(import('fastify-typeorm'), {
   ],
   synchronize: false,
   logging: false,
-});
-
-void server.register(import('./routes/version'));
-void server.register(import('./routes/wish'));
-void server.register(import('./routes/corsProxy'));
+};
 
 async function start(): Promise<void> {
   try {
+    await createConnection(dbOptions);
+
     const address = await server.listen(3001, '0.0.0.0');
     console.log(`Server listening at ${address}`);
   } catch (err) {
