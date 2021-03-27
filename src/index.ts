@@ -27,7 +27,7 @@ void server.register(import('fastify-typeorm'), {
     Pull,
   ],
   synchronize: false,
-  logging: true,
+  logging: false,
 });
 
 void server.register(import('./routes/version'));
