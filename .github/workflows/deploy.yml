@@ -40,4 +40,4 @@ jobs:
           echo "DB_USERNAME=$DB_USERNAME" >> .env
           echo "DB_PASSWORD=$DB_PASSWORD" >> .env
           echo "XXHASH_SEED=$XXHASH_SEED" >> .env
-          sudo docker-compose up -d
+          sudo docker-compose pull && docker-compose up -d
