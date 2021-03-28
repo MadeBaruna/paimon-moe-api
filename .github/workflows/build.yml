@@ -9,7 +9,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install pnpm
-        run: npm i -g pnpm
+        run: sudo npm i -g pnpm
       - name: Install modules
         run: pnpm install
       - name: Run linter
