@@ -25,12 +25,12 @@ const banners = {
     {
       name: 'Sparkling Steps',
       start: '2020-10-20 18:00:00',
-      end: '2020-11-10 18:00:00',
+      end: '2020-11-10 16:00:00',
     },
     {
       name: 'Farewell of Snezhnaya',
       start: '2020-11-11 06:00:00',
-      end: '2020-12-01 18:00:00',
+      end: '2020-12-01 16:00:00',
     },
     {
       name: 'Gentry of Hermitage',
@@ -39,7 +39,7 @@ const banners = {
     },
     {
       name: 'Secretum Secretorum',
-      start: '2020-12-23 10:00:00',
+      start: '2020-12-23 06:00:00',
       end: '2021-01-12 16:00:00',
     },
     {
@@ -77,12 +77,12 @@ const banners = {
     {
       name: 'Epitome Invocation',
       start: '2020-10-20 18:00:00',
-      end: '2020-11-10 18:00:00',
+      end: '2020-11-10 16:00:00',
     },
     {
       name: 'Epitome Invocation',
       start: '2020-11-11 06:00:00',
-      end: '2020-12-01 18:00:00',
+      end: '2020-12-01 16:00:00',
     },
     {
       name: 'Epitome Invocation',
@@ -91,7 +91,7 @@ const banners = {
     },
     {
       name: 'Epitome Invocation',
-      start: '2020-12-23 10:00:00',
+      start: '2020-12-23 06:00:00',
       end: '2021-01-12 16:00:00',
     },
     {
