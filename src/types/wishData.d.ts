@@ -47,22 +47,20 @@ export interface WishData {
       | [number, string, string, number]
       | [number, string, string, number, boolean]
     ),
-    ...(
-      | []
-      | [number]
-      | [number, string]
-      | [number, string, string]
-      | [number, string, string, number]
-      | [number, string, string, number, boolean]
-    )[]
-  ];
-  legendaryPulls:
-    | []
+    ...Array<| []
     | [number]
     | [number, string]
-    | [number, string, "character" | "weapon"]
-    | [number, string, "character" | "weapon", number]
-    | [number, string, "character" | "weapon", number, boolean][];
+    | [number, string, string]
+    | [number, string, string, number]
+    | [number, string, string, number, boolean]>
+  ];
+  legendaryPulls:
+  | []
+  | [number]
+  | [number, string]
+  | [number, string, 'character' | 'weapon']
+  | [number, string, 'character' | 'weapon', number]
+  | Array<[number, string, 'character' | 'weapon', number, boolean]>;
   rarePulls: [number, number, number, number, number, number, number, number, number, number];
   banner: number;
   total: number;
