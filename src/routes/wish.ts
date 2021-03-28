@@ -103,8 +103,6 @@ export default async function (server: FastifyInstance): Promise<void> {
         await transactionalEntityManager.save(wish);
       });
 
-      return {
-        wish, pulls,
-      };
+      return { status: 'submitted' };
     });
 }
