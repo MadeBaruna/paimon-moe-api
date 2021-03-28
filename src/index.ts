@@ -10,7 +10,10 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
 
 dotenv.config();
 
-const server = fastify({ logger: { level: 'error' } });
+const server = fastify({
+  logger: { level: 'error' },
+  connectionTimeout: 30000,
+});
 
 void server.register(import('fastify-cors'), {
   origin: ['https://paimon.moe', 'https://www.paimon.moe', 'http://localhost:3000'],
