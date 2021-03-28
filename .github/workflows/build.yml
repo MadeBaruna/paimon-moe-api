@@ -8,14 +8,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Run Super-Linter
-        uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: main
-          VALIDATE_TYPESCRIPT_ES: true
-          LINTER_RULES_PATH: /
-          TYPESCRIPT_ES_CONFIG_FILE: .eslintrc.js
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Install modules
+        run: pnpm install
+      - name: Run linter
+        run: pnpm run lint
 
   build-docker-image:
     name: Build docker image
