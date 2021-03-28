@@ -2,10 +2,10 @@ version: "3.8"
 
 services:
   api:
-    image: paimon-moe-api:latest
+    image: ghcr.io/madebaruna/paimon-moe-api:latest
     restart: always
     ports:
-      - "21000:3001"
+      - "22000:3001"
     environment: 
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}
