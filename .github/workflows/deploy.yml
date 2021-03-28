@@ -1,0 +1,42 @@
+name: deploy
+on: 
+  workflow_run:
+    workflows: ["lint-and-build"]
+    branches: [main]
+    types: 
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - name: Run docker compose
+      uses: appleboy/ssh-action@master
+      env:
+        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_DATABASE: ${{ secrets.DB_DATABASE }}
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        XXHASH_SEED: ${{ secrets.XXHASH_SEED }}
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script_stop: true
+        envs: DB_HOST,DB_PORT,DB_DATABASE,DB_USERNAME,DB_PASSWORD,XXHASH_SEED
+        script: |
+          mkdir -p ~/server/paimon-moe-api
+          cd ~/server/paimon-moe-api
+          wget https://raw.githubusercontent.com/MadeBaruna/paimon-moe-api/main/docker-compose.yml
+          rm .env
+          touch .env
+          echo "DB_HOST: $DB_HOST" >> .env
+          echo "DB_PORT: $DB_PORT" >> .env
+          echo "DB_DATABASE: $DB_DATABASE" >> .env
+          echo "DB_USERNAME: $DB_USERNAME" >> .env
+          echo "DB_PASSWORD: $DB_PASSWORD" >> .env
+          echo "XXHASH_SEED: $XXHASH_SEED" >> .env
+          sudo docker-compose up -d
