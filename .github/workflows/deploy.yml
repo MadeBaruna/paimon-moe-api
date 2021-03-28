@@ -31,7 +31,7 @@ jobs:
           mkdir -p ~/server/paimon-moe-api
           cd ~/server/paimon-moe-api
           wget https://raw.githubusercontent.com/MadeBaruna/paimon-moe-api/main/docker-compose.yml
-          rm .env
+          rm -f .env
           touch .env
           echo "DB_HOST: $DB_HOST" >> .env
           echo "DB_PORT: $DB_PORT" >> .env
