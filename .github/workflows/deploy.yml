@@ -30,13 +30,14 @@ jobs:
         script: |
           mkdir -p ~/server/paimon-moe-api
           cd ~/server/paimon-moe-api
+          rm -f docker-compose.yml
           wget https://raw.githubusercontent.com/MadeBaruna/paimon-moe-api/main/docker-compose.yml
           rm -f .env
           touch .env
-          echo "DB_HOST: $DB_HOST" >> .env
-          echo "DB_PORT: $DB_PORT" >> .env
-          echo "DB_DATABASE: $DB_DATABASE" >> .env
-          echo "DB_USERNAME: $DB_USERNAME" >> .env
-          echo "DB_PASSWORD: $DB_PASSWORD" >> .env
-          echo "XXHASH_SEED: $XXHASH_SEED" >> .env
+          echo "DB_HOST=$DB_HOST" >> .env
+          echo "DB_PORT=$DB_PORT" >> .env
+          echo "DB_DATABASE=$DB_DATABASE" >> .env
+          echo "DB_USERNAME=$DB_USERNAME" >> .env
+          echo "DB_PASSWORD=$DB_PASSWORD" >> .env
+          echo "XXHASH_SEED=$XXHASH_SEED" >> .env
           sudo docker-compose up -d
