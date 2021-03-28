@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  api:
+    image: paimon-moe-api:latest
+    restart: always
+    ports:
+      - "21000:3001"
+    environment: 
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      XXHASH_SEED: ${XXHASH_SEED}
+
+  postgres:
+    image: postgres:13.2-alpine
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment: 
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+volumes:
+  db_data:

@@ -34,6 +34,8 @@ const dbOptions: PostgresConnectionOptions = {
   ],
   synchronize: false,
   logging: false,
+  migrations: ['migrations/*.*'],
+  migrationsRun: true,
 };
 
 async function start(): Promise<void> {

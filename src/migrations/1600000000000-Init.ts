@@ -17,6 +17,9 @@ export class Init1600000000000 implements MigrationInterface {
             )
         `);
     await queryRunner.query(`
+            CREATE TYPE "pull_type_enum" AS ENUM('character', 'weapon')
+        `);
+    await queryRunner.query(`
             CREATE TABLE "pull" (
                 "id" SERIAL NOT NULL,
                 "time" TIMESTAMP WITH TIME ZONE NOT NULL,
@@ -28,6 +31,9 @@ export class Init1600000000000 implements MigrationInterface {
                 "bannerId" integer,
                 CONSTRAINT "PK_d25e988445e4493d39c34db02ab" PRIMARY KEY ("id")
             )
+        `);
+    await queryRunner.query(`
+            CREATE TYPE "banner_type_enum" AS ENUM('beginners', 'standard', 'characters', 'weapons')
         `);
     await queryRunner.query(`
             CREATE TABLE "banner" (
@@ -67,7 +73,13 @@ export class Init1600000000000 implements MigrationInterface {
             DROP TABLE "banner"
         `);
     await queryRunner.query(`
+            DROP TYPE "banner_type_enum"
+        `);
+    await queryRunner.query(`
             DROP TABLE "pull"
+        `);
+    await queryRunner.query(`
+            DROP TYPE "pull_type_enum"
         `);
     await queryRunner.query(`
             DROP TABLE "wish"
