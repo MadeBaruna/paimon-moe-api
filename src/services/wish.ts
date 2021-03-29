@@ -96,6 +96,12 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     count: 0,
   });
 
+  const totalPull = await wishRepo
+    .createQueryBuilder('wish')
+    .select('SUM(total)', 'sum')
+    .where({ banner })
+    .getRawOne<{ sum: null | string }>();
+
   const result = {
     time,
     list: legendaryItems,
@@ -110,6 +116,7 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     total: {
       legendary: legendaryPity.reduce((prev, cur) => (prev + cur), 0),
       rare: rarePity.reduce((prev, cur) => (prev + cur), 0),
+      all: totalPull.sum === null ? 0 : Number(totalPull.sum),
     },
   };
 
