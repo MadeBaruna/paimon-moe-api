@@ -8,6 +8,7 @@ export interface WishTallyResult {
   time: string;
   list: Array<{
     name: string;
+    type: string;
     count: number;
   }>;
   pityAverage: {
@@ -53,14 +54,16 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
 
   const legendaryResult = await pullRepo
     .createQueryBuilder('pull')
-    .select(['name', 'COUNT(*) count'])
-    .where({ banner })
+    .select(['name', 'type', 'COUNT(*) count'])
     .groupBy('name')
+    .addGroupBy('type')
+    .where({ banner })
     .getRawMany<{
     name: string;
+    type: string;
     count: string;
   }>();
-  const legendaryItems = legendaryResult.map(e => ({ name: e.name, count: Number(e.count) }));
+  const legendaryItems = legendaryResult.map(e => ({ name: e.name, type: e.type, count: Number(e.count) }));
 
   const legendaryPityAverage = await pullRepo
     .createQueryBuilder('pull')
