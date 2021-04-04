@@ -7,7 +7,8 @@ An API for Paimon.moe
 - PostgreSQL
 
 # Deployment
-You need a firebase service account saved as `./service_account/google-service-account.json` for the notification service
+You need a firebase service account saved as `google-service-account.json` for the notification service.  
+Then change the volumes path in `docker-compose.yml` and `.env` with the directory of your service account json.
 ```
 cp .env.example .env
 vi .env

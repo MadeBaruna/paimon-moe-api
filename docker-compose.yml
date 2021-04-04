@@ -13,8 +13,9 @@ services:
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       XXHASH_SEED: ${XXHASH_SEED}
+      GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}
     volumes:
-      - ./service_account:/service_account
+      - /home/ubuntu/server/service_account:/service_account
 
   postgres:
     image: postgres:13.2-alpine
