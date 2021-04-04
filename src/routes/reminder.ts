@@ -13,7 +13,7 @@ import { ReminderListRequest } from '../types/reminderListRequest';
 dayjs.extend(utc);
 
 export default async function (server: FastifyInstance): Promise<void> {
-  server.get<{Querystring: ReminderListRequest}>('/reminder', {
+  server.get<{ Querystring: ReminderListRequest }>('/reminder', {
     schema: {
       querystring: ReminderListRequestSchema,
     },
@@ -33,6 +33,25 @@ export default async function (server: FastifyInstance): Promise<void> {
       console.error(err);
       throw err;
     }
+  });
+
+  server.delete<{ Querystring: ReminderListRequest }>('/reminder', {
+    schema: {
+      querystring: ReminderListRequestSchema,
+    },
+  }, async (req, reply) => {
+    const reminderRepo = getRepository(Reminder);
+
+    const result = await reminderRepo.findOneOrFail({
+      where: {
+        token: req.query.token,
+        type: req.query.type,
+      },
+    });
+
+    await reminderRepo.delete(result);
+
+    return result;
   });
 
   server.post<{ Body: ReminderRequest }>('/reminder', {
