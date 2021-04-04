@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "token",
+    "time",
+    "type"
+  ],
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["transformer", "hoyolab"]
+    }
+  }
+}

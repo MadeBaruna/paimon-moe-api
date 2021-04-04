@@ -3,10 +3,14 @@ import * as dotenv from 'dotenv';
 import fastify from 'fastify';
 import { createConnection } from 'typeorm';
 
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import { Banner } from './entities/banner';
 import { Wish } from './entities/wish';
 import { Pull } from './entities/pull';
-import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { Reminder } from './entities/reminder';
+
+import { initFirebase } from './services/notification';
+import { startReminderCron } from './services/reminder';
 
 dotenv.config();
 
@@ -22,6 +26,7 @@ void server.register(import('fastify-cors'), {
 void server.register(import('./routes/version'));
 void server.register(import('./routes/wish'));
 void server.register(import('./routes/corsProxy'));
+void server.register(import('./routes/reminder'));
 
 const dbOptions: PostgresConnectionOptions = {
   type: 'postgres',
@@ -34,6 +39,7 @@ const dbOptions: PostgresConnectionOptions = {
     Banner,
     Wish,
     Pull,
+    Reminder,
   ],
   synchronize: false,
   logging: false,
@@ -44,6 +50,8 @@ const dbOptions: PostgresConnectionOptions = {
 async function start(): Promise<void> {
   try {
     await createConnection(dbOptions);
+    initFirebase();
+    startReminderCron();
 
     const address = await server.listen(3001, '0.0.0.0');
     console.log(`Server listening at ${address}`);
