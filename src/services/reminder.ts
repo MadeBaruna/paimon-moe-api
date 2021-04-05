@@ -43,8 +43,8 @@ async function checkTransformerReminder(): Promise<void> {
 async function checkHoyolabDailyReminder(): Promise<void> {
   const reminderRepo = getRepository(Reminder);
 
-  const start = dayjs.utc().year(2000).month(0).date(1).second(0).format('YYYY-MM-DD HH:mm:ssZ');
-  const end = dayjs.utc().year(2000).month(0).date(1).add(10, 'minute').second(0).format('YYYY-MM-DD HH:mm:ssZ');
+  const start = dayjs().year(2000).month(0).date(1).utc().second(0).format('YYYY-MM-DD HH:mm:ssZ');
+  const end = dayjs().year(2000).month(0).date(1).utc().add(10, 'minute').second(0).format('YYYY-MM-DD HH:mm:ssZ');
 
   try {
     const result = await reminderRepo
