@@ -6,15 +6,15 @@ export function initFirebase(): void {
   });
 }
 
-export async function sendNotification(tokens: string[]): Promise<void> {
-  const payload = {
-    data: {
-      title: 'Parametric Transformer Reminder',
-      body: 'Your parametric transformer will be ready soon!',
-      url: '/reminder',
-    },
+interface NotificationPayload {
+  data: {
+    title: string;
+    body: string;
+    url: string;
   };
+}
 
+export async function sendNotification(tokens: string[], payload: NotificationPayload): Promise<void> {
   try {
     await firebase.messaging().sendMulticast({
       tokens,
