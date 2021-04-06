@@ -86,7 +86,12 @@ export default async function (server: FastifyInstance): Promise<void> {
 
       const wishRepo = getRepository(Wish);
 
-      const savedWish = await wishRepo.findOne({ where: { uniqueId } });
+      const savedWish = await wishRepo.findOne({
+        where: {
+          uniqueId,
+          banner,
+        },
+      });
 
       const wish = wishRepo.create({
         banner,
