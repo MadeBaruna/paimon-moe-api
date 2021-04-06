@@ -7,5 +7,5 @@
 
 export interface ReminderListRequest {
   token: string;
-  type: "transformer" | "hoyolab";
+  type: 'transformer' | 'hoyolab';
 }
