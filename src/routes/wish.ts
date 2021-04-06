@@ -78,6 +78,8 @@ export default async function (server: FastifyInstance): Promise<void> {
           type: pull[2],
           pity: pull[3],
           grouped: pull[4],
+          guaranteed: pull[5],
+          rarity: pull[6],
           banner,
         }));
       }

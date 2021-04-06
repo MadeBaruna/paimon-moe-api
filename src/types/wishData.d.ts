@@ -14,6 +14,8 @@ export interface WishData {
       | [number, string, string]
       | [number, string, string, number]
       | [number, string, string, number, boolean]
+      | [number, string, string, number, boolean, boolean]
+      | [number, string, string, number, boolean, boolean, number]
     ),
     (
       | []
@@ -22,6 +24,8 @@ export interface WishData {
       | [number, string, string]
       | [number, string, string, number]
       | [number, string, string, number, boolean]
+      | [number, string, string, number, boolean, boolean]
+      | [number, string, string, number, boolean, boolean, number]
     ),
     (
       | []
@@ -30,6 +34,8 @@ export interface WishData {
       | [number, string, string]
       | [number, string, string, number]
       | [number, string, string, number, boolean]
+      | [number, string, string, number, boolean, boolean]
+      | [number, string, string, number, boolean, boolean, number]
     ),
     (
       | []
@@ -38,6 +44,8 @@ export interface WishData {
       | [number, string, string]
       | [number, string, string, number]
       | [number, string, string, number, boolean]
+      | [number, string, string, number, boolean, boolean]
+      | [number, string, string, number, boolean, boolean, number]
     ),
     (
       | []
@@ -46,13 +54,17 @@ export interface WishData {
       | [number, string, string]
       | [number, string, string, number]
       | [number, string, string, number, boolean]
+      | [number, string, string, number, boolean, boolean]
+      | [number, string, string, number, boolean, boolean, number]
     ),
     ...Array<| []
     | [number]
     | [number, string]
     | [number, string, string]
     | [number, string, string, number]
-    | [number, string, string, number, boolean]>
+    | [number, string, string, number, boolean]
+    | [number, string, string, number, boolean, boolean]
+    | [number, string, string, number, boolean, boolean, number]>
   ];
   legendaryPulls:
   | []
@@ -60,7 +72,9 @@ export interface WishData {
   | [number, string]
   | [number, string, 'character' | 'weapon']
   | [number, string, 'character' | 'weapon', number]
-  | Array<[number, string, 'character' | 'weapon', number, boolean]>;
+  | [number, string, 'character' | 'weapon', number, boolean]
+  | [number, string, 'character' | 'weapon', number, boolean, boolean]
+  | Array<[number, string, 'character' | 'weapon', number, boolean, boolean, number]>;
   rarePulls: [number, number, number, number, number, number, number, number, number, number];
   banner: number;
   total: number;

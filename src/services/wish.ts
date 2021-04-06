@@ -42,6 +42,7 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     .createQueryBuilder('pull')
     .select(['pity', 'COUNT(*) count'])
     .where({ banner })
+    .andWhere('rarity = 5')
     .groupBy('pity')
     .getRawMany<{
     pity: number;
@@ -69,6 +70,7 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     .createQueryBuilder('pull')
     .select('AVG(pity)', 'avg')
     .where({ banner })
+    .andWhere('rarity = 5')
     .getRawOne<{ avg: number }>();
 
   const wishRepo = getRepository(Wish);

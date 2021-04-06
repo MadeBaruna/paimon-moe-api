@@ -8,5 +8,5 @@
 export interface ReminderRequest {
   token: string;
   time: string;
-  type: 'transformer' | 'hoyolab';
+  type: "transformer" | "hoyolab";
 }

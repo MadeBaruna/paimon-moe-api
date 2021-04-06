@@ -27,6 +27,17 @@ export class Pull {
   @Column()
   grouped: boolean;
 
+  @Column({
+    default: false,
+  })
+  guaranteed: boolean;
+
+  @Column({
+    type: 'smallint',
+    default: 5,
+  })
+  rarity: number;
+
   @ManyToOne(type => Wish, wish => wish.pulls, {
     onDelete: 'CASCADE',
   })
