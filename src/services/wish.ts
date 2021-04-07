@@ -68,10 +68,10 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
 
   const legendaryPityAverage = await pullRepo
     .createQueryBuilder('pull')
-    .select('AVG(pity)', 'avg')
+    .select(['AVG(pity) avg', 'percentile_disc(0.5) WITHIN GROUP (ORDER BY pity) median'])
     .where({ banner })
     .andWhere('rarity = 5')
-    .getRawOne<{ avg: number }>();
+    .getRawOne<{ avg: string; median: string }>();
 
   const wishRepo = getRepository(Wish);
   const countPity = [...new Array(10)].map((e, i) => `SUM("rarePity"[${i + 1}]) p${i + 1}`);
@@ -103,9 +103,9 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
 
   const totalPull = await wishRepo
     .createQueryBuilder('wish')
-    .select('SUM(total)', 'sum')
+    .select(['SUM(total) sum', 'COUNT(*) count'])
     .where({ banner })
-    .getRawOne<{ sum: null | string }>();
+    .getRawOne<{ sum: null | string; count: null | string }>();
 
   const result = {
     time,
@@ -113,6 +113,9 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     pityAverage: {
       legendary: Number(legendaryPityAverage.avg),
       rare: rarePityAverage.count > 0 ? rarePityAverage.total / rarePityAverage.count : 0,
+    },
+    median: {
+      legendary: Number(legendaryPityAverage.median),
     },
     pityCount: {
       legendary: legendaryPity,
@@ -122,6 +125,7 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
       legendary: legendaryPity.reduce((prev, cur) => (prev + cur), 0),
       rare: rarePity.reduce((prev, cur) => (prev + cur), 0),
       all: totalPull.sum === null ? 0 : Number(totalPull.sum),
+      users: totalPull.count === null ? 0 : Number(totalPull.count),
     },
   };
 
