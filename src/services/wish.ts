@@ -10,6 +10,7 @@ export interface WishTallyResult {
     name: string;
     type: string;
     count: number;
+    guaranteed: number;
   }>;
   pityAverage: {
     legendary: number;
@@ -55,16 +56,43 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
 
   const legendaryResult = await pullRepo
     .createQueryBuilder('pull')
-    .select(['name', 'type', 'COUNT(*) count'])
+    .select(['name', 'type', 'guaranteed', 'COUNT(*) count'])
     .groupBy('name')
     .addGroupBy('type')
+    .addGroupBy('guaranteed')
     .where({ banner })
     .getRawMany<{
     name: string;
     type: string;
+    guaranteed: boolean;
     count: string;
   }>();
-  const legendaryItems = legendaryResult.map(e => ({ name: e.name, type: e.type, count: Number(e.count) }));
+  const _legendaryResult: {
+    [key: string]: {
+      name: string;
+      type: string;
+      guaranteed: number;
+      count: number;
+    };
+  } = {};
+  for (const e of legendaryResult) {
+    if (_legendaryResult[e.name] === undefined) {
+      _legendaryResult[e.name] = {
+        name: '',
+        type: '',
+        guaranteed: 0,
+        count: 0,
+      };
+    }
+
+    _legendaryResult[e.name] = {
+      name: e.name,
+      type: e.type,
+      count: _legendaryResult[e.name].count + Number(e.count),
+      guaranteed: e.guaranteed ? Number(e.count) : _legendaryResult[e.name].guaranteed,
+    };
+  }
+  const legendaryItems = Object.entries(_legendaryResult).map(e => e[1]);
 
   const legendaryPityAverage = await pullRepo
     .createQueryBuilder('pull')
