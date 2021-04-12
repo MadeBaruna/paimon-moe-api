@@ -127,14 +127,14 @@ export default async function (server: FastifyInstance): Promise<void> {
 
         if (current !== undefined) {
           if (current.lastId < lastPull.id) {
-            current.time = lastTime.format('YYYY-MM-DD HH:mm:ss+8');
+            current.time = lastTime.format('YYYY-MM-DD HH:mm:ssZ');
             current.lastId = lastPull.id;
             await counterRepo.save(current);
           }
         } else {
           const newCurrent = counterRepo.create({
             lastId: lastPull.id,
-            time: lastTime.format('YYYY-MM-DD HH:mm:ss+8'),
+            time: lastTime.format('YYYY-MM-DD HH:mm:ssZ'),
           });
           await counterRepo.save(newCurrent);
         }
