@@ -111,11 +111,11 @@ export default async function (server: FastifyInstance): Promise<void> {
       const counterRepo = getRepository(Counter);
 
       const lastPull = req.body.lastPull;
-      const lastTime = dayjs.unix(lastPull.time);
+      const lastTime = dayjs(lastPull.time);
 
       const range = {
-        start: lastTime.minute(0).second(0),
-        end: lastTime.minute(59).second(59),
+        start: lastTime.minute(0).second(0).format('YYYY-MM-DD HH:mm:ssZ'),
+        end: lastTime.minute(59).second(59).format('YYYY-MM-DD HH:mm:ssZ'),
       };
 
       try {

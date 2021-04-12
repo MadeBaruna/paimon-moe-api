@@ -116,7 +116,7 @@
       ],
       "properties": {
         "time": {
-          "type": "number"
+          "type": "string"
         },
         "id": {
           "type": "string"
