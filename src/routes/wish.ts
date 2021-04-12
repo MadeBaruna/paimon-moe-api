@@ -118,11 +118,14 @@ export default async function (server: FastifyInstance): Promise<void> {
         end: lastTime.minute(59).second(59).format('YYYY-MM-DD HH:mm:ssZ'),
       };
 
+      const digits = lastPull.id.substring(0, 9);
+
       try {
         const current = await counterRepo
           .createQueryBuilder('counter')
           .where('time >= :start', { start: range.start })
           .andWhere('time <= :end', { end: range.end })
+          .andWhere('digits = :digits', { digits })
           .getOne();
 
         if (current !== undefined) {
@@ -133,6 +136,7 @@ export default async function (server: FastifyInstance): Promise<void> {
           }
         } else {
           const newCurrent = counterRepo.create({
+            digits,
             lastId: lastPull.id,
             time: lastTime.format('YYYY-MM-DD HH:mm:ssZ'),
           });

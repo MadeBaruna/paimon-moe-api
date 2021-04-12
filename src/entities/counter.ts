@@ -8,6 +8,9 @@ export class Counter {
   @Column('timestamptz')
   time: string;
 
+  @Column({ default: '' })
+  digits: string;
+
   @Column()
   lastId: string;
 }
