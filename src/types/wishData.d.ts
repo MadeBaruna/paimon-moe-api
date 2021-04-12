@@ -80,4 +80,8 @@ export interface WishData {
   total: number;
   legendary: number;
   rare: number;
+  lastPull?: {
+    time: number;
+    id: string;
+  };
 }

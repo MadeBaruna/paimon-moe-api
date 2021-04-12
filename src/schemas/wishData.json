@@ -61,7 +61,10 @@
           },
           {
             "type": "string",
-            "enum": ["character", "weapon"]
+            "enum": [
+              "character",
+              "weapon"
+            ]
           },
           {
             "type": "integer",
@@ -103,6 +106,22 @@
     "rare": {
       "type": "number",
       "minimum": 0
+    },
+    "lastPull": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "time",
+        "id"
+      ],
+      "properties": {
+        "time": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
     }
   }
 }

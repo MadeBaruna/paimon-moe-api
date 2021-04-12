@@ -8,6 +8,7 @@ import { Banner } from './entities/banner';
 import { Wish } from './entities/wish';
 import { Pull } from './entities/pull';
 import { Reminder } from './entities/reminder';
+import { Counter } from './entities/counter';
 
 import { initFirebase } from './services/notification';
 import { startReminderCron } from './services/reminder';
@@ -40,6 +41,7 @@ const dbOptions: PostgresConnectionOptions = {
     Wish,
     Pull,
     Reminder,
+    Counter,
   ],
   synchronize: false,
   logging: false,
