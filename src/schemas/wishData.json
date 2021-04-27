@@ -8,7 +8,8 @@
     "banner",
     "total",
     "legendary",
-    "rare"
+    "rare",
+    "pityCount"
   ],
   "properties": {
     "firstPulls": {
@@ -90,6 +91,14 @@
       "items": {
         "type": "number",
         "min": 0
+      }
+    },
+    "pityCount": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "number",
+        "min": 1
       }
     },
     "banner": {

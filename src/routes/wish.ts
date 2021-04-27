@@ -96,6 +96,7 @@ export default async function (server: FastifyInstance): Promise<void> {
       rare: req.body.rare,
       rarePity: req.body.rarePulls,
       total: req.body.total,
+      pityCount: req.body.pityCount.slice(0, 90),
       pulls,
     });
 

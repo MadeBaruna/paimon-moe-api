@@ -12,6 +12,9 @@ export class Wish {
   @Column({ type: 'character', length: 8 })
   uniqueId: string;
 
+  @Column('smallint', { array: true, default: '{}' })
+  pityCount: number[];
+
   @Column('smallint', { array: true })
   rarePity: number[];
 
