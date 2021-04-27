@@ -13,7 +13,6 @@ import WishRequestSchema from '../schemas/wishRequest.json';
 import { WishRequest } from '../types/wishRequest';
 import { WishData } from '../types/wishData';
 import { calculateWishTally } from '../services/wish';
-import { Counter } from '../entities/counter';
 
 export default async function (server: FastifyInstance): Promise<void> {
   const seed = Number(process.env.XXHASH_SEED);
@@ -106,46 +105,6 @@ export default async function (server: FastifyInstance): Promise<void> {
       }
       await transactionalEntityManager.save(wish);
     });
-
-    if (req.body.lastPull != null) {
-      const counterRepo = getRepository(Counter);
-
-      const lastPull = req.body.lastPull;
-      const lastTime = dayjs(lastPull.time);
-
-      const range = {
-        start: lastTime.minute(0).second(0).format('YYYY-MM-DD HH:mm:ssZ'),
-        end: lastTime.minute(59).second(59).format('YYYY-MM-DD HH:mm:ssZ'),
-      };
-
-      const digits = lastPull.id.substring(0, 9);
-
-      try {
-        const current = await counterRepo
-          .createQueryBuilder('counter')
-          .where('time >= :start', { start: range.start })
-          .andWhere('time <= :end', { end: range.end })
-          .andWhere('digits = :digits', { digits })
-          .getOne();
-
-        if (current !== undefined) {
-          if (current.lastId < lastPull.id) {
-            current.time = lastTime.format('YYYY-MM-DD HH:mm:ssZ');
-            current.lastId = lastPull.id;
-            await counterRepo.save(current);
-          }
-        } else {
-          const newCurrent = counterRepo.create({
-            digits,
-            lastId: lastPull.id,
-            time: lastTime.format('YYYY-MM-DD HH:mm:ssZ'),
-          });
-          await counterRepo.save(newCurrent);
-        }
-      } catch (err) {
-        server.log.error(err);
-      }
-    }
 
     return { status: 'submitted' };
   });

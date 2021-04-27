@@ -106,22 +106,6 @@
     "rare": {
       "type": "number",
       "minimum": 0
-    },
-    "lastPull": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "time",
-        "id"
-      ],
-      "properties": {
-        "time": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        }
-      }
     }
   }
 }
