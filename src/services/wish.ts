@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { getRepository } from 'typeorm';
+import { getRepository, MoreThan } from 'typeorm';
 import { Banner } from '../entities/banner';
 import { Pull } from '../entities/pull';
 import { Wish } from '../entities/wish';
@@ -135,6 +135,31 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     .where({ banner })
     .getRawOne<{ sum: null | string; count: null | string }>();
 
+  // new pity total banner >= 300012 and banner >= 400011
+  let countEachPity: number[] = [];
+  if ((id >= 300012 && id < 400000) || id >= 400011) {
+    const invalidPulls = await pullRepo.find({
+      where: {
+        pity: MoreThan(90),
+        banner,
+      },
+      relations: ['wish'],
+    });
+
+    for (const pull of invalidPulls) {
+      await wishRepo.delete(pull.wish);
+    }
+
+    const pityCountTotal = [...new Array(90)].map((e, i) => `SUM("pityCount"[${i + 1}]) p${i + 1}`);
+    const pityCountResult = await wishRepo
+      .createQueryBuilder('wish')
+      .select(pityCountTotal)
+      .where({ banner })
+      .andWhere('legendary > 0')
+      .getRawOne<{[key: string]: number}>();
+    countEachPity = Object.entries(pityCountResult).map(([_, val]) => Number(val));
+  }
+
   const result = {
     time,
     list: legendaryItems,
@@ -155,6 +180,7 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
       all: totalPull.sum === null ? 0 : Number(totalPull.sum),
       users: totalPull.count === null ? 0 : Number(totalPull.count),
     },
+    countEachPity,
   };
 
   return result;
