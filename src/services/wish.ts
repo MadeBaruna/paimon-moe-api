@@ -137,7 +137,7 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
 
   // new pity total banner >= 300012 and banner >= 400011
   let countEachPity: number[] = [];
-  if ((id >= 300012 && id < 400000) || id >= 400011) {
+  if ((id >= 300012 && id < 400000) || id >= 400011 || id === 200001) {
     const invalidPulls = await pullRepo.find({
       where: {
         pity: MoreThan(90),
