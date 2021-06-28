@@ -169,6 +169,16 @@ export const banners: Banner = {
     featuredRare: ['fischl', 'sucrose', 'barbara'],
     timezoneDependent: true,
   },
+  300015: {
+    name: 'Leaves in the Wind',
+    image: 1,
+    shortName: 'Kazuha',
+    start: '2021-06-29 18:00:00',
+    end: '2021-07-20 14:59:59',
+    color: '#8FFFDE',
+    featured: ['kaedehara_kazuha'],
+    featuredRare: ['bennett', 'razor', 'rosaria'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -328,5 +338,15 @@ export const banners: Banner = {
       'the_widsith',
     ],
     timezoneDependent: true,
+  },
+  400014: {
+    name: 'Epitome Invocation',
+    image: 14,
+    start: '2021-06-29 18:00:00',
+    end: '2021-07-20 14:59:59',
+    shortName: 'Freedom-Sworn',
+    color: '#42ecf5',
+    featured: ['freedom-sworn', 'skyward_atlas'],
+    featuredRare: ['the_alley_flash', 'wine_and_song', 'alley_hunter', 'favonius_greatsword', 'dragons_bane'],
   },
 };
