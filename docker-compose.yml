@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - "22000:3001"
-    environment: 
+    environment:
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}
       DB_DATABASE: ${DB_DATABASE}
@@ -18,11 +18,11 @@ services:
       - /home/baruna/server/service_account:/service_account
 
   postgres:
-    image: postgres:13.2-alpine
+    image: postgres:13.3-alpine
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
-    environment: 
+    environment:
       POSTGRES_DB: ${DB_DATABASE}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
 

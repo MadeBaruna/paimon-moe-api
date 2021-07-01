@@ -20,7 +20,6 @@ export default async function (server: FastifyInstance): Promise<void> {
         const json = await response.json();
         return json;
       } catch (err) {
-        server.log.error(err);
         void reply.status(500);
         throw new Error(err);
       }

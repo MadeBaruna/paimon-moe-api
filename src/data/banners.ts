@@ -1,18 +1,16 @@
 interface Banner {
-  [key: number]: {
-    name: string;
-    shortName: string;
-    image: number;
-    start: string;
-    end: string;
-    color: string;
-    featured?: string[];
-    featuredRare?: string[];
-    timezoneDependent?: boolean;
-  };
+  name: string;
+  shortName: string;
+  image: number;
+  start: string;
+  end: string;
+  color: string;
+  featured?: string[];
+  featuredRare?: string[];
+  timezoneDependent?: boolean;
 }
 
-export const banners: Banner = {
+export const banners: {[key: number]: Banner} = {
   100001: {
     name: "Beginners' Wish",
     shortName: "Beginners' Wish",

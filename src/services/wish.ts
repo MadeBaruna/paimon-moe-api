@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { getRepository, MoreThan } from 'typeorm';
+import { banners } from '../data/banners';
 import { Banner } from '../entities/banner';
 import { Pull } from '../entities/pull';
 import { Wish } from '../entities/wish';
@@ -22,10 +23,12 @@ export interface WishTallyResult {
   };
 }
 
-export async function calculateWishTally(id: number): Promise<WishTallyResult> {
+async function calculateWishTally(id: number): Promise<WishTallyResult> {
   const time = dayjs().format();
 
-  console.log(JSON.stringify({ message: 'generating wish tally', banner: id, time }));
+  console.log(
+    JSON.stringify({ message: 'start generating wish tally', banner: id, time }),
+  );
 
   const bannerRepo = getRepository(Banner);
 
@@ -50,7 +53,7 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     count: string;
   }>();
 
-  legendaryPityResult.forEach(e => {
+  legendaryPityResult.forEach((e) => {
     legendaryPity[e.pity] = Number(e.count);
   });
 
@@ -89,20 +92,27 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
       name: e.name,
       type: e.type,
       count: _legendaryResult[e.name].count + Number(e.count),
-      guaranteed: e.guaranteed ? Number(e.count) : _legendaryResult[e.name].guaranteed,
+      guaranteed: e.guaranteed
+        ? Number(e.count)
+        : _legendaryResult[e.name].guaranteed,
     };
   }
-  const legendaryItems = Object.entries(_legendaryResult).map(e => e[1]);
+  const legendaryItems = Object.entries(_legendaryResult).map((e) => e[1]);
 
   const legendaryPityAverage = await pullRepo
     .createQueryBuilder('pull')
-    .select(['AVG(pity) avg', 'percentile_disc(0.5) WITHIN GROUP (ORDER BY pity) median'])
+    .select([
+      'AVG(pity) avg',
+      'percentile_disc(0.5) WITHIN GROUP (ORDER BY pity) median',
+    ])
     .where({ banner })
     .andWhere('rarity = 5')
     .getRawOne<{ avg: string; median: string }>();
 
   const wishRepo = getRepository(Wish);
-  const countPity = [...new Array(10)].map((e, i) => `SUM("rarePity"[${i + 1}]) p${i + 1}`);
+  const countPity = [...new Array(10)].map(
+    (e, i) => `SUM("rarePity"[${i + 1}]) p${i + 1}`,
+  );
   const rarePityResult = await wishRepo
     .createQueryBuilder('wish')
     .select(countPity)
@@ -119,15 +129,20 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     p9: number;
     p10: number;
   }>();
-  const rarePity = Object.entries(rarePityResult).map(([_, val]) => Number(val));
-  const rarePityAverage = rarePity.reduce((prev, cur, index) => {
-    prev.total += (index + 1) * cur;
-    prev.count += cur;
-    return prev;
-  }, {
-    total: 0,
-    count: 0,
-  });
+  const rarePity = Object.entries(rarePityResult).map(([_, val]) =>
+    Number(val),
+  );
+  const rarePityAverage = rarePity.reduce(
+    (prev, cur, index) => {
+      prev.total += (index + 1) * cur;
+      prev.count += cur;
+      return prev;
+    },
+    {
+      total: 0,
+      count: 0,
+    },
+  );
 
   const totalPull = await wishRepo
     .createQueryBuilder('wish')
@@ -150,14 +165,18 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
       await wishRepo.delete(pull.wish);
     }
 
-    const pityCountTotal = [...new Array(90)].map((e, i) => `SUM("pityCount"[${i + 1}]) p${i + 1}`);
+    const pityCountTotal = [...new Array(90)].map(
+      (e, i) => `SUM("pityCount"[${i + 1}]) p${i + 1}`,
+    );
     const pityCountResult = await wishRepo
       .createQueryBuilder('wish')
       .select(pityCountTotal)
       .where({ banner })
       .andWhere('legendary > 0')
-      .getRawOne<{[key: string]: number}>();
-    countEachPity = Object.entries(pityCountResult).map(([_, val]) => Number(val));
+      .getRawOne<{ [key: string]: number }>();
+    countEachPity = Object.entries(pityCountResult).map(([_, val]) =>
+      Number(val),
+    );
   }
 
   const result = {
@@ -165,7 +184,10 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
     list: legendaryItems,
     pityAverage: {
       legendary: Number(legendaryPityAverage.avg),
-      rare: rarePityAverage.count > 0 ? rarePityAverage.total / rarePityAverage.count : 0,
+      rare:
+        rarePityAverage.count > 0
+          ? rarePityAverage.total / rarePityAverage.count
+          : 0,
     },
     median: {
       legendary: Number(legendaryPityAverage.median),
@@ -175,13 +197,55 @@ export async function calculateWishTally(id: number): Promise<WishTallyResult> {
       rare: rarePity,
     },
     total: {
-      legendary: legendaryPity.reduce((prev, cur) => (prev + cur), 0),
-      rare: rarePity.reduce((prev, cur) => (prev + cur), 0),
+      legendary: legendaryPity.reduce((prev, cur) => prev + cur, 0),
+      rare: rarePity.reduce((prev, cur) => prev + cur, 0),
       all: totalPull.sum === null ? 0 : Number(totalPull.sum),
       users: totalPull.count === null ? 0 : Number(totalPull.count),
     },
     countEachPity,
   };
 
+  const finishTime = dayjs().format();
+  console.log(
+    JSON.stringify({ message: 'ended generating wish tally', banner: id, time: finishTime }),
+  );
+
   return result;
+}
+
+const calculated: { [key: number]: WishTallyResult } = {};
+
+async function sleep(ms: number): Promise<void> {
+  return await new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function checkWishTally(): Promise<void> {
+  const now = dayjs();
+  for (const [idv, banner] of Object.entries(banners)) {
+    const id = Number(idv);
+
+    const bannerDate = dayjs(banner.start);
+    if (calculated[id] !== undefined && now.diff(bannerDate, 'day') > 60 && now.diff(dayjs(calculated[id].time), 'hour') < 24) {
+      continue;
+    }
+
+    try {
+      calculated[id] = await calculateWishTally(id);
+    } catch (err) {
+      console.error(err);
+    }
+
+    await sleep(5000);
+  }
+}
+
+export async function startWishTallyCalculationJob(): Promise<void> {
+  while (true) {
+    await checkWishTally();
+    await sleep(3600 * 1000);
+  }
+}
+
+export function getWishTallyData(id: number): WishTallyResult | undefined {
+  return calculated[id];
 }
