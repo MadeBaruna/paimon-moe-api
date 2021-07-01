@@ -15,7 +15,7 @@ services:
       XXHASH_SEED: ${XXHASH_SEED}
       GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}
     volumes:
-      - /home/ubuntu/server/service_account:/service_account
+      - /home/baruna/server/service_account:/service_account
 
   postgres:
     image: postgres:13.2-alpine

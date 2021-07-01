@@ -42,5 +42,5 @@ jobs:
           echo "DB_PASSWORD=$DB_PASSWORD" >> .env
           echo "XXHASH_SEED=$XXHASH_SEED" >> .env
           echo "GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS" >> .env
-          sudo docker-compose pull 
-          sudo docker-compose up -d
+          docker-compose pull 
+          docker-compose up -d
