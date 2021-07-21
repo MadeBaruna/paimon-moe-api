@@ -10,7 +10,7 @@ interface Banner {
   timezoneDependent?: boolean;
 }
 
-export const banners: {[key: number]: Banner} = {
+export const banners: { [key: number]: Banner } = {
   100001: {
     name: "Beginners' Wish",
     shortName: "Beginners' Wish",
@@ -176,6 +176,16 @@ export const banners: {[key: number]: Banner} = {
     color: '#8FFFDE',
     featured: ['kaedehara_kazuha'],
     featuredRare: ['bennett', 'razor', 'rosaria'],
+  },
+  300016: {
+    name: 'The Herons Court',
+    image: 1,
+    shortName: 'Ayaka',
+    start: '2021-07-21 06:00:00',
+    end: '2021-08-10 17:59:59',
+    color: '#FFFBF7',
+    featured: ['kamisato_ayaka'],
+    featuredRare: ['chongyun', 'ningguang', 'yanfei'],
   },
 
   400001: {
@@ -346,5 +356,15 @@ export const banners: {[key: number]: Banner} = {
     color: '#42ecf5',
     featured: ['freedom-sworn', 'skyward_atlas'],
     featuredRare: ['the_alley_flash', 'wine_and_song', 'alley_hunter', 'favonius_greatsword', 'dragons_bane'],
+  },
+  400015: {
+    name: 'Epitome Invocation',
+    image: 15,
+    start: '2021-07-21 06:00:00',
+    end: '2021-08-10 17:59:59',
+    shortName: 'Mistsplitter',
+    color: '#b042f5',
+    featured: ['mistsplitter_reforged', 'skyward_spine'],
+    featuredRare: ['favonius_sword', 'sacrificial_greatsword', 'favonius_lance', 'favonius_codex', 'the_stringless'],
   },
 };
