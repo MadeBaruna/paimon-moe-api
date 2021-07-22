@@ -71,11 +71,11 @@ async function checkHoyolabDailyReminder(): Promise<void> {
 }
 
 export function startReminderCron(): void {
-  const transformerJob = new CronJob('*/10 * * * *', () => {
+  const transformerJob = new CronJob('5-59/10 * * * *', () => {
     void checkTransformerReminder();
   });
 
-  const hoyolabDailyJob = new CronJob('5-59/10 * * * *', () => {
+  const hoyolabDailyJob = new CronJob('*/10 * * * *', () => {
     void checkHoyolabDailyReminder();
   });
 
