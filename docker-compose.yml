@@ -17,6 +17,8 @@ services:
       GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}
       REDIS_URL: ${REDIS_URL}
       TALLY_QUEUE_CONCURRENCY: ${TALLY_QUEUE_CONCURRENCY}
+      PLAUSIBLE_URL: ${PLAUSIBLE_URL}
+      PLAUSIBLE_TOKEN: ${PLAUSIBLE_TOKEN}
     volumes:
       - /home/baruna/server/service_account:/service_account
 

@@ -7,6 +7,7 @@ specifiers:
   '@types/node-fetch': ^2.5.8
   '@typescript-eslint/eslint-plugin': '4'
   '@typescript-eslint/parser': ^4.19.0
+  axios: ^0.21.1
   bull: ^3.26.0
   cron: ^1.8.2
   dayjs: ^1.10.4
@@ -33,6 +34,7 @@ specifiers:
   xxhash: ^0.3.0
 
 dependencies:
+  axios: 0.21.1
   bull: 3.26.0
   cron: 1.8.2
   dayjs: 1.10.4
@@ -735,6 +737,14 @@ packages:
       queue-microtask: 1.2.3
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /axios/0.21.1:
+    resolution: {integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==}
+    dependencies:
+      follow-redirects: 1.14.1
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /balanced-match/1.0.0:
@@ -1721,6 +1731,16 @@ packages:
   /flatted/3.1.1:
     resolution: {integrity: sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==}
     dev: true
+
+  /follow-redirects/1.14.1:
+    resolution: {integrity: sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}

@@ -18,6 +18,7 @@ dotenv.config();
 /* eslint-disable import/first */
 import './queue/wish';
 import './queue/tally';
+import './queue/plausible';
 /* eslint-enable import/first */
 
 const server = fastify({
@@ -33,6 +34,7 @@ void server.register(import('./routes/version'));
 void server.register(import('./routes/wish'));
 void server.register(import('./routes/corsProxy'));
 void server.register(import('./routes/reminder'));
+void server.register(import('./routes/visitor'));
 
 const dbOptions: PostgresConnectionOptions = {
   type: 'postgres',
