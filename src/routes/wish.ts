@@ -4,10 +4,10 @@ import WishDataSchema from '../schemas/wishData.json';
 import WishRequestSchema from '../schemas/wishRequest.json';
 import { WishRequest } from '../types/wishRequest';
 import { WishData } from '../types/wishData';
-import { getWishTallyData } from '../services/wish';
 
 import { banners } from '../data/banners';
-import wishTallyQueue from '../queue/tally';
+import { getWishTallyData } from '../queue/tally';
+import wishTallyQueue from '../queue/wish';
 
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(

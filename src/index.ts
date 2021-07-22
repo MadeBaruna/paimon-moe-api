@@ -11,12 +11,12 @@ import { Reminder } from './entities/reminder';
 
 import { initFirebase } from './services/notification';
 import { startReminderCron } from './services/reminder';
-import { startWishTallyCalculationJob } from './services/wish';
 
 dotenv.config();
 
 // init queue
 /* eslint-disable import/first */
+import './queue/wish';
 import './queue/tally';
 /* eslint-enable import/first */
 
@@ -58,7 +58,6 @@ async function start(): Promise<void> {
     await createConnection(dbOptions);
     initFirebase();
     startReminderCron();
-    void startWishTallyCalculationJob();
 
     const address = await server.listen(3001, '0.0.0.0');
     console.log(`Server listening at ${address}`);

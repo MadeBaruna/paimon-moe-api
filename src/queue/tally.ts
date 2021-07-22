@@ -1,113 +1,250 @@
 import Queue, { Job } from 'bull';
-import XXHash from 'xxhash';
 import dayjs from 'dayjs';
-import { getManager, getRepository } from 'typeorm';
-
+import { getRepository, MoreThan } from 'typeorm';
+import { banners } from '../data/banners';
+import { Banner } from '../entities/banner';
 import { Pull } from '../entities/pull';
 import { Wish } from '../entities/wish';
 
-import { banners } from '../data/banners';
+const queue = new Queue('wish-tally', process.env.REDIS_URL ?? 'redis://localhost:6379');
+console.log(JSON.stringify({ message: 'wish tally summary queue init' }));
 
-import { WishData } from '../types/wishData';
+export interface WishTallyResult {
+  time: string;
+  list: Array<{
+    name: string;
+    type: string;
+    count: number;
+    guaranteed: number;
+  }>;
+  pityAverage: {
+    legendary: number;
+    rare: number;
+  };
+  pityCount: {
+    legendary: number[];
+    rare: number[];
+  };
+}
 
-const queue = new Queue('wish tally', process.env.REDIS_URL ?? 'redis://localhost:6379');
-const seed = Number(process.env.XXHASH_SEED);
-const concurrency = Number(process.env.TALLY_QUEUE_CONCURRENCY);
-console.log(JSON.stringify({ message: 'wish tally queue init', concurrency }));
+const calculated: { [key: number]: WishTallyResult } = {};
 
-const defaultLegendaryRewards = [
-  'jean',
-  'qiqi',
-  'keqing',
-  'mona',
-  'diluc',
-  'skyward_harp',
-  'amos_bow',
-  'skyward_atlas',
-  'lost_prayer_to_the_sacred_winds',
-  'skyward_harp',
-  'wolfs_gravestone',
-  'skyward_spine',
-  'primordial_jade_winged-spear',
-  'skyward_blade',
-  'aquila_favonia',
-];
+async function calculateWishTally(job: Job<number>): Promise<void> {
+  const id = job.data;
+  const time = dayjs().format();
+  const bannerRepo = getRepository(Banner);
 
-async function submitWishTally(job: Job<WishData>): Promise<void> {
-  const data = job.data;
-  const banner = banners[data.banner];
-
-  // for identifying same wish, old wishes will be removed first
-  const firstWishes = data.firstPulls.map((e) => e.join(';')).join(';');
-  const uniqueId = XXHash.hash(Buffer.from(firstWishes), seed, 'hex');
+  let banner;
+  try {
+    banner = await bannerRepo.findOneOrFail({ id });
+  } catch (error) {
+    throw new Error('invalid banner');
+  }
 
   const pullRepo = getRepository(Pull);
 
-  const pulls: Pull[] = [];
-  for (const pull of data.legendaryPulls) {
-    if (!Array.isArray(pull)) {
-      throw new Error('invalid wish data');
+  const legendaryPity: number[] = new Array(101).fill(0);
+  const legendaryPityResult = await pullRepo
+    .createQueryBuilder('pull')
+    .select(['pity', 'COUNT(*) count'])
+    .where({ banner })
+    .andWhere('rarity = 5')
+    .groupBy('pity')
+    .getRawMany<{
+    pity: number;
+    count: string;
+  }>();
+
+  legendaryPityResult.forEach((e) => {
+    legendaryPity[e.pity] = Number(e.count);
+  });
+
+  const legendaryResult = await pullRepo
+    .createQueryBuilder('pull')
+    .select(['name', 'type', 'guaranteed', 'COUNT(*) count'])
+    .groupBy('name')
+    .addGroupBy('type')
+    .addGroupBy('guaranteed')
+    .where({ banner })
+    .getRawMany<{
+    name: string;
+    type: string;
+    guaranteed: boolean;
+    count: string;
+  }>();
+  const _legendaryResult: {
+    [key: string]: {
+      name: string;
+      type: string;
+      guaranteed: number;
+      count: number;
+    };
+  } = {};
+  for (const e of legendaryResult) {
+    if (_legendaryResult[e.name] === undefined) {
+      _legendaryResult[e.name] = {
+        name: '',
+        type: '',
+        guaranteed: 0,
+        count: 0,
+      };
     }
 
-    if (pull[6] === 5 && banner.featured !== undefined) {
-      if (
-        pull[3] > 90 ||
-        ![...banner.featured, ...defaultLegendaryRewards].includes(pull[1])
-      ) {
-        throw new Error('invalid wish data');
-      }
+    _legendaryResult[e.name] = {
+      name: e.name,
+      type: e.type,
+      count: _legendaryResult[e.name].count + Number(e.count),
+      guaranteed: e.guaranteed
+        ? Number(e.count)
+        : _legendaryResult[e.name].guaranteed,
+    };
+  }
+  const legendaryItems = Object.entries(_legendaryResult).map((e) => e[1]);
+
+  const legendaryPityAverage = await pullRepo
+    .createQueryBuilder('pull')
+    .select([
+      'AVG(pity) avg',
+      'percentile_disc(0.5) WITHIN GROUP (ORDER BY pity) median',
+    ])
+    .where({ banner })
+    .andWhere('rarity = 5')
+    .getRawOne<{ avg: string; median: string }>();
+
+  const wishRepo = getRepository(Wish);
+  const countPity = [...new Array(10)].map(
+    (e, i) => `SUM("rarePity"[${i + 1}]) p${i + 1}`,
+  );
+  const rarePityResult = await wishRepo
+    .createQueryBuilder('wish')
+    .select(countPity)
+    .where({ banner })
+    .getRawOne<{
+    p1: number;
+    p2: number;
+    p3: number;
+    p4: number;
+    p5: number;
+    p6: number;
+    p7: number;
+    p8: number;
+    p9: number;
+    p10: number;
+  }>();
+  const rarePity = Object.entries(rarePityResult).map(([_, val]) =>
+    Number(val),
+  );
+  const rarePityAverage = rarePity.reduce(
+    (prev, cur, index) => {
+      prev.total += (index + 1) * cur;
+      prev.count += cur;
+      return prev;
+    },
+    {
+      total: 0,
+      count: 0,
+    },
+  );
+
+  const totalPull = await wishRepo
+    .createQueryBuilder('wish')
+    .select(['SUM(total) sum', 'COUNT(*) count'])
+    .where({ banner })
+    .getRawOne<{ sum: null | string; count: null | string }>();
+
+  // new pity total banner >= 300012 and banner >= 400011
+  let countEachPity: number[] = [];
+  if ((id >= 300012 && id < 400000) || id >= 400011 || id === 200001) {
+    const invalidPulls = await pullRepo.find({
+      where: {
+        pity: MoreThan(90),
+        banner,
+      },
+      relations: ['wish'],
+    });
+
+    for (const pull of invalidPulls) {
+      await wishRepo.delete(pull.wish);
     }
 
-    pulls.push(
-      pullRepo.create({
-        time: dayjs.unix(pull[0]).format('YYYY-MM-DD HH:mm:ss'),
-        name: pull[1],
-        type: pull[2],
-        pity: pull[3],
-        grouped: pull[4],
-        guaranteed: pull[5],
-        rarity: pull[6],
-        banner: { id: data.banner },
-      }),
+    const pityCountTotal = [...new Array(90)].map(
+      (e, i) => `SUM("pityCount"[${i + 1}]) p${i + 1}`,
+    );
+    const pityCountResult = await wishRepo
+      .createQueryBuilder('wish')
+      .select(pityCountTotal)
+      .where({ banner })
+      .andWhere('legendary > 0')
+      .getRawOne<{ [key: string]: number }>();
+    countEachPity = Object.entries(pityCountResult).map(([_, val]) =>
+      Number(val),
     );
   }
 
-  const wishRepo = getRepository(Wish);
-
-  const savedWish = await wishRepo.findOne({
-    where: {
-      uniqueId,
-      banner: { id: data.banner },
+  const result = {
+    time,
+    list: legendaryItems,
+    pityAverage: {
+      legendary: Number(legendaryPityAverage.avg),
+      rare:
+        rarePityAverage.count > 0
+          ? rarePityAverage.total / rarePityAverage.count
+          : 0,
     },
-  });
+    median: {
+      legendary: Number(legendaryPityAverage.median),
+    },
+    pityCount: {
+      legendary: legendaryPity,
+      rare: rarePity,
+    },
+    total: {
+      legendary: legendaryPity.reduce((prev, cur) => prev + cur, 0),
+      rare: rarePity.reduce((prev, cur) => prev + cur, 0),
+      all: totalPull.sum === null ? 0 : Number(totalPull.sum),
+      users: totalPull.count === null ? 0 : Number(totalPull.count),
+    },
+    countEachPity,
+  };
 
-  const wish = wishRepo.create({
-    banner: { id: data.banner },
-    uniqueId,
-    legendary: data.legendary,
-    rare: data.rare,
-    rarePity: data.rarePulls,
-    total: data.total,
-    pityCount: data.pityCount.slice(0, 90),
-    pulls,
-  });
-
-  await getManager().transaction(async (transactionalEntityManager) => {
-    if (savedWish !== undefined) {
-      await transactionalEntityManager.remove(savedWish);
-    }
-    await transactionalEntityManager.save(wish);
-  });
+  calculated[id] = result;
 }
 
-void queue.process(concurrency, submitWishTally);
+async function checkWishTally(job: Job<number>): Promise<void> {
+  const now = dayjs();
+  for (const [idv, banner] of Object.entries(banners)) {
+    const id = Number(idv);
+
+    const bannerDate = dayjs(banner.start);
+    if (calculated[id] !== undefined && now.diff(bannerDate, 'day') > 60 && now.diff(dayjs(calculated[id].time), 'hour') < 24) {
+      continue;
+    }
+
+    void queue.add('wish-tally-calculate', id);
+  }
+}
+
+void queue.process('wish-tally-check', 0, checkWishTally);
+void queue.process('wish-tally-calculate', 1, calculateWishTally);
+
+void queue.add('wish-tally-check', 1);
+void queue.add('wish-tally-check', 1, { repeat: { cron: '0 * * * *' } });
 
 queue.on('active', (job) => {
-  console.log(JSON.stringify({ message: 'processing wish tally', id: job.id }));
+  const time = dayjs().format();
+  console.log(JSON.stringify({ message: 'processing wish tally summary', name: job.name, id: job.data, time }));
 });
 
-queue.on('failed', (job) => {
-  console.log(JSON.stringify({ message: 'failed processing wish tally', id: job.id, data: job.data }));
+queue.on('completed', (job) => {
+  const time = dayjs().format();
+  console.log(JSON.stringify({ message: 'finished processing wish tally summary', name: job.name, id: job.data, time }));
 });
 
-export default queue;
+queue.on('failed', (job, error) => {
+  console.log(JSON.stringify({ message: 'failed processing wish tally summary', name: job.name, id: job.data }));
+  console.error(error);
+});
+
+export function getWishTallyData(id: number): WishTallyResult | undefined {
+  return calculated[id];
+}
