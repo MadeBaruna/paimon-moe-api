@@ -15,6 +15,11 @@ import { startWishTallyCalculationJob } from './services/wish';
 
 dotenv.config();
 
+// init queue
+/* eslint-disable import/first */
+import './queue/tally';
+/* eslint-enable import/first */
+
 const server = fastify({
   logger: { level: 'error' },
   connectionTimeout: 30000,

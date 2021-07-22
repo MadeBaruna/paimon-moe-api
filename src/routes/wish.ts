@@ -7,9 +7,17 @@ import { WishData } from '../types/wishData';
 import { getWishTallyData } from '../services/wish';
 
 import { banners } from '../data/banners';
-import { pushQueue } from '../services/wishQueue';
+import wishTallyQueue from '../queue/tally';
 
 export default async function (server: FastifyInstance): Promise<void> {
+  server.get(
+    '/wish/queue',
+    async function () {
+      const queueCount = await wishTallyQueue.getJobCounts();
+      return queueCount;
+    },
+  );
+
   server.get<{ Querystring: WishRequest }>(
     '/wish',
     {
@@ -47,7 +55,7 @@ export default async function (server: FastifyInstance): Promise<void> {
         throw new Error('invalid banner');
       }
 
-      void pushQueue(req.body);
+      void wishTallyQueue.add(req.body);
 
       return { status: 'queued' };
     },

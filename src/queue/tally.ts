@@ -1,3 +1,4 @@
+import Queue, { Job } from 'bull';
 import XXHash from 'xxhash';
 import dayjs from 'dayjs';
 import { getManager, getRepository } from 'typeorm';
@@ -9,10 +10,10 @@ import { banners } from '../data/banners';
 
 import { WishData } from '../types/wishData';
 
+const queue = new Queue('wish tally', process.env.REDIS_URL ?? 'redis://localhost:6379');
 const seed = Number(process.env.XXHASH_SEED);
-
-const queue: WishData[] = [];
-let isProcessing = false;
+const concurrency = Number(process.env.TALLY_QUEUE_CONCURRENCY);
+console.log(JSON.stringify({ message: 'wish tally queue init', concurrency }));
 
 const defaultLegendaryRewards = [
   'jean',
@@ -32,33 +33,8 @@ const defaultLegendaryRewards = [
   'aquila_favonia',
 ];
 
-export async function pushQueue(data?: WishData): Promise<void> {
-  if (data !== undefined) {
-    queue.push(data);
-  }
-
-  if (isProcessing) {
-    return;
-  }
-
-  isProcessing = true;
-  while (true) {
-    const current = queue.shift();
-    if (current === undefined) {
-      console.log(JSON.stringify({ message: 'wish tally queue finished' }));
-      isProcessing = false;
-      return;
-    }
-
-    console.log(JSON.stringify({ message: 'processing wish tally queue', length: queue.length }));
-
-    try {
-      await processQueue(current);
-    } catch (err) { }
-  }
-}
-
-async function processQueue(data: WishData): Promise<void> {
+async function submitWishTally(job: Job<WishData>): Promise<void> {
+  const data = job.data;
   const banner = banners[data.banner];
 
   // for identifying same wish, old wishes will be removed first
@@ -123,3 +99,15 @@ async function processQueue(data: WishData): Promise<void> {
     await transactionalEntityManager.save(wish);
   });
 }
+
+void queue.process(concurrency, submitWishTally);
+
+queue.on('active', (job) => {
+  console.log(JSON.stringify({ message: 'processing wish tally', id: job.id }));
+});
+
+queue.on('failed', (job) => {
+  console.log(JSON.stringify({ message: 'failed processing wish tally', id: job.id, data: job.data }));
+});
+
+export default queue;

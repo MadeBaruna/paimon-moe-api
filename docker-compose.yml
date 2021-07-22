@@ -3,6 +3,7 @@ version: "3.8"
 services:
   api:
     image: ghcr.io/madebaruna/paimon-moe-api:latest
+    init: true
     restart: always
     ports:
       - "22000:3001"
@@ -14,6 +15,8 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       XXHASH_SEED: ${XXHASH_SEED}
       GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}
+      REDIS_URL: ${REDIS_URL}
+      TALLY_QUEUE_CONCURRENCY: ${TALLY_QUEUE_CONCURRENCY}
     volumes:
       - /home/baruna/server/service_account:/service_account
 
@@ -26,5 +29,12 @@ services:
       POSTGRES_DB: ${DB_DATABASE}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
 
+  redis:
+    image: redis:6.2.4-alpine
+    restart: always
+    volumes:
+      - redis_data:/data
+
 volumes:
   db_data:
+  redis_data:
