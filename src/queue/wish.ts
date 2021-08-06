@@ -49,11 +49,22 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
       throw new Error('invalid wish data');
     }
 
-    if (pull[6] === 5 && banner.featured !== undefined) {
-      if (
-        pull[3] > 90 ||
-        ![...banner.featured, ...defaultLegendaryRewards].includes(pull[1])
-      ) {
+    if (pull[6] === 5) {
+      if (pull[3] <= 90) {
+        if (banner.featured !== undefined) {
+          if (
+            ![...banner.featured, ...defaultLegendaryRewards].includes(pull[1])
+          ) {
+            throw new Error('invalid wish data');
+          }
+        } else {
+          if (
+            !defaultLegendaryRewards.includes(pull[1])
+          ) {
+            throw new Error('invalid wish data');
+          }
+        }
+      } else {
         throw new Error('invalid wish data');
       }
     }
