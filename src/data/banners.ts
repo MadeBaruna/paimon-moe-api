@@ -187,6 +187,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['kamisato_ayaka'],
     featuredRare: ['chongyun', 'ningguang', 'yanfei'],
   },
+  300017: {
+    name: 'Tapestry of Golden Flames',
+    image: 1,
+    shortName: 'Yoimiya',
+    start: '2021-08-10 18:00:00',
+    end: '2021-08-31 14:59:59',
+    color: '#F7D69F',
+    featured: ['yoimiya'],
+    featuredRare: ['sayu', 'diona', 'xinyan'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -355,7 +365,13 @@ export const banners: { [key: number]: Banner } = {
     shortName: 'Freedom-Sworn',
     color: '#42ecf5',
     featured: ['freedom-sworn', 'skyward_atlas'],
-    featuredRare: ['the_alley_flash', 'wine_and_song', 'alley_hunter', 'favonius_greatsword', 'dragons_bane'],
+    featuredRare: [
+      'the_alley_flash',
+      'wine_and_song',
+      'alley_hunter',
+      'favonius_greatsword',
+      'dragons_bane',
+    ],
   },
   400015: {
     name: 'Epitome Invocation',
@@ -365,6 +381,29 @@ export const banners: { [key: number]: Banner } = {
     shortName: 'Mistsplitter',
     color: '#b042f5',
     featured: ['mistsplitter_reforged', 'skyward_spine'],
-    featuredRare: ['favonius_sword', 'sacrificial_greatsword', 'favonius_lance', 'favonius_codex', 'the_stringless'],
+    featuredRare: [
+      'favonius_sword',
+      'sacrificial_greatsword',
+      'favonius_lance',
+      'favonius_codex',
+      'the_stringless',
+    ],
+  },
+  400016: {
+    name: 'Epitome Invocation',
+    image: 16,
+    start: '2021-08-10 18:00:00',
+    end: '2021-08-31 14:59:59',
+    shortName: 'Thundering Pulse',
+    color: '#f542c8',
+    featured: ['thundering_pulse', 'skyward_blade'],
+    featuredRare: [
+      'sacrificial_sword',
+      'rainslasher',
+      'dragons_bane',
+      'sacrificial_fragments',
+      'favonius_warbow',
+    ],
+    timezoneDependent: true,
   },
 };
