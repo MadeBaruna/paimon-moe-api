@@ -1,9 +1,9 @@
 name: deploy
-on: 
+on:
   workflow_run:
     workflows: ["lint-and-build"]
     branches: [main]
-    types: 
+    types:
       - completed
 
 jobs:
@@ -12,35 +12,39 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-    - name: Run docker compose
-      uses: appleboy/ssh-action@master
-      env:
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_PORT: ${{ secrets.DB_PORT }}
-        DB_DATABASE: ${{ secrets.DB_DATABASE }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        XXHASH_SEED: ${{ secrets.XXHASH_SEED }}
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        script_stop: true
-        envs: DB_HOST,DB_PORT,DB_DATABASE,DB_USERNAME,DB_PASSWORD,XXHASH_SEED,GOOGLE_APPLICATION_CREDENTIALS
-        script: |
-          mkdir -p ~/server/paimon-moe-api
-          cd ~/server/paimon-moe-api
-          rm -f docker-compose.yml
-          wget https://raw.githubusercontent.com/MadeBaruna/paimon-moe-api/main/docker-compose.yml
-          rm -f .env
-          touch .env
-          echo "DB_HOST=$DB_HOST" >> .env
-          echo "DB_PORT=$DB_PORT" >> .env
-          echo "DB_DATABASE=$DB_DATABASE" >> .env
-          echo "DB_USERNAME=$DB_USERNAME" >> .env
-          echo "DB_PASSWORD=$DB_PASSWORD" >> .env
-          echo "XXHASH_SEED=$XXHASH_SEED" >> .env
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS" >> .env
-          docker-compose pull 
-          docker-compose up -d
+      - name: Run docker compose
+        uses: appleboy/ssh-action@master
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          XXHASH_SEED: ${{ secrets.XXHASH_SEED }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script_stop: true
+          envs: DB_HOST,DB_PORT,DB_DATABASE,DB_USERNAME,DB_PASSWORD,XXHASH_SEED,GOOGLE_APPLICATION_CREDENTIALS
+          script: |
+            mkdir -p ~/server/paimon-moe-api
+            cd ~/server/paimon-moe-api
+            rm -f docker-compose.yml
+            wget https://raw.githubusercontent.com/MadeBaruna/paimon-moe-api/main/docker-compose.yml
+            rm -f .env
+            touch .env
+            echo "DB_HOST=$DB_HOST" >> .env
+            echo "DB_PORT=$DB_PORT" >> .env
+            echo "DB_DATABASE=$DB_DATABASE" >> .env
+            echo "DB_USERNAME=$DB_USERNAME" >> .env
+            echo "DB_PASSWORD=$DB_PASSWORD" >> .env
+            echo "XXHASH_SEED=$XXHASH_SEED" >> .env
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS" >> .env
+            echo "REDIS_URL=$REDIS_URL" >> .env
+            echo "TALLY_QUEUE_CONCURRENCY=$TALLY_QUEUE_CONCURRENCY" >> .env
+            echo "PLAUSIBLE_URL=$PLAUSIBLE_URL" >> .env
+            echo "PLAUSIBLE_TOKEN=$PLAUSIBLE_TOKEN" >> .env
+            docker-compose pull
+            docker-compose up -d
