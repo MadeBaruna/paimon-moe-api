@@ -238,11 +238,13 @@ queue.on('active', (job) => {
 queue.on('completed', (job) => {
   const time = dayjs().format();
   console.log(JSON.stringify({ message: 'finished processing wish tally summary', name: job.name, id: job.data, time }));
+  void job.remove();
 });
 
 queue.on('failed', (job, error) => {
   console.log(JSON.stringify({ message: 'failed processing wish tally summary', name: job.name, id: job.data }));
   console.error(error);
+  void job.remove();
 });
 
 export function getWishTallyData(id: number): WishTallyResult | undefined {

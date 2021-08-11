@@ -119,6 +119,7 @@ queue.on('active', (job) => {
 
 queue.on('failed', (job) => {
   console.log(JSON.stringify({ message: 'failed processing wish tally', id: job.id, data: job.data }));
+  void job.remove();
 });
 
 export default queue;

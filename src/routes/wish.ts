@@ -55,7 +55,7 @@ export default async function (server: FastifyInstance): Promise<void> {
         throw new Error('invalid banner');
       }
 
-      void wishTallyQueue.add(req.body);
+      void wishTallyQueue.add(req.body, { removeOnComplete: true });
 
       return { status: 'queued' };
     },

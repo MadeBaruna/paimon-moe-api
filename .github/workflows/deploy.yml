@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script_stop: true
-          envs: DB_HOST,DB_PORT,DB_DATABASE,DB_USERNAME,DB_PASSWORD,XXHASH_SEED,GOOGLE_APPLICATION_CREDENTIALS
+          envs: DB_HOST,DB_PORT,DB_DATABASE,DB_USERNAME,DB_PASSWORD,XXHASH_SEED,GOOGLE_APPLICATION_CREDENTIALS,REDIS_URL,TALLY_QUEUE_CONCURRENCY,PLAUSIBLE_URL,PLAUSIBLE_TOKEN
           script: |
             mkdir -p ~/server/paimon-moe-api
             cd ~/server/paimon-moe-api
