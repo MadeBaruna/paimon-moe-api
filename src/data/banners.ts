@@ -186,6 +186,7 @@ export const banners: { [key: number]: Banner } = {
     color: '#FFFBF7',
     featured: ['kamisato_ayaka'],
     featuredRare: ['chongyun', 'ningguang', 'yanfei'],
+    timezoneDependent: true,
   },
   300017: {
     name: 'Tapestry of Golden Flames',
@@ -196,6 +197,17 @@ export const banners: { [key: number]: Banner } = {
     color: '#F7D69F',
     featured: ['yoimiya'],
     featuredRare: ['sayu', 'diona', 'xinyan'],
+  },
+  300018: {
+    name: 'Reign of Serenity',
+    image: 1,
+    shortName: 'Raiden',
+    start: '2021-09-01 11:00:00',
+    end: '2021-09-21 17:59:59',
+    color: '#D0AEF2',
+    featured: ['raiden_shogun'],
+    featuredRare: ['xiangling', 'sucrose', 'kujou_sara'],
+    timezoneDependent: true,
   },
 
   400001: {
@@ -388,6 +400,7 @@ export const banners: { [key: number]: Banner } = {
       'favonius_codex',
       'the_stringless',
     ],
+    timezoneDependent: true,
   },
   400016: {
     name: 'Epitome Invocation',
@@ -403,6 +416,22 @@ export const banners: { [key: number]: Banner } = {
       'dragons_bane',
       'sacrificial_fragments',
       'favonius_warbow',
+    ],
+  },
+  400017: {
+    name: 'Epitome Invocation',
+    image: 17,
+    start: '2021-09-01 11:00:00',
+    end: '2021-09-21 17:59:59',
+    shortName: 'Engulfing',
+    color: '#b042f5',
+    featured: ['engulfing_lightning', 'the_unforged'],
+    featuredRare: [
+      'lions_roar',
+      'the_bell',
+      'favonius_lance',
+      'the_widsith',
+      'sacrificial_bow',
     ],
     timezoneDependent: true,
   },
