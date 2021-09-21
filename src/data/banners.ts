@@ -209,6 +209,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['xiangling', 'sucrose', 'kujou_sara'],
     timezoneDependent: true,
   },
+  300019: {
+    name: 'Drifting Luminescence',
+    image: 1,
+    shortName: 'Kokomi',
+    start: '2021-09-27 10:00:00',
+    end: '2021-10-11 03:59:59',
+    color: '#FF7B69',
+    featured: ['sangonomiya_kokomi'],
+    featuredRare: ['rosaria', 'beidou', 'xingqiu'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -434,5 +444,21 @@ export const banners: { [key: number]: Banner } = {
       'sacrificial_bow',
     ],
     timezoneDependent: true,
+  },
+  400018: {
+    name: 'Epitome Invocation',
+    image: 18,
+    start: '2021-09-27 10:00:00',
+    end: '2021-10-11 03:59:59',
+    shortName: 'Moonglow',
+    color: '#424ef5',
+    featured: ['primordial_jade_cutter', 'everlasting_moonglow'],
+    featuredRare: [
+      'the_flute',
+      'favonius_greatsword',
+      'dragons_bane',
+      'favonius_codex',
+      'the_stringless',
+    ],
   },
 };

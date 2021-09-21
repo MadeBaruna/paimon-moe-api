@@ -25,7 +25,7 @@ const defaultLegendaryRewards = [
   'amos_bow',
   'skyward_atlas',
   'lost_prayer_to_the_sacred_winds',
-  'skyward_harp',
+  'skyward_pride',
   'wolfs_gravestone',
   'skyward_spine',
   'primordial_jade_winged-spear',

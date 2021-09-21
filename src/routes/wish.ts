@@ -9,6 +9,9 @@ import { banners } from '../data/banners';
 import { getWishTallyData } from '../queue/tally';
 import wishTallyQueue from '../queue/wish';
 
+const LATEST_CHARACTER_BANNER = 300019;
+const LATEST_WEAPON_BANNER = 400018;
+
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(
     '/wish/queue',
@@ -55,7 +58,12 @@ export default async function (server: FastifyInstance): Promise<void> {
         throw new Error('invalid banner');
       }
 
-      void wishTallyQueue.add(req.body, { removeOnComplete: true });
+      let priority = false;
+      if (req.body.banner === LATEST_CHARACTER_BANNER || req.body.banner === LATEST_WEAPON_BANNER) {
+        priority = true;
+      }
+
+      void wishTallyQueue.add(req.body, { removeOnComplete: true, lifo: priority });
 
       return { status: 'queued' };
     },
