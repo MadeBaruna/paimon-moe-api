@@ -9,6 +9,7 @@ import { Wish } from '../entities/wish';
 import { banners } from '../data/banners';
 
 import { WishData } from '../types/wishData';
+import { tallyCount } from '../stores/counter';
 
 const queue = new Queue('wish', process.env.REDIS_URL ?? 'redis://localhost:6379');
 const seed = Number(process.env.XXHASH_SEED);
@@ -109,6 +110,11 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
     }
     await transactionalEntityManager.save(wish);
   });
+
+  if (tallyCount[data.banner] === undefined) {
+    tallyCount[data.banner] = 0;
+  }
+  tallyCount[data.banner]++;
 }
 
 void queue.process(concurrency, submitWishTally);

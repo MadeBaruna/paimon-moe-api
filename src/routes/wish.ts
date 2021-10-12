@@ -8,16 +8,18 @@ import { WishData } from '../types/wishData';
 import { banners } from '../data/banners';
 import { getWishTallyData } from '../queue/tally';
 import wishTallyQueue from '../queue/wish';
+import { tallyCount } from '../stores/counter';
 
-const LATEST_CHARACTER_BANNER = 300019;
-const LATEST_WEAPON_BANNER = 400018;
+const LATEST_CHARACTER_BANNER = 300020;
+const LATEST_WEAPON_BANNER = 400019;
 
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(
     '/wish/queue',
     async function () {
       const queueCount = await wishTallyQueue.getJobCounts();
-      return queueCount;
+      const counter = tallyCount;
+      return JSON.stringify({ queue: queueCount, counter }, null, 2);
     },
   );
 
