@@ -67,6 +67,11 @@ export default async function (server: FastifyInstance): Promise<void> {
 
       void wishTallyQueue.add(req.body, { removeOnComplete: true, lifo: priority });
 
+      if (tallyCount.added[req.body.banner] === undefined) {
+        tallyCount.added[req.body.banner] = 0;
+      }
+      tallyCount.added[req.body.banner]++;
+
       return { status: 'queued' };
     },
   );

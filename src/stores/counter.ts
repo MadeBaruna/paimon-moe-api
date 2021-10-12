@@ -1,1 +1,7 @@
-export const tallyCount: {[key: string]: number} = {};
+export const tallyCount: {
+  added: {[key: string]: number};
+  finished: {[key: string]: number};
+} = {
+  added: {},
+  finished: {},
+};

@@ -111,10 +111,10 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
     await transactionalEntityManager.save(wish);
   });
 
-  if (tallyCount[data.banner] === undefined) {
-    tallyCount[data.banner] = 0;
+  if (tallyCount.finished[data.banner] === undefined) {
+    tallyCount.finished[data.banner] = 0;
   }
-  tallyCount[data.banner]++;
+  tallyCount.finished[data.banner]++;
 }
 
 void queue.process(concurrency, submitWishTally);
