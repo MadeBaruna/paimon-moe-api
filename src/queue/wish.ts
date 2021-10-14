@@ -120,12 +120,16 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
 void queue.process(concurrency, submitWishTally);
 
 queue.on('active', (job) => {
-  console.log(JSON.stringify({ message: 'processing wish tally', id: job.id }));
+  console.log(JSON.stringify({ message: 'processing wish tally', id: job.id, banner: job.data.banner }));
 });
 
 queue.on('failed', (job) => {
   console.log(JSON.stringify({ message: 'failed processing wish tally', id: job.id, data: job.data }));
   void job.remove();
+});
+
+queue.on('error', (error) => {
+  console.log(JSON.stringify({ message: 'error when processing wish tally', error }));
 });
 
 export default queue;
