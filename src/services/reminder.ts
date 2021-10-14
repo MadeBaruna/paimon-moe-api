@@ -24,7 +24,8 @@ async function checkTransformerReminder(): Promise<void> {
       .getMany();
 
     const tokens = result.map(e => e.token);
-    if (tokens.length > 0) {
+    while (tokens.length > 0) {
+      const current = tokens.splice(0, 300);
       const payload = {
         data: {
           title: 'Parametric Transformer Reminder',
@@ -33,7 +34,7 @@ async function checkTransformerReminder(): Promise<void> {
         },
       };
 
-      void sendNotification(tokens, payload);
+      void sendNotification(current, payload);
     }
   } catch (err) {
     console.error(err);
@@ -55,7 +56,8 @@ async function checkHoyolabDailyReminder(): Promise<void> {
       .getMany();
 
     const tokens = result.map(e => e.token);
-    if (tokens.length > 0) {
+    while (tokens.length > 0) {
+      const current = tokens.splice(0, 300);
       const payload = {
         data: {
           title: 'Hoyolab Daily Check-in Reminder',
@@ -63,7 +65,7 @@ async function checkHoyolabDailyReminder(): Promise<void> {
           url: 'https://webstatic-sea.mihoyo.com/ys/event/signin-sea/index.html?act_id=e202102251931481',
         },
       };
-      void sendNotification(tokens, payload);
+      void sendNotification(current, payload);
     }
   } catch (err) {
     console.error(err);
