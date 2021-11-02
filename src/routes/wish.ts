@@ -10,8 +10,8 @@ import { getWishTallyData } from '../queue/tally';
 import wishTallyQueue from '../queue/wish';
 import { tallyCount } from '../stores/counter';
 
-const LATEST_CHARACTER_BANNER = 300020;
-const LATEST_WEAPON_BANNER = 400019;
+const LATEST_CHARACTER_BANNER = 300021;
+const LATEST_WEAPON_BANNER = 400020;
 
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(

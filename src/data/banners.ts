@@ -230,6 +230,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['ningguang', 'chongyun', 'yanfei'],
     timezoneDependent: true,
   },
+  300021: {
+    name: 'Moment of Bloom',
+    image: 2,
+    shortName: 'Hu Tao',
+    start: '2021-11-02 18:00:00',
+    end: '2021-11-23 14:59:59',
+    color: '#FF7966',
+    featured: ['hu_tao'],
+    featuredRare: ['thoma', 'diona', 'sayu'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -486,6 +496,22 @@ export const banners: { [key: number]: Banner } = {
       'favonius_lance',
       'eye_of_perception',
       'rust',
+    ],
+  },
+  400020: {
+    name: 'Epitome Invocation',
+    image: 20,
+    start: '2021-11-02 18:00:00',
+    end: '2021-11-23 14:59:59',
+    shortName: 'Homa',
+    color: '#b042f5',
+    featured: ['staff_of_homa', 'elegy_for_the_end'],
+    featuredRare: [
+      'wavebreakers_fin',
+      'mouuns_moon',
+      'sacrificial_sword',
+      'rainslasher',
+      'the_widsith',
     ],
   },
 };
