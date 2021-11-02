@@ -1,11 +1,14 @@
 import { FastifyInstance } from 'fastify';
 import fetch from 'node-fetch';
 import pRetry from 'p-retry';
+import * as dotenv from 'dotenv';
 
 import createHttpProxyAgent from 'https-proxy-agent';
 import CorsProxySchema from '../schemas/corsProxy.json';
 import { CorsProxy } from '../types/corsProxy';
 
+dotenv.config();
+console.log(`Rotating server at ${process.env.PROXY_URL as string}`);
 const proxyAgent = createHttpProxyAgent(process.env.PROXY_URL as string);
 
 function fetchResult(url: string) {
