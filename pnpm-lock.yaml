@@ -21,10 +21,12 @@ specifiers:
   fastify-cors: ^5.2.0
   fastify-plugin: ^3.0.0
   firebase-admin: ^9.6.0
+  https-proxy-agent: ^5.0.0
   json-schema-to-typescript: ^10.1.3
   nano-memoize: ^1.2.1
   node-fetch: ^2.6.1
   node-schedule: ^2.0.0
+  p-retry: ^4.6.1
   pg: ^8.5.1
   reflect-metadata: ^0.1.13
   ts-node: ^9.1.1
@@ -43,9 +45,11 @@ dependencies:
   fastify-cors: 5.2.0
   fastify-plugin: 3.0.0
   firebase-admin: 9.6.0
+  https-proxy-agent: 5.0.0
   nano-memoize: 1.2.1
   node-fetch: 2.6.1
   node-schedule: 2.0.0
+  p-retry: 4.6.1
   pg: 8.5.1
   reflect-metadata: 0.1.13
   typeorm: 0.2.31
@@ -101,7 +105,7 @@ packages:
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.1
+      debug: 4.3.2
       espree: 7.3.1
       globals: 12.4.0
       ignore: 4.0.6
@@ -444,6 +448,10 @@ packages:
     resolution: {integrity: sha512-PijRCG/K3s3w1We6ynUKdxEc5AcuuH3NBmMDP8uvKVp6X43UY7NQlTzczakXP3DJR0F4dfNQIGjU2cUeRYs2AA==}
     dev: true
 
+  /@types/retry/0.12.1:
+    resolution: {integrity: sha512-xoDlM2S4ortawSWORYqsdU+2rxdh4LRW9ytc3zmT37RIKQh6IHyKwwtKhKis9ah8ol07DCkZxPt8BBvPjC6v4g==}
+    dev: false
+
   /@types/strip-bom/3.0.0:
     resolution: {integrity: sha1-FKjsOVbC6B7bdSB5CuzyHCkK69I=}
     dev: true
@@ -540,7 +548,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 4.19.0
       '@typescript-eslint/visitor-keys': 4.19.0
-      debug: 4.3.1
+      debug: 4.3.2
       globby: 11.0.3
       is-glob: 4.0.1
       semver: 7.3.4
@@ -588,11 +596,10 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: 4.3.1
+      debug: 4.3.2
     transitivePeerDependencies:
       - supports-color
     dev: false
-    optional: true
 
   /ajv/6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -732,7 +739,7 @@ packages:
     resolution: {integrity: sha512-b+gox68dqD6c3S3t+bZBKN6rYbVWdwpN12sHQLFTiacDT2rcq7fm07Ww+IKt/AvAkyCIe1f5ArP1bC/vAlx97A==}
     dependencies:
       archy: 1.0.0
-      debug: 4.3.1
+      debug: 4.3.2
       fastq: 1.11.0
       queue-microtask: 1.2.3
     transitivePeerDependencies:
@@ -1081,7 +1088,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
-    dev: false
 
   /debuglog/1.0.1:
     resolution: {integrity: sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=}
@@ -2029,7 +2035,7 @@ packages:
     dependencies:
       '@tootallnate/once': 1.1.2
       agent-base: 6.0.2
-      debug: 4.3.1
+      debug: 4.3.2
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -2040,11 +2046,10 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.1
+      debug: 4.3.2
     transitivePeerDependencies:
       - supports-color
     dev: false
-    optional: true
 
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -2790,6 +2795,14 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /p-retry/4.6.1:
+    resolution: {integrity: sha512-e2xXGNhZOZ0lfgR9kL34iGlU8N/KO0xZnQxVEwdeOvpqNDQfdnxIYizvWtK8RglUa3bGqI8g0R/BdfzLMxRkiA==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@types/retry': 0.12.1
+      retry: 0.13.1
+    dev: false
+
   /p-timeout/3.2.0:
     resolution: {integrity: sha512-rhIwUycgwwKcP9yTOOFK/AKsAopjjCakVqLHePO3CC6Mir1Z99xT+R63jZxAT5lFZLa2inS5h+ZS2GvR99/FBg==}
     engines: {node: '>=8'}
@@ -3203,7 +3216,7 @@ packages:
     resolution: {integrity: sha512-QnRZUpuPNgX0+D1xVxul6DbJ9slvo4Rm6iV/dn63e048MvGbUZiKySVt6Tenp04JqmchxjiLltGerOJys7kJYQ==}
     engines: {node: '>=8.10.0'}
     dependencies:
-      debug: 4.3.1
+      debug: 4.3.2
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -3214,6 +3227,11 @@ packages:
     engines: {node: '>= 4'}
     dev: false
     optional: true
+
+  /retry/0.13.1:
+    resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}
+    engines: {node: '>= 4'}
+    dev: false
 
   /reusify/1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
