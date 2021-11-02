@@ -16,12 +16,18 @@ export default async function (server: FastifyInstance): Promise<void> {
       const url = req.body.url;
 
       try {
-        const response = await fetch(url);
+        const response = await fetch('https://api2.paimon.moe/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ url }),
+        });
         const json = await response.json();
         return json;
       } catch (err) {
         void reply.status(500);
-        throw new Error(err);
+        throw new Error(err as string);
       }
     });
 }
