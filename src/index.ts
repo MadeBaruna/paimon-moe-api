@@ -8,6 +8,7 @@ import { Banner } from './entities/banner';
 import { Wish } from './entities/wish';
 import { Pull } from './entities/pull';
 import { Reminder } from './entities/reminder';
+import { WishTotal } from './entities/wishTotal';
 
 import { initFirebase } from './services/notification';
 import { startReminderCron } from './services/reminder';
@@ -18,6 +19,7 @@ dotenv.config();
 /* eslint-disable import/first */
 import './queue/wish';
 import './queue/tally';
+import './queue/wishTotal';
 import './queue/plausible';
 /* eslint-enable import/first */
 
@@ -49,6 +51,7 @@ const dbOptions: PostgresConnectionOptions = {
     Wish,
     Pull,
     Reminder,
+    WishTotal,
   ],
   synchronize: false,
   logging: false,

@@ -2,12 +2,15 @@ import { FastifyInstance } from 'fastify';
 
 import WishDataSchema from '../schemas/wishData.json';
 import WishRequestSchema from '../schemas/wishRequest.json';
+import WishTotalDataSchema from '../schemas/wishTotalData.json';
 import { WishRequest } from '../types/wishRequest';
 import { WishData } from '../types/wishData';
+import { WishTotalData } from '../types/wishTotalData';
 
 import { banners } from '../data/banners';
 import { getWishTallyData } from '../queue/tally';
 import wishTallyQueue from '../queue/wish';
+import wishTotalQueue from '../queue/wishTotal';
 import { tallyCount } from '../stores/counter';
 import { authorization } from '../hooks/auth';
 
@@ -76,6 +79,19 @@ export default async function (server: FastifyInstance): Promise<void> {
       }
       tallyCount.added[req.body.banner]++;
 
+      return { status: 'queued' };
+    },
+  );
+
+  server.post<{ Body: WishTotalData }>(
+    '/wish/total',
+    {
+      schema: {
+        body: WishTotalDataSchema,
+      },
+    },
+    async function (req, reply) {
+      void wishTotalQueue.add(req.body);
       return { status: 'queued' };
     },
   );
