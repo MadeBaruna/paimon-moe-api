@@ -1,4 +1,5 @@
 import { FastifyInstance } from 'fastify';
+import { authorization } from '../hooks/auth';
 import { getVisitorCount } from '../queue/plausible';
 
 export default async function (server: FastifyInstance): Promise<void> {
@@ -13,6 +14,7 @@ export default async function (server: FastifyInstance): Promise<void> {
         },
       },
     },
+    preHandler: authorization,
   }, async () => {
     return {
       count: getVisitorCount(),

@@ -24,7 +24,9 @@
     "fastify-cors": "^5.2.0",
     "fastify-plugin": "^3.0.0",
     "firebase-admin": "^9.6.0",
+    "http-errors": "^1.8.1",
     "https-proxy-agent": "^5.0.0",
+    "ioredis": "^4.28.1",
     "nano-memoize": "^1.2.1",
     "node-fetch": "^2.6.1",
     "node-schedule": "^2.0.0",
@@ -37,6 +39,7 @@
   "devDependencies": {
     "@types/bull": "^3.15.2",
     "@types/cron": "^1.7.2",
+    "@types/http-errors": "^1.8.1",
     "@types/node": "^14.14.35",
     "@types/node-fetch": "^2.5.8",
     "@typescript-eslint/eslint-plugin": "4",

@@ -35,6 +35,7 @@ void server.register(import('./routes/wish'));
 void server.register(import('./routes/corsProxy'));
 void server.register(import('./routes/reminder'));
 void server.register(import('./routes/visitor'));
+void server.register(import('./routes/news'));
 
 const dbOptions: PostgresConnectionOptions = {
   type: 'postgres',

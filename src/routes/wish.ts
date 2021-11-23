@@ -9,6 +9,7 @@ import { banners } from '../data/banners';
 import { getWishTallyData } from '../queue/tally';
 import wishTallyQueue from '../queue/wish';
 import { tallyCount } from '../stores/counter';
+import { authorization } from '../hooks/auth';
 
 const LATEST_CHARACTER_BANNER = 300021;
 const LATEST_WEAPON_BANNER = 400020;
@@ -16,6 +17,9 @@ const LATEST_WEAPON_BANNER = 400020;
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(
     '/wish/queue',
+    {
+      preHandler: authorization,
+    },
     async function () {
       const queueCount = await wishTallyQueue.getJobCounts();
       const counter = tallyCount;

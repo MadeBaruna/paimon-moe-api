@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@types/bull': ^3.15.2
   '@types/cron': ^1.7.2
+  '@types/http-errors': ^1.8.1
   '@types/node': ^14.14.35
   '@types/node-fetch': ^2.5.8
   '@typescript-eslint/eslint-plugin': '4'
@@ -21,7 +22,9 @@ specifiers:
   fastify-cors: ^5.2.0
   fastify-plugin: ^3.0.0
   firebase-admin: ^9.6.0
+  http-errors: ^1.8.1
   https-proxy-agent: ^5.0.0
+  ioredis: ^4.28.1
   json-schema-to-typescript: ^10.1.3
   nano-memoize: ^1.2.1
   node-fetch: ^2.6.1
@@ -45,7 +48,9 @@ dependencies:
   fastify-cors: 5.2.0
   fastify-plugin: 3.0.0
   firebase-admin: 9.6.0
+  http-errors: 1.8.1
   https-proxy-agent: 5.0.0
+  ioredis: 4.28.1
   nano-memoize: 1.2.1
   node-fetch: 2.6.1
   node-schedule: 2.0.0
@@ -58,6 +63,7 @@ dependencies:
 devDependencies:
   '@types/bull': 3.15.2
   '@types/cron': 1.7.2
+  '@types/http-errors': 1.8.1
   '@types/node': 14.14.35
   '@types/node-fetch': 2.5.8
   '@typescript-eslint/eslint-plugin': 4.19.0_f26dcf5ec38a04241b14c26bc931244e
@@ -388,6 +394,10 @@ packages:
     dependencies:
       '@types/minimatch': 3.0.3
       '@types/node': 14.14.35
+    dev: true
+
+  /@types/http-errors/1.8.1:
+    resolution: {integrity: sha512-e+2rjEwK6KDaNOm5Aa9wNGgyS9oSZU/4pfSMMPYNOfjvFI0WVXm29+ITRFr6aKDvvKo7uU1jV68MW4ScsfDi7Q==}
     dev: true
 
   /@types/ioredis/4.26.6:
@@ -811,7 +821,7 @@ packages:
       cron-parser: 2.18.0
       debuglog: 1.0.1
       get-port: 5.1.1
-      ioredis: 4.27.6
+      ioredis: 4.28.1
       lodash: 4.17.21
       p-timeout: 3.2.0
       promise.prototype.finally: 3.1.2
@@ -1121,6 +1131,11 @@ packages:
   /denque/1.5.0:
     resolution: {integrity: sha512-CYiCSgIF1p6EUByQPlGkKnP1M9g0ZV3qMIrqMqZqdwazygIA/YP2vrbcyl1h/WppKJTdl1F85cXIle+394iDAQ==}
     engines: {node: '>=0.10'}
+    dev: false
+
+  /depd/1.1.2:
+    resolution: {integrity: sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=}
+    engines: {node: '>= 0.6'}
     dev: false
 
   /dicer/0.3.0:
@@ -2025,6 +2040,17 @@ packages:
     resolution: {integrity: sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==}
     dev: true
 
+  /http-errors/1.8.1:
+    resolution: {integrity: sha512-Kpk9Sm7NmI+RHhnj6OIWDI1d6fIoFAtFt9RLaTMRlg/8w49juAStsrBgp0Dp4OdxdVbRIeKhtCUvoi/RuAhO4g==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      depd: 1.1.2
+      inherits: 2.0.4
+      setprototypeof: 1.2.0
+      statuses: 1.5.0
+      toidentifier: 1.0.1
+    dev: false
+
   /http-parser-js/0.5.3:
     resolution: {integrity: sha512-t7hjvef/5HEK7RWTdUzVUhl8zkEu+LlaE0IYzdMuvbSDipxBRpOn4Uhw8ZyECEa808iVT8XCjzo6xmYt4CiLZg==}
     dev: false
@@ -2093,8 +2119,8 @@ packages:
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  /ioredis/4.27.6:
-    resolution: {integrity: sha512-6W3ZHMbpCa8ByMyC1LJGOi7P2WiOKP9B3resoZOVLDhi+6dDBOW+KNsRq3yI36Hmnb2sifCxHX+YSarTeXh48A==}
+  /ioredis/4.28.1:
+    resolution: {integrity: sha512-7gcrUJEcPHWy+eEyq6wIZpXtfHt8crhbc5+z0sqrnHUkwBblXinygfamj+/jx83Qo+2LW3q87Nj2VsuH6BF2BA==}
     engines: {node: '>=6'}
     dependencies:
       cluster-key-slot: 1.1.0
@@ -2102,6 +2128,7 @@ packages:
       denque: 1.5.0
       lodash.defaults: 4.2.0
       lodash.flatten: 4.4.0
+      lodash.isarguments: 3.1.0
       p-map: 2.1.0
       redis-commands: 1.7.0
       redis-errors: 1.2.0
@@ -2440,6 +2467,10 @@ packages:
 
   /lodash.includes/4.3.0:
     resolution: {integrity: sha1-YLuYqHy5I8aMoeUTJUgzFISfVT8=}
+    dev: false
+
+  /lodash.isarguments/3.1.0:
+    resolution: {integrity: sha1-L1c9hcaiQon/AGY7SRwdM4/zRYo=}
     dev: false
 
   /lodash.isboolean/3.0.3:
@@ -3310,6 +3341,10 @@ packages:
     resolution: {integrity: sha512-edRH8mBKEWNVIVMKejNnuJxleqYE/ZSdcT8/Nem9/mmosx12pctd80s2Oy00KNZzrogMZS5mauK2/ymL1bvlvg==}
     dev: false
 
+  /setprototypeof/1.2.0:
+    resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
+    dev: false
+
   /sha.js/2.4.11:
     resolution: {integrity: sha512-QMEp5B7cftE7APOjk5Y6xgrbWu+WkLVQwk8JNjZ8nKRciZaByEW6MubieAiToS7+dwvrjGhH8jRXz3MVd0AYqQ==}
     hasBin: true
@@ -3408,6 +3443,11 @@ packages:
 
   /standard-as-callback/2.1.0:
     resolution: {integrity: sha512-qoRRSyROncaz1z0mvYqIE4lCd9p2R90i6GxW3uZv5ucSu8tU7B5HXUP1gG8pVZsYNVaXjk8ClXHPttLyxAL48A==}
+    dev: false
+
+  /statuses/1.5.0:
+    resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
+    engines: {node: '>= 0.6'}
     dev: false
 
   /stdin/0.0.1:
@@ -3584,6 +3624,11 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
+
+  /toidentifier/1.0.1:
+    resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
+    engines: {node: '>=0.6'}
+    dev: false
 
   /tree-kill/1.2.2:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}

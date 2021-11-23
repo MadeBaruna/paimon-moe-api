@@ -75,7 +75,7 @@ export interface WishData {
   | [number, string, 'character' | 'weapon', number, boolean]
   | [number, string, 'character' | 'weapon', number, boolean, boolean]
   | Array<[number, string, 'character' | 'weapon', number, boolean, boolean, number]>;
-  rarePulls: [number, number, number, number, number, number, number, number, number, number];
+  rarePulls: [number, number, number, number, number, number, number, number, number, number, number];
   pityCount: [number, ...number[]];
   banner: number;
   total: number;
