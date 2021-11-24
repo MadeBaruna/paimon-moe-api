@@ -19,8 +19,11 @@ services:
       TALLY_QUEUE_CONCURRENCY: ${TALLY_QUEUE_CONCURRENCY}
       PLAUSIBLE_URL: ${PLAUSIBLE_URL}
       PLAUSIBLE_TOKEN: ${PLAUSIBLE_TOKEN}
+      HEADER_SECRET: ${HEADER_SECRET}
+      PROXY_LOCATION: ${PROXY_LOCATION}
     volumes:
       - /home/baruna/server/service_account:/service_account
+      - /home/baruna/server/proxies:/proxies
 
   postgres:
     image: postgres:13.3-alpine

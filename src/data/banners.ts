@@ -240,6 +240,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['hu_tao'],
     featuredRare: ['thoma', 'diona', 'sayu'],
   },
+  300022: {
+    name: 'Secretum Secretorum',
+    image: 2,
+    shortName: 'Albedo',
+    start: '2021-11-24 06:00:00',
+    end: '2021-12-14 17:59:59',
+    color: '#FFFAF5',
+    featured: ['albedo', 'eula'],
+    featuredRare: ['rosaria', 'noelle', 'bennett'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -513,5 +524,22 @@ export const banners: { [key: number]: Banner } = {
       'rainslasher',
       'the_widsith',
     ],
+  },
+  400021: {
+    name: 'Epitome Invocation',
+    image: 21,
+    start: '2021-11-24 06:00:00',
+    end: '2021-12-14 17:59:59',
+    shortName: 'Freedom',
+    color: '#b042f5',
+    featured: ['freedom-sworn', 'song_of_broken_pines'],
+    featuredRare: [
+      'wine_and_song',
+      'alley_hunter',
+      'lions_roar',
+      'sacrificial_greatsword',
+      'dragons_bane',
+    ],
+    timezoneDependent: true,
   },
 };

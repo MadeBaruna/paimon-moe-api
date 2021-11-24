@@ -19,7 +19,7 @@ specifiers:
   eslint-plugin-node: '11'
   eslint-plugin-promise: '4'
   fastify: ^3.14.0
-  fastify-cors: ^5.2.0
+  fastify-cors: ^6.0.2
   fastify-plugin: ^3.0.0
   firebase-admin: ^9.6.0
   http-errors: ^1.8.1
@@ -45,7 +45,7 @@ dependencies:
   dayjs: 1.10.4
   dotenv: 8.2.0
   fastify: 3.14.0
-  fastify-cors: 5.2.0
+  fastify-cors: 6.0.2
   fastify-plugin: 3.0.0
   firebase-admin: 9.6.0
   http-errors: 1.8.1
@@ -1620,8 +1620,8 @@ packages:
     dev: false
     optional: true
 
-  /fastify-cors/5.2.0:
-    resolution: {integrity: sha512-Lde71qT23M3Ip3pmny3uN6q6lQ4J5J0/YWoqe2stL4sMT99R5LEtTJ2La2zijFOR5OFhxvxqGgR7BIc2x3amPg==}
+  /fastify-cors/6.0.2:
+    resolution: {integrity: sha512-sE0AOyzmj5hLLRRVgenjA6G2iOGX35/1S3QGYB9rr9TXelMZB3lFrXy4CzwYVOMiujJeMiLgO4J7eRm8sQSv8Q==}
     dependencies:
       fastify-plugin: 3.0.0
       vary: 1.1.2

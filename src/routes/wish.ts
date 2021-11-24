@@ -14,8 +14,8 @@ import wishTotalQueue from '../queue/wishTotal';
 import { tallyCount } from '../stores/counter';
 import { authorization } from '../hooks/auth';
 
-const LATEST_CHARACTER_BANNER = 300021;
-const LATEST_WEAPON_BANNER = 400020;
+const LATEST_CHARACTER_BANNER = 300022;
+const LATEST_WEAPON_BANNER = 400021;
 
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(

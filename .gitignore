@@ -2,3 +2,4 @@ node_modules/
 build/
 .env
 google-service-account.json
+proxies.txt
