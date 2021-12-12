@@ -41,6 +41,7 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
   // for identifying same wish, old wishes will be removed first
   const firstWishes = data.firstPulls.map((e) => e.join(';')).join(';');
   const uniqueId = XXHash.hash(Buffer.from(firstWishes), seed, 'hex');
+  const uniqueIdUID = XXHash.hash(Buffer.from(data.uid), seed, 'hex');
 
   const pullRepo = getRepository(Pull);
 
@@ -87,15 +88,15 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
   const wishRepo = getRepository(Wish);
 
   const savedWish = await wishRepo.findOne({
-    where: {
-      uniqueId,
-      banner: { id: data.banner },
-    },
+    where: [
+      { uniqueId, banner: { id: data.banner } },
+      { uniqueId: uniqueIdUID, banner: { id: data.banner } },
+    ],
   });
 
   const wish = wishRepo.create({
     banner: { id: data.banner },
-    uniqueId,
+    uniqueId: uniqueIdUID,
     legendary: data.legendary,
     rare: data.rare,
     rarePity: data.rarePulls,

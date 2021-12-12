@@ -21,6 +21,10 @@ async function submitWishTallyTotal(job: Job<WishTotalData>): Promise<void> {
     uniqueId,
     bannerType: data.type,
     total: data.total,
+    legendary: data.legendary,
+    rare: data.rare,
+    legendaryPercentage: data.legendary / data.total,
+    rarePercentage: data.rare / data.total,
   });
 
   await wishTotalRepo.save(wishTotal);

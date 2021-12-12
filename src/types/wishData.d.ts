@@ -81,4 +81,5 @@ export interface WishData {
   total: number;
   legendary: number;
   rare: number;
+  uid: string;
 }

@@ -1,16 +1,25 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class WishTotal {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column({ type: 'character', length: 8 })
+  @PrimaryColumn({ type: 'character', length: 8 })
   uniqueId: string;
+
+  @PrimaryColumn()
+  bannerType: string;
 
   @Column()
   total: number;
 
   @Column()
-  bannerType: string;
+  legendary: number;
+
+  @Column()
+  rare: number;
+
+  @Column({ type: 'float' })
+  legendaryPercentage: number;
+
+  @Column({ type: 'float' })
+  rarePercentage: number;
 }

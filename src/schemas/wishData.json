@@ -9,7 +9,8 @@
     "total",
     "legendary",
     "rare",
-    "pityCount"
+    "pityCount",
+    "uid"
   ],
   "properties": {
     "firstPulls": {
@@ -115,6 +116,9 @@
     "rare": {
       "type": "number",
       "minimum": 0
+    },
+    "uid": {
+      "type": "string"
     }
   }
 }

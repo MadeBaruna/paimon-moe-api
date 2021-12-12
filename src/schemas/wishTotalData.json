@@ -3,17 +3,32 @@
   "properties": {
     "type": {
       "type": "string",
-      "enum": ["beginners", "standard", "character-event", "weapon-event"]
+      "enum": [
+        "beginners",
+        "standard",
+        "character-event",
+        "weapon-event"
+      ]
     },
     "uid": {
       "type": "string"
     },
     "total": {
       "type": "number"
+    },
+    "legendary": {
+      "type": "number"
+    },
+    "rare": {
+      "type": "number"
     }
   },
   "additionalProperties": false,
   "required": [
-    "type", "total", "uid"
+    "type",
+    "total",
+    "uid",
+    "legendary",
+    "rare"
   ]
 }

@@ -9,4 +9,6 @@ export interface WishTotalData {
   type: 'beginners' | 'standard' | 'character-event' | 'weapon-event';
   uid: string;
   total: number;
+  legendary: number;
+  rare: number;
 }
