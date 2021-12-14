@@ -251,6 +251,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['rosaria', 'noelle', 'bennett'],
     timezoneDependent: true,
   },
+  300023: {
+    name: "Oni's Royale",
+    image: 1,
+    shortName: 'Itto',
+    start: '2021-12-14 18:00:00',
+    end: '2022-01-04 17:59:59',
+    color: '#FFB455',
+    featured: ['arataki_itto'],
+    featuredRare: ['gorou', 'xiangling', 'barbara'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -541,5 +551,15 @@ export const banners: { [key: number]: Banner } = {
       'dragons_bane',
     ],
     timezoneDependent: true,
+  },
+  400022: {
+    name: 'Epitome Invocation',
+    image: 22,
+    start: '2021-12-14 18:00:00',
+    end: '2022-01-04 17:59:59',
+    shortName: 'Redhorn',
+    color: '#b042f5',
+    featured: ['redhorn_stonethresher', 'skyward_harp'],
+    featuredRare: ['the_alley_flash', 'mitternachts_waltz', 'the_bell', 'favonius_lance', 'sacrificial_fragments'],
   },
 };

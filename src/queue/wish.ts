@@ -88,28 +88,40 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
   const wishRepo = getRepository(Wish);
 
   const savedWish = await wishRepo.findOne({
-    where: [
-      { uniqueId, banner: { id: data.banner } },
-      { uniqueId: uniqueIdUID, banner: { id: data.banner } },
-    ],
+    where: { uniqueId, banner: { id: data.banner } },
   });
 
-  const wish = wishRepo.create({
-    banner: { id: data.banner },
-    uniqueId: uniqueIdUID,
-    legendary: data.legendary,
-    rare: data.rare,
-    rarePity: data.rarePulls,
-    total: data.total,
-    pityCount: data.pityCount.slice(0, 90),
-    pulls,
+  const savedWishUID = await wishRepo.findOne({
+    where: { uniqueId: uniqueIdUID, banner: { id: data.banner } },
   });
 
   await getManager().transaction(async (transactionalEntityManager) => {
     if (savedWish !== undefined) {
       await transactionalEntityManager.remove(savedWish);
     }
-    await transactionalEntityManager.save(wish);
+
+    if (savedWishUID !== undefined) {
+      savedWishUID.uniqueId = uniqueIdUID;
+      savedWishUID.legendary = data.legendary;
+      savedWishUID.rare = data.rare;
+      savedWishUID.rarePity = data.rarePulls;
+      savedWishUID.total = data.total;
+      savedWishUID.pityCount = data.pityCount.slice(0, 90);
+      savedWishUID.pulls = pulls;
+      await transactionalEntityManager.save(savedWishUID);
+    } else {
+      const newWish = wishRepo.create({
+        banner: { id: data.banner },
+        uniqueId: uniqueIdUID,
+        legendary: data.legendary,
+        rare: data.rare,
+        rarePity: data.rarePulls,
+        total: data.total,
+        pityCount: data.pityCount.slice(0, 90),
+        pulls,
+      });
+      await transactionalEntityManager.save(newWish);
+    }
   });
 
   if (tallyCount.finished[data.banner] === undefined) {
@@ -125,7 +137,7 @@ queue.on('active', (job) => {
 });
 
 queue.on('failed', (job) => {
-  console.log(JSON.stringify({ message: 'failed processing wish tally', id: job.id, data: job.data }));
+  console.log(JSON.stringify({ message: 'failed processing wish tally', id: job.id, data: job.data, error: job.stacktrace }));
   void job.remove();
 });
 

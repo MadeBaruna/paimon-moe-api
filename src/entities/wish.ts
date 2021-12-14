@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, Index } from 'typeorm';
 import { Banner } from './banner';
 import { Pull } from './pull';
 
@@ -9,6 +9,7 @@ export class Wish {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Index()
   @Column({ type: 'character', length: 8 })
   uniqueId: string;
 
