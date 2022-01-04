@@ -29,6 +29,7 @@ export interface WishTallyResult {
 
 const calculated: { [key: number]: WishTallyResult } = {};
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function calculateWishTally(job: Job<number>): Promise<void> {
   const id = job.data;
   const time = dayjs().format();
@@ -151,6 +152,11 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
     .select(['SUM(total) sum', 'COUNT(*) count'])
     .where({ banner })
     .getRawOne<{ sum: null | string; count: null | string }>();
+  const totalPullRare = await pullRepo
+    .createQueryBuilder('pull')
+    .select('COUNT(*) sum')
+    .where({ banner, rarity: 4 })
+    .getRawOne<{ sum: null | string }>();
 
   // new pity total banner >= 300012 and banner >= 400011
   let countEachPity: number[] = [];
@@ -200,7 +206,7 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
     },
     total: {
       legendary: legendaryPity.reduce((prev, cur) => prev + cur, 0),
-      rare: rarePity.reduce((prev, cur) => prev + cur, 0),
+      rare: totalPullRare.sum === null ? 0 : Number(totalPullRare.sum),
       all: totalPull.sum === null ? 0 : Number(totalPull.sum),
       users: totalPull.count === null ? 0 : Number(totalPull.count),
     },
@@ -210,6 +216,7 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   calculated[id] = result;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function checkWishTally(job: Job<number>): Promise<void> {
   const now = dayjs();
   for (const [idv, banner] of Object.entries(banners)) {
