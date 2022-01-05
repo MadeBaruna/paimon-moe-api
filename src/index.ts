@@ -20,6 +20,7 @@ dotenv.config();
 import './queue/wish';
 import './queue/tally';
 import './queue/wishTotal';
+import './queue/wishSummary';
 import './queue/plausible';
 /* eslint-enable import/first */
 

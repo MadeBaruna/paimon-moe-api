@@ -1,8 +1,10 @@
 import { FastifyInstance } from 'fastify';
+import HttpErrors from 'http-errors';
 
 import WishDataSchema from '../schemas/wishData.json';
 import WishRequestSchema from '../schemas/wishRequest.json';
 import WishTotalDataSchema from '../schemas/wishTotalData.json';
+import WishSummaryRequestSchema from '../schemas/wishSummaryRequest.json';
 import { WishRequest } from '../types/wishRequest';
 import { WishData } from '../types/wishData';
 import { WishTotalData } from '../types/wishTotalData';
@@ -13,6 +15,8 @@ import wishTallyQueue from '../queue/wish';
 import wishTotalQueue from '../queue/wishTotal';
 import { tallyCount } from '../stores/counter';
 import { authorization } from '../hooks/auth';
+import { WishSummaryRequest } from '../types/wishSummaryRequest';
+import { wishSummary } from '../stores/wishSummary';
 
 const LATEST_CHARACTER_BANNER = 300022;
 const LATEST_WEAPON_BANNER = 400021;
@@ -93,6 +97,21 @@ export default async function (server: FastifyInstance): Promise<void> {
     async function (req, reply) {
       void wishTotalQueue.add(req.body);
       return { status: 'queued' };
+    },
+  );
+
+  server.get<{ Querystring: WishSummaryRequest }>(
+    '/wish/summary',
+    {
+      schema: {
+        querystring: WishSummaryRequestSchema,
+      },
+    },
+    async function (req, reply) {
+      if (wishSummary[req.query.banner] === undefined) {
+        throw new HttpErrors.NotFound();
+      }
+      return wishSummary[req.query.banner];
     },
   );
 }
