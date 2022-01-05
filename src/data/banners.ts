@@ -261,6 +261,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['arataki_itto'],
     featuredRare: ['gorou', 'xiangling', 'barbara'],
   },
+  300024: {
+    name: 'The Transcendent One Returns',
+    image: 1,
+    shortName: 'Shenhe',
+    start: '2022-01-05 06:00:00',
+    end: '2022-01-25 17:59:59',
+    color: '#81DDF0',
+    featured: ['shenhe', 'xiao'],
+    featuredRare: ['yun_jin', 'ningguang', 'chongyun'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -561,5 +572,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#b042f5',
     featured: ['redhorn_stonethresher', 'skyward_harp'],
     featuredRare: ['the_alley_flash', 'mitternachts_waltz', 'the_bell', 'favonius_lance', 'sacrificial_fragments'],
+  },
+  400023: {
+    name: 'Epitome Invocation',
+    image: 23,
+    start: '2022-01-05 06:00:00',
+    end: '2022-01-25 17:59:59',
+    shortName: 'Queller',
+    color: '#b042f5',
+    featured: ['calamity_queller', 'primordial_jade_winged-spear'],
+    featuredRare: ['lithic_spear', 'the_flute', 'favonius_greatsword', 'the_widsith', 'favonius_warbow'],
+    timezoneDependent: true,
   },
 };
