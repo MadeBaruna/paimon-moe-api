@@ -53,6 +53,5 @@ jobs:
             echo "PLAUSIBLE_URL=$PLAUSIBLE_URL" >> .env
             echo "PLAUSIBLE_TOKEN=$PLAUSIBLE_TOKEN" >> .env
             echo "PROXY_LOCATION=$PROXY_LOCATION" >> .env
-            sleep 60
             docker-compose pull
             docker-compose up -d

@@ -101,6 +101,16 @@ async function submitWishTally(job: Job<WishData>): Promise<void> {
     }
 
     if (savedWishUID !== undefined) {
+      // delete old pulls first
+      await transactionalEntityManager.delete(Pull, {
+        wish: {
+          id: savedWishUID.id,
+        },
+        banner: {
+          id: data.banner,
+        },
+      });
+
       savedWishUID.uniqueId = uniqueIdUID;
       savedWishUID.legendary = data.legendary;
       savedWishUID.rare = data.rare;
