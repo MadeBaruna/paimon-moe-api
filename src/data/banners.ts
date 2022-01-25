@@ -279,7 +279,7 @@ export const banners: { [key: number]: Banner } = {
     start: '2022-01-25 18:00:00',
     end: '2022-02-15 14:59:59',
     color: '#FFF5BF',
-    featured: ['zhongli'],
+    featured: ['ganyu', 'zhongli'],
     featuredRare: ['xingqiu', 'beidou', 'yanfei'],
   },
 
