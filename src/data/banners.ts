@@ -272,6 +272,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['yun_jin', 'ningguang', 'chongyun'],
     timezoneDependent: true,
   },
+  300025: {
+    name: 'Gentry of Hermitage',
+    image: 3,
+    shortName: 'Zhongli',
+    start: '2022-01-25 18:00:00',
+    end: '2022-02-15 14:59:59',
+    color: '#FFF5BF',
+    featured: ['zhongli'],
+    featuredRare: ['xingqiu', 'beidou', 'yanfei'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -583,5 +593,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['calamity_queller', 'primordial_jade_winged-spear'],
     featuredRare: ['lithic_spear', 'the_flute', 'favonius_greatsword', 'the_widsith', 'favonius_warbow'],
     timezoneDependent: true,
+  },
+  400024: {
+    name: 'Epitome Invocation',
+    image: 24,
+    start: '2022-01-25 18:00:00',
+    end: '2022-02-15 14:59:59',
+    shortName: 'Amos',
+    color: '#b042f5',
+    featured: ['amos_bow', 'vortex_vanquisher'],
+    featuredRare: ['lithic_blade', 'favonius_sword', 'dragons_bane', 'favonius_codex', 'sacrificial_bow'],
   },
 };

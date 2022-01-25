@@ -18,8 +18,8 @@ import { authorization } from '../hooks/auth';
 import { WishSummaryRequest } from '../types/wishSummaryRequest';
 import { wishSummary } from '../stores/wishSummary';
 
-const LATEST_CHARACTER_BANNER = 300024;
-const LATEST_WEAPON_BANNER = 400023;
+const LATEST_CHARACTER_BANNER = 300025;
+const LATEST_WEAPON_BANNER = 400024;
 
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(
