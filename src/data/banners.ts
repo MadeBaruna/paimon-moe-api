@@ -293,6 +293,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['thoma', 'diona', 'fischl'],
     timezoneDependent: true,
   },
+  300027: {
+    name: 'Reign of Serenity',
+    image: 2,
+    shortName: 'Raiden',
+    start: '2022-03-08 18:00:00',
+    end: '2022-03-29 14:59:59',
+    color: '#D0AEF2',
+    featured: ['raiden_shogun', 'sangonomiya_kokomi'],
+    featuredRare: ['bennett', 'xinyan', 'kujou_sara'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -625,5 +635,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['kaguras_verity', 'primordial_jade_cutter'],
     featuredRare: ['wavebreakers_fin', 'sacrificial_sword', 'rainslasher', 'eye_of_perception', 'the_stringless'],
     timezoneDependent: true,
+  },
+  400026: {
+    name: 'Epitome Invocation',
+    image: 26,
+    start: '2022-03-08 18:00:00',
+    end: '2022-03-29 14:59:59',
+    shortName: 'Engulfing',
+    color: '#b042f5',
+    featured: ['engulfing_lightning', 'everlasting_moonglow'],
+    featuredRare: ['akuoumaru', 'mouuns_moon', 'lions_roar', 'favonius_lance', 'sacrificial_fragments'],
   },
 };
