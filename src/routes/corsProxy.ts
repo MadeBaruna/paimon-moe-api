@@ -5,7 +5,7 @@ import pRetry from 'p-retry';
 import createHttpProxyAgent from 'https-proxy-agent';
 import CorsProxySchema from '../schemas/corsProxy.json';
 import { CorsProxy } from '../types/corsProxy';
-import { errors, getProxy, unassignProxy } from '../stores/proxy';
+import { errors, proxyresets, getProxy, unassignProxy } from '../stores/proxy';
 import { authorization } from '../hooks/auth';
 
 function fetchResult(url: string, proxy: string) {
@@ -70,12 +70,28 @@ export default async function (server: FastifyInstance): Promise<void> {
     });
 
   server.get(
+    '/corsreset',
+    async function (req) {
+      const ip = req.headers['cf-connecting-ip'] as string ?? req.ip;
+      const proxy = await getProxy(ip);
+
+      if (proxyresets[proxy] === undefined) {
+        proxyresets[proxy] = 0;
+      }
+      proxyresets[proxy]++;
+      void unassignProxy(ip);
+
+      return { status: 'ok' };
+    },
+  );
+
+  server.get(
     '/corsstatus',
     {
       preHandler: authorization,
     },
     async function () {
-      return JSON.stringify(errors, null, 2);
+      return JSON.stringify({ errors, proxyresets }, null, 2);
     },
   );
 }

@@ -6,6 +6,7 @@ const proxies: string[] = [];
 let max = 0;
 
 export const errors: {[key: string]: number} = {};
+export const proxyresets: {[key: string]: number} = {};
 
 async function loadProxy(): Promise<void> {
   const fileStream = fs.createReadStream(process.env.PROXY_LOCATION ?? 'proxies.txt');
