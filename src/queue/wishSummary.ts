@@ -14,6 +14,7 @@ async function calculateWishSummary(job: Job<string>): Promise<void> {
     .createQueryBuilder()
     .select(['total', 'count(*) count'])
     .where({ bannerType })
+    .andWhere('legendary > 0')
     .addGroupBy('total')
     .getRawMany<{
     total: number;
