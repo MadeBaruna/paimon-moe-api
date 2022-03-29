@@ -303,6 +303,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['raiden_shogun', 'sangonomiya_kokomi'],
     featuredRare: ['bennett', 'xinyan', 'kujou_sara'],
   },
+  300028: {
+    name: 'Azure Excursion',
+    image: 1,
+    shortName: 'Ayato',
+    start: '2022-03-30 06:00:00',
+    end: '2022-04-19 17:59:59',
+    color: '#90bce9',
+    featured: ['kamisato_ayato', 'venti'],
+    featuredRare: ['yun_jin', 'xiangling', 'sucrose'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -645,5 +656,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#b042f5',
     featured: ['engulfing_lightning', 'everlasting_moonglow'],
     featuredRare: ['akuoumaru', 'mouuns_moon', 'lions_roar', 'favonius_lance', 'sacrificial_fragments'],
+  },
+  400027: {
+    name: 'Epitome Invocation',
+    image: 27,
+    start: '2022-03-30 06:00:00',
+    end: '2022-04-19 17:59:59',
+    shortName: 'Haran',
+    color: '#ffb169',
+    featured: ['haran_geppaku_futsu', 'elegy_for_the_end'],
+    featuredRare: ['the_flute', 'sacrificial_greatsword', 'dragons_bane', 'the_widsith', 'rust'],
+    timezoneDependent: true,
   },
 };
