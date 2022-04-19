@@ -314,6 +314,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['yun_jin', 'xiangling', 'sucrose'],
     timezoneDependent: true,
   },
+  300029: {
+    name: 'The Herons Court',
+    image: 2,
+    shortName: 'Ayaka',
+    start: '2022-04-19 18:00:00',
+    end: '2022-05-10 14:59:59',
+    color: '#FFFBF7',
+    featured: ['kamisato_ayaka'],
+    featuredRare: ['sayu', 'razor', 'rosaria'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -667,5 +677,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['haran_geppaku_futsu', 'elegy_for_the_end'],
     featuredRare: ['the_flute', 'sacrificial_greatsword', 'dragons_bane', 'the_widsith', 'rust'],
     timezoneDependent: true,
+  },
+  400028: {
+    name: 'Epitome Invocation',
+    image: 28,
+    start: '2022-04-19 18:00:00',
+    end: '2022-05-10 14:59:59',
+    shortName: 'Mistsplitter',
+    color: '#eae5e1',
+    featured: ['mistsplitter_reforged', 'the_unforged'],
+    featuredRare: ['favonius_sword', 'the_bell', 'favonius_lance', 'favonius_codex', 'favonius_warbow'],
   },
 };
