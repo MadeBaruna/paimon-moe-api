@@ -324,6 +324,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['kamisato_ayaka'],
     featuredRare: ['sayu', 'razor', 'rosaria'],
   },
+  300030: {
+    name: 'Discerner of Enigmas',
+    image: 1,
+    shortName: 'Yelan',
+    start: '2022-05-31 06:00:00',
+    end: '2022-06-21 17:59:59',
+    color: '#7de6fd',
+    featured: ['yelan', 'xiao'],
+    featuredRare: ['barbara', 'noelle', 'yanfei'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -687,5 +698,15 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['mistsplitter_reforged', 'the_unforged'],
     featuredRare: ['favonius_sword', 'the_bell', 'favonius_lance', 'favonius_codex', 'favonius_warbow'],
+  },
+  400029: {
+    name: 'Epitome Invocation',
+    image: 29,
+    start: '2022-05-31 06:00:00',
+    end: '2022-06-21 17:59:59',
+    shortName: 'Aqua',
+    color: '#eae5e1',
+    featured: ['aqua_simulacra', 'primordial_jade_winged-spear'],
+    featuredRare: ['lithic_spear', 'sacrificial_sword', 'favonius_greatsword', 'eye_of_perception', 'sacrificial_bow'],
   },
 };
