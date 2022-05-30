@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@types/bull': ^3.15.2
@@ -66,11 +66,11 @@ devDependencies:
   '@types/http-errors': 1.8.1
   '@types/node': 14.14.35
   '@types/node-fetch': 2.5.8
-  '@typescript-eslint/eslint-plugin': 4.19.0_f26dcf5ec38a04241b14c26bc931244e
-  '@typescript-eslint/parser': 4.19.0_eslint@7.22.0+typescript@4.2.3
+  '@typescript-eslint/eslint-plugin': 4.19.0_6jw46xwdriccigyuyjv4smjejy
+  '@typescript-eslint/parser': 4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4
   eslint: 7.22.0
-  eslint-config-standard-with-typescript: 20.0.0_3aa42bdbfd89dcd93ecec450013761f6
-  eslint-plugin-import: 2.22.1_eslint@7.22.0
+  eslint-config-standard-with-typescript: 20.0.0_hkscxw75rhonspwoyriacn3b6y
+  eslint-plugin-import: 2.22.1_hdcctlfapcrfx5qkypvfjlsudm
   eslint-plugin-node: 11.1.0_eslint@7.22.0
   eslint-plugin-promise: 4.3.1
   json-schema-to-typescript: 10.1.3
@@ -139,12 +139,13 @@ packages:
     resolution: {integrity: sha512-L/ZnJRAq7F++utfuoTKX4CLBG5YR7tFO3PLzG1/oXXKEezJ0kRL3CMRoueBEmTCzVb/6SIs2Qlaw++uDgi5Xyg==}
     dev: false
 
-  /@firebase/auth-interop-types/0.1.5_@firebase+util@0.3.4:
+  /@firebase/auth-interop-types/0.1.5_qadkf642klkrgnaii2vew3hxlm:
     resolution: {integrity: sha512-88h74TMQ6wXChPA6h9Q3E1Jg6TkTHep2+k63OWg3s0ozyGVMeY+TTOti7PFPzq5RhszQPQOoCi59es4MaRvgCw==}
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 0.x
     dependencies:
+      '@firebase/app-types': 0.6.1
       '@firebase/util': 0.3.4
     dev: false
 
@@ -164,15 +165,14 @@ packages:
   /@firebase/database/0.8.3:
     resolution: {integrity: sha512-i29rr3kcPltIkA8La9M1lgsSxx9bfu5lCQ0T+tbJptZ3UpqpcL1NzCcZa24cJjiLgq3HQNPyLvUvCtcPSFDlRg==}
     dependencies:
-      '@firebase/auth-interop-types': 0.1.5_@firebase+util@0.3.4
+      '@firebase/app-types': 0.6.1
+      '@firebase/auth-interop-types': 0.1.5_qadkf642klkrgnaii2vew3hxlm
       '@firebase/component': 0.1.21
       '@firebase/database-types': 0.6.1
       '@firebase/logger': 0.2.6
       '@firebase/util': 0.3.4
       faye-websocket: 0.11.3
       tslib: 1.14.1
-    transitivePeerDependencies:
-      - '@firebase/app-types'
     dev: false
 
   /@firebase/logger/0.2.6:
@@ -206,6 +206,7 @@ packages:
   /@google-cloud/firestore/4.9.8:
     resolution: {integrity: sha512-M3Wc4m/5gvWFHtZpu+tDNUp90CyVhNi0P5Sfhbt1WGUORq+/NmqqtahojsPaQ7VqLMbEiFRgzbinLL7Zm23fGg==}
     engines: {node: '>=10.10.0'}
+    requiresBuild: true
     dependencies:
       fast-deep-equal: 3.1.3
       functional-red-black-tree: 1.0.1
@@ -240,6 +241,7 @@ packages:
   /@google-cloud/storage/5.8.3:
     resolution: {integrity: sha512-g++NTmpmwbZZEnBhJi3y1D3YyZ2Y+1xL5blp96eeJhffginMym5tRw/AGNZblDI35U2K1FTJEYqIZ31tbEzs8w==}
     engines: {node: '>=10'}
+    requiresBuild: true
     dependencies:
       '@google-cloud/common': 3.6.0
       '@google-cloud/paginator': 3.0.5
@@ -470,7 +472,7 @@ packages:
     resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
     dev: true
 
-  /@typescript-eslint/eslint-plugin/4.19.0_f26dcf5ec38a04241b14c26bc931244e:
+  /@typescript-eslint/eslint-plugin/4.19.0_6jw46xwdriccigyuyjv4smjejy:
     resolution: {integrity: sha512-CRQNQ0mC2Pa7VLwKFbrGVTArfdVDdefS+gTw0oC98vSI98IX5A8EVH4BzJ2FOB0YlCmm8Im36Elad/Jgtvveaw==}
     engines: {node: ^10.12.0 || >=12.0.0}
     peerDependencies:
@@ -481,8 +483,8 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/experimental-utils': 4.19.0_eslint@7.22.0+typescript@4.2.3
-      '@typescript-eslint/parser': 4.19.0_eslint@7.22.0+typescript@4.2.3
+      '@typescript-eslint/experimental-utils': 4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4
+      '@typescript-eslint/parser': 4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4
       '@typescript-eslint/scope-manager': 4.19.0
       debug: 4.3.1
       eslint: 7.22.0
@@ -496,7 +498,7 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/experimental-utils/4.19.0_eslint@7.22.0+typescript@4.2.3:
+  /@typescript-eslint/experimental-utils/4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4:
     resolution: {integrity: sha512-9/23F1nnyzbHKuoTqFN1iXwN3bvOm/PRIXSBR3qFAYotK/0LveEOHr5JT1WZSzcD6BESl8kPOG3OoDRKO84bHA==}
     engines: {node: ^10.12.0 || >=12.0.0}
     peerDependencies:
@@ -514,7 +516,7 @@ packages:
       - typescript
     dev: true
 
-  /@typescript-eslint/parser/4.19.0_eslint@7.22.0+typescript@4.2.3:
+  /@typescript-eslint/parser/4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4:
     resolution: {integrity: sha512-/uabZjo2ZZhm66rdAu21HA8nQebl3lAIDcybUoOxoI7VbZBYavLIwtOOmykKCJy+Xq6Vw6ugkiwn8Js7D6wieA==}
     engines: {node: ^10.12.0 || >=12.0.0}
     peerDependencies:
@@ -1073,6 +1075,11 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.0.0
     dev: true
@@ -1328,7 +1335,7 @@ packages:
     resolution: {integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=}
     engines: {node: '>=0.8.0'}
 
-  /eslint-config-standard-with-typescript/20.0.0_3aa42bdbfd89dcd93ecec450013761f6:
+  /eslint-config-standard-with-typescript/20.0.0_hkscxw75rhonspwoyriacn3b6y:
     resolution: {integrity: sha512-IoySf3r0a2+P3Z6GMjv8p1HuOQ6GWQbMpdt9G8uEbkGpnNWAGBXpgaiutbZHbaQAvG5pkVtYepCfHUxYbVDLCA==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': '>=4.0.1'
@@ -1338,11 +1345,11 @@ packages:
       eslint-plugin-promise: '>=4.2.1'
       typescript: '>=3.9'
     dependencies:
-      '@typescript-eslint/eslint-plugin': 4.19.0_f26dcf5ec38a04241b14c26bc931244e
-      '@typescript-eslint/parser': 4.19.0_eslint@7.22.0+typescript@4.2.3
+      '@typescript-eslint/eslint-plugin': 4.19.0_6jw46xwdriccigyuyjv4smjejy
+      '@typescript-eslint/parser': 4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4
       eslint: 7.22.0
-      eslint-config-standard: 16.0.2_c717d077e19c4e5e1a56938898252d9f
-      eslint-plugin-import: 2.22.1_eslint@7.22.0
+      eslint-config-standard: 16.0.2_y4l5a57btrhf4gswsoejqjjnt4
+      eslint-plugin-import: 2.22.1_hdcctlfapcrfx5qkypvfjlsudm
       eslint-plugin-node: 11.1.0_eslint@7.22.0
       eslint-plugin-promise: 4.3.1
       typescript: 4.2.3
@@ -1350,7 +1357,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-config-standard/16.0.2_c717d077e19c4e5e1a56938898252d9f:
+  /eslint-config-standard/16.0.2_y4l5a57btrhf4gswsoejqjjnt4:
     resolution: {integrity: sha512-fx3f1rJDsl9bY7qzyX8SAtP8GBSk6MfXFaTfaGgk12aAYW4gJSyRm7dM790L6cbXv63fvjY4XeSzXnb4WM+SKw==}
     peerDependencies:
       eslint: ^7.12.1
@@ -1359,7 +1366,7 @@ packages:
       eslint-plugin-promise: ^4.2.1
     dependencies:
       eslint: 7.22.0
-      eslint-plugin-import: 2.22.1_eslint@7.22.0
+      eslint-plugin-import: 2.22.1_hdcctlfapcrfx5qkypvfjlsudm
       eslint-plugin-node: 11.1.0_eslint@7.22.0
       eslint-plugin-promise: 4.3.1
     dev: true
@@ -1369,14 +1376,34 @@ packages:
     dependencies:
       debug: 2.6.9
       resolve: 1.20.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
-  /eslint-module-utils/2.6.0:
+  /eslint-module-utils/2.6.0_r4dcyk2hoj22fw6herbbz5jhve:
     resolution: {integrity: sha512-6j9xxegbqe8/kZY8cYpcp0xhbK0EgJlg3g9mib3/miLaExuuwc3n5UEfSnU6hWMbT0FAYVvDbL9RrRgpUeQIvA==}
     engines: {node: '>=4'}
+    peerDependencies:
+      '@typescript-eslint/parser': '*'
+      eslint-import-resolver-node: '*'
+      eslint-import-resolver-typescript: '*'
+      eslint-import-resolver-webpack: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
+      eslint-import-resolver-node:
+        optional: true
+      eslint-import-resolver-typescript:
+        optional: true
+      eslint-import-resolver-webpack:
+        optional: true
     dependencies:
+      '@typescript-eslint/parser': 4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4
       debug: 2.6.9
+      eslint-import-resolver-node: 0.3.4
       pkg-dir: 2.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eslint-plugin-es/3.0.1_eslint@7.22.0:
@@ -1390,12 +1417,17 @@ packages:
       regexpp: 3.1.0
     dev: true
 
-  /eslint-plugin-import/2.22.1_eslint@7.22.0:
+  /eslint-plugin-import/2.22.1_hdcctlfapcrfx5qkypvfjlsudm:
     resolution: {integrity: sha512-8K7JjINHOpH64ozkAhpT3sd+FswIZTfMZTjdx052pnWrgRCVfp8op9tbjpAk3DdUeI/Ba4C8OjdC0r90erHEOw==}
     engines: {node: '>=4'}
     peerDependencies:
+      '@typescript-eslint/parser': '*'
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
     dependencies:
+      '@typescript-eslint/parser': 4.19.0_6jwdzy6ewnjd3qy5pqcwylakd4
       array-includes: 3.1.3
       array.prototype.flat: 1.2.4
       contains-path: 0.1.0
@@ -1403,13 +1435,17 @@ packages:
       doctrine: 1.5.0
       eslint: 7.22.0
       eslint-import-resolver-node: 0.3.4
-      eslint-module-utils: 2.6.0
+      eslint-module-utils: 2.6.0_r4dcyk2hoj22fw6herbbz5jhve
       has: 1.0.3
       minimatch: 3.0.4
       object.values: 1.1.3
       read-pkg-up: 2.0.0
       resolve: 1.20.0
       tsconfig-paths: 3.9.0
+    transitivePeerDependencies:
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - supports-color
     dev: true
 
   /eslint-plugin-node/11.1.0_eslint@7.22.0:
@@ -1733,7 +1769,6 @@ packages:
       '@google-cloud/firestore': 4.9.8
       '@google-cloud/storage': 5.8.3
     transitivePeerDependencies:
-      - '@firebase/app-types'
       - supports-color
     dev: false
 
@@ -1785,6 +1820,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -2677,7 +2713,7 @@ packages:
     dev: false
 
   /nano-memoize/1.2.1:
-    resolution: {integrity: sha512-ANfJ0QFhLzv9BZV8tHxwaDClqr+U8yY65hZA+slbgJrx+ePnHtlY92F2ZJInkkQWUUR71NzCEHBshKCHJnNyaQ==, tarball: nano-memoize/-/nano-memoize-1.2.1.tgz}
+    resolution: {integrity: sha512-ANfJ0QFhLzv9BZV8tHxwaDClqr+U8yY65hZA+slbgJrx+ePnHtlY92F2ZJInkkQWUUR71NzCEHBshKCHJnNyaQ==}
     dev: false
 
   /natural-compare/1.4.0:
