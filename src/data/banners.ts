@@ -319,7 +319,7 @@ export const banners: { [key: number]: Banner } = {
     image: 2,
     shortName: 'Ayaka',
     start: '2022-04-19 18:00:00',
-    end: '2022-05-10 14:59:59',
+    end: '2022-05-31 05:59:59',
     color: '#FFFBF7',
     featured: ['kamisato_ayaka'],
     featuredRare: ['sayu', 'razor', 'rosaria'],
