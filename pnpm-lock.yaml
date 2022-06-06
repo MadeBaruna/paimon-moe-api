@@ -4,6 +4,7 @@ specifiers:
   '@types/bull': ^3.15.2
   '@types/cron': ^1.7.2
   '@types/http-errors': ^1.8.1
+  '@types/ioredis': ^4.28.10
   '@types/node': ^14.14.35
   '@types/node-fetch': ^2.5.8
   '@typescript-eslint/eslint-plugin': '4'
@@ -47,7 +48,7 @@ dependencies:
   fastify: 3.14.0
   fastify-cors: 6.0.2
   fastify-plugin: 3.0.0
-  firebase-admin: 9.6.0
+  firebase-admin: 9.6.0_@firebase+app-types@0.6.1
   http-errors: 1.8.1
   https-proxy-agent: 5.0.0
   ioredis: 4.28.1
@@ -64,6 +65,7 @@ devDependencies:
   '@types/bull': 3.15.2
   '@types/cron': 1.7.2
   '@types/http-errors': 1.8.1
+  '@types/ioredis': 4.28.10
   '@types/node': 14.14.35
   '@types/node-fetch': 2.5.8
   '@typescript-eslint/eslint-plugin': 4.19.0_6jw46xwdriccigyuyjv4smjejy
@@ -162,10 +164,9 @@ packages:
       '@firebase/app-types': 0.6.1
     dev: false
 
-  /@firebase/database/0.8.3:
+  /@firebase/database/0.8.3_@firebase+app-types@0.6.1:
     resolution: {integrity: sha512-i29rr3kcPltIkA8La9M1lgsSxx9bfu5lCQ0T+tbJptZ3UpqpcL1NzCcZa24cJjiLgq3HQNPyLvUvCtcPSFDlRg==}
     dependencies:
-      '@firebase/app-types': 0.6.1
       '@firebase/auth-interop-types': 0.1.5_qadkf642klkrgnaii2vew3hxlm
       '@firebase/component': 0.1.21
       '@firebase/database-types': 0.6.1
@@ -173,6 +174,8 @@ packages:
       '@firebase/util': 0.3.4
       faye-websocket: 0.11.3
       tslib: 1.14.1
+    transitivePeerDependencies:
+      - '@firebase/app-types'
     dev: false
 
   /@firebase/logger/0.2.6:
@@ -273,7 +276,7 @@ packages:
     resolution: {integrity: sha512-+gPCklP1eqIgrNPyzddYQdt9+GvZqPlLpIjIo+TveE+gbtp74VV1A2ju8ExeO8ma8f7MbpaGZx/KJPYVWL9eDw==}
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
-      '@types/node': 14.14.37
+      '@types/node': 14.17.5
       google-auth-library: 6.1.6
       semver: 6.3.0
     transitivePeerDependencies:
@@ -381,7 +384,7 @@ packages:
   /@types/bull/3.15.2:
     resolution: {integrity: sha512-uMQ7u/4GxY2bSTMd4P2yLkyqu3GoKbwTCDkMHJJ2g9OkiMq0Vxw+C7lF4w+oNkwZzZ2k4Kw76Ncxjd6GMnc+CA==}
     dependencies:
-      '@types/ioredis': 4.26.6
+      '@types/ioredis': 4.28.10
     dev: true
 
   /@types/cron/1.7.2:
@@ -395,15 +398,15 @@ packages:
     resolution: {integrity: sha512-SEYeGAIQIQX8NN6LDKprLjbrd5dARM5EXsd8GI/A5l0apYI1fGMWgPHSe4ZKL4eozlAyI+doUE9XbYS4xCkQ1w==}
     dependencies:
       '@types/minimatch': 3.0.3
-      '@types/node': 14.14.35
+      '@types/node': 14.17.5
     dev: true
 
   /@types/http-errors/1.8.1:
     resolution: {integrity: sha512-e+2rjEwK6KDaNOm5Aa9wNGgyS9oSZU/4pfSMMPYNOfjvFI0WVXm29+ITRFr6aKDvvKo7uU1jV68MW4ScsfDi7Q==}
     dev: true
 
-  /@types/ioredis/4.26.6:
-    resolution: {integrity: sha512-Q9ydXL/5Mot751i7WLCm9OGTj5jlW3XBdkdEW21SkXZ8Y03srbkluFGbM3q8c+vzPW30JOLJ+NsZWHoly0+13A==}
+  /@types/ioredis/4.28.10:
+    resolution: {integrity: sha512-69LyhUgrXdgcNDv7ogs1qXZomnfOEnSmrmMFqKgt1XMJxmoOSG/u3wYy13yACIfKuMJ8IhKgHafDO3sx19zVQQ==}
     dependencies:
       '@types/node': 14.17.5
     dev: true
@@ -451,10 +454,10 @@ packages:
 
   /@types/node/14.14.37:
     resolution: {integrity: sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==}
+    dev: true
 
   /@types/node/14.17.5:
     resolution: {integrity: sha512-bjqH2cX/O33jXT/UmReo2pM7DIJREPMnarixbQ57DOOzzFaI6D2+IcwaJQaJpv0M1E9TIhPCYVxrkcityLjlqA==}
-    dev: true
 
   /@types/prettier/2.2.3:
     resolution: {integrity: sha512-PijRCG/K3s3w1We6ynUKdxEc5AcuuH3NBmMDP8uvKVp6X43UY7NQlTzczakXP3DJR0F4dfNQIGjU2cUeRYs2AA==}
@@ -1755,11 +1758,11 @@ packages:
       locate-path: 2.0.0
     dev: true
 
-  /firebase-admin/9.6.0:
+  /firebase-admin/9.6.0_@firebase+app-types@0.6.1:
     resolution: {integrity: sha512-GNrxsQsZ6alz9u+uYmX84qcixxYQnfOrByxVgEHWiCI9JSCbMOQ/1Px2A6+Coz5zzFokTgXsHnIg+Qz7hMlNZg==}
     engines: {node: '>=10.10.0'}
     dependencies:
-      '@firebase/database': 0.8.3
+      '@firebase/database': 0.8.3_@firebase+app-types@0.6.1
       '@firebase/database-types': 0.6.1
       '@types/node': 10.17.56
       dicer: 0.3.0
@@ -1769,6 +1772,7 @@ packages:
       '@google-cloud/firestore': 4.9.8
       '@google-cloud/storage': 5.8.3
     transitivePeerDependencies:
+      - '@firebase/app-types'
       - supports-color
     dev: false
 

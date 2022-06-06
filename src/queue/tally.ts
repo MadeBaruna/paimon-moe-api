@@ -1,10 +1,14 @@
 import Queue, { Job } from 'bull';
 import dayjs from 'dayjs';
+import isBetween from 'dayjs/plugin/isBetween';
+
 import { getRepository, MoreThan } from 'typeorm';
 import { banners } from '../data/banners';
 import { Banner } from '../entities/banner';
 import { Pull } from '../entities/pull';
 import { Wish } from '../entities/wish';
+
+dayjs.extend(isBetween);
 
 const queue = new Queue('wish-tally', process.env.REDIS_URL ?? 'redis://localhost:6379');
 console.log(JSON.stringify({ message: 'wish tally summary queue init' }));
@@ -187,6 +191,38 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
     );
   }
 
+  const pullByDayData = await pullRepo.createQueryBuilder()
+    .select(["date_trunc('day', time) \"day\"", 'pity', 'count(*) total'])
+    .where({ banner })
+    .andWhere('rarity = 4')
+    .groupBy('day')
+    .addGroupBy('pity')
+    .orderBy('day')
+    .getRawMany<{day: string; pity: number; total: number}>();
+  const bannerStart = dayjs(banners[id].start);
+  const bannerEnd = dayjs(banners[id].end);
+  const pullByDay: Array<{day: string; total: number}> = [];
+  let pullByDayTotal = 0;
+  let lastDate = '';
+  for (const pull of pullByDayData) {
+    const current = dayjs(pull.day);
+    if (!current.isBetween(bannerStart, bannerEnd, 'day', '[]')) continue;
+
+    const date = current.format('YYYY-MM-DD');
+    if (lastDate !== date) {
+      pullByDay.push({
+        day: pull.day,
+        total: 0,
+      });
+      lastDate = date;
+    }
+
+    pullByDay[pullByDay.length - 1].total += pull.pity * pull.total;
+    pullByDayTotal += pull.pity * pull.total;
+  }
+
+  const pullByDayPercentage = pullByDay.map(e => ({ day: e.day, percentage: e.total / pullByDayTotal }));
+
   const result = {
     time,
     list: legendaryItems,
@@ -211,6 +247,7 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
       users: totalPull.count === null ? 0 : Number(totalPull.count),
     },
     countEachPity,
+    pullByDay: pullByDayPercentage,
   };
 
   calculated[id] = result;
