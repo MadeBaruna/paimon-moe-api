@@ -2,6 +2,7 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
+    "editor.formatOnSave": false,
     "editor.tabSize": 2,
     "typescript.tsdk": "node_modules/typescript/lib",
     "workbench.colorCustomizations": {
