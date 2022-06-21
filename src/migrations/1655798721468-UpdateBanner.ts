@@ -3,20 +3,20 @@ import { Banner } from '../entities/banner';
 
 const banners = {
   characters: {
-    name: 'Discerner of Enigmas',
-    start: '2022-05-31 06:00:00',
-    end: '2022-06-21 17:59:59',
-    id: 300030,
+    name: "Oni's Royale",
+    start: '2022-06-21 18:00:00',
+    end: '2022-07-12 14:59:59',
+    id: 300031,
   },
   weapons: {
     name: 'Epitome Invocation',
-    start: '2022-05-31 06:00:00',
-    end: '2022-06-21 17:59:59',
-    id: 400029,
+    start: '2022-06-21 18:00:00',
+    end: '2022-07-12 14:59:59',
+    id: 400030,
   },
 };
 
-export class UpdateBanner1653941010172 implements MigrationInterface {
+export class UpdateBanner1655798721468 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     const newCharacterBanner = banners.characters;
     const characterBanner = new Banner();
@@ -38,6 +38,6 @@ export class UpdateBanner1653941010172 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.manager.delete(Banner, [300030, 400029]);
+    await queryRunner.manager.delete(Banner, [300031, 400030]);
   }
 }
