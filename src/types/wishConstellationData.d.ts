@@ -5,7 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface WishSummaryLuckRequest {
-  banner: 'beginners' | 'standard' | 'character-event' | 'weapon-event';
-  rarity: 'legendary' | 'rare';
+export interface WishConstellationData {
+  banner?: number;
+  uid: string;
+  items: [] | [string] | Array<[string, number]>;
 }

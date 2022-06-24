@@ -21,6 +21,44 @@
     },
     "rare": {
       "type": "number"
+    },
+    "rateOffLegendary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "win": {
+          "type": "number"
+        },
+        "lose": {
+          "type": "number"
+        },
+        "maxStreak": {
+          "type": "number"
+        },
+        "currentStreak": {
+          "type": "number"
+        }
+      },
+      "required": ["win", "lose", "maxStreak", "currentStreak"]
+    },
+    "rateOffRare": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "win": {
+          "type": "number"
+        },
+        "lose": {
+          "type": "number"
+        },
+        "maxStreak": {
+          "type": "number"
+        },
+        "currentStreak": {
+          "type": "number"
+        }
+      },
+      "required": ["win", "lose", "maxStreak", "currentStreak"]
     }
   },
   "additionalProperties": false,

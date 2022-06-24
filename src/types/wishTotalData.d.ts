@@ -11,4 +11,16 @@ export interface WishTotalData {
   total: number;
   legendary: number;
   rare: number;
+  rateOffLegendary?: {
+    win: number;
+    lose: number;
+    maxStreak: number;
+    currentStreak: number;
+  };
+  rateOffRare?: {
+    win: number;
+    lose: number;
+    maxStreak: number;
+    currentStreak: number;
+  };
 }

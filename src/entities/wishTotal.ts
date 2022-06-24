@@ -22,4 +22,16 @@ export class WishTotal {
 
   @Column({ type: 'float' })
   rarePercentage: number;
+
+  @Column({ type: 'float', nullable: true })
+  legendaryWinRateOff: number;
+
+  @Column({ type: 'float', nullable: true })
+  rareWinRateOff: number;
+
+  @Column({ nullable: true })
+  legendaryMaxStreak: number;
+
+  @Column({ nullable: true })
+  rareMaxStreak: number;
 }

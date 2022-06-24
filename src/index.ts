@@ -9,6 +9,7 @@ import { Wish } from './entities/wish';
 import { Pull } from './entities/pull';
 import { Reminder } from './entities/reminder';
 import { WishTotal } from './entities/wishTotal';
+import { Constellation } from './entities/constellation';
 
 import { initFirebase } from './services/notification';
 import { startReminderCron } from './services/reminder';
@@ -21,6 +22,7 @@ import './queue/wish';
 import './queue/tally';
 import './queue/wishTotal';
 import './queue/wishSummary';
+import './queue/wishConstellation';
 import './queue/plausible';
 /* eslint-enable import/first */
 
@@ -53,6 +55,7 @@ const dbOptions: PostgresConnectionOptions = {
     Pull,
     Reminder,
     WishTotal,
+    Constellation,
   ],
   synchronize: false,
   logging: false,

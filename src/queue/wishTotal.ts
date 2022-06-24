@@ -27,6 +27,16 @@ async function submitWishTallyTotal(job: Job<WishTotalData>): Promise<void> {
     rarePercentage: data.rare / data.total,
   });
 
+  if (data.rateOffLegendary !== undefined && data.rateOffRare !== undefined) {
+    const { win: w5, lose: l5 } = data.rateOffLegendary;
+    wishTotal.legendaryWinRateOff = w5 / (w5 + l5);
+    const { win: w4, lose: l4 } = data.rateOffRare;
+    wishTotal.rareWinRateOff = w4 / (w4 + l4);
+
+    wishTotal.legendaryMaxStreak = data.rateOffLegendary.maxStreak;
+    wishTotal.rareMaxStreak = data.rateOffRare.maxStreak;
+  }
+
   await wishTotalRepo.save(wishTotal);
 }
 

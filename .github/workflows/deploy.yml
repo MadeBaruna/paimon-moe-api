@@ -52,6 +52,7 @@ jobs:
             echo "TALLY_QUEUE_CONCURRENCY=$TALLY_QUEUE_CONCURRENCY" >> .env
             echo "PLAUSIBLE_URL=$PLAUSIBLE_URL" >> .env
             echo "PLAUSIBLE_TOKEN=$PLAUSIBLE_TOKEN" >> .env
+            echo "HEADER_SECRET=$HEADER_SECRET" >> .env
             echo "PROXY_LOCATION=$PROXY_LOCATION" >> .env
             docker-compose pull
             docker-compose up -d

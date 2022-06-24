@@ -6,14 +6,17 @@ import WishRequestSchema from '../schemas/wishRequest.json';
 import WishTotalDataSchema from '../schemas/wishTotalData.json';
 import WishSummaryRequestSchema from '../schemas/wishSummaryRequest.json';
 import WishSummaryLuckRequestSchema from '../schemas/wishSummaryLuckRequest.json';
+import WishConstellationDataSchema from '../schemas/wishConstellationData.json';
 import { WishRequest } from '../types/wishRequest';
 import { WishData } from '../types/wishData';
 import { WishTotalData } from '../types/wishTotalData';
+import { WishConstellationData } from '../types/wishConstellationData';
 
 import { banners } from '../data/banners';
 import { getWishTallyData } from '../queue/tally';
 import wishTallyQueue from '../queue/wish';
 import wishTotalQueue from '../queue/wishTotal';
+import wishConstellationQueue from '../queue/wishConstellation';
 import { tallyCount } from '../stores/counter';
 import { authorization } from '../hooks/auth';
 import { WishSummaryRequest } from '../types/wishSummaryRequest';
@@ -98,6 +101,19 @@ export default async function (server: FastifyInstance): Promise<void> {
     },
     async function (req, reply) {
       void wishTotalQueue.add(req.body);
+      return { status: 'queued' };
+    },
+  );
+
+  server.post<{ Body: WishConstellationData }>(
+    '/wish/constellation',
+    {
+      schema: {
+        body: WishConstellationDataSchema,
+      },
+    },
+    async function (req, reply) {
+      void wishConstellationQueue.add(req.body);
       return { status: 'queued' };
     },
   );
