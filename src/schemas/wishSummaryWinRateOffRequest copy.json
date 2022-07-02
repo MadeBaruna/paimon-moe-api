@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "banner": {
+      "type": "string",
+      "enum": ["character-event", "weapon-event"]
+    },
+    "rarity": {
+      "type": "string",
+      "enum": ["legendary", "rare"]
+    }
+  },
+  "additionalProperties": false,
+  "required": ["banner", "rarity"]
+}

@@ -21,7 +21,7 @@ import { tallyCount } from '../stores/counter';
 import { authorization } from '../hooks/auth';
 import { WishSummaryRequest } from '../types/wishSummaryRequest';
 import { WishSummaryLuckRequest } from '../types/wishSummaryLuckRequest';
-import { wishSummary, wishSummaryLuck4, wishSummaryLuck5 } from '../stores/wishSummary';
+import { wishSummary, wishSummaryLuck4, wishSummaryLuck5, wishSummaryWinRateOff4, wishSummaryWinRateOff5 } from '../stores/wishSummary';
 
 const LATEST_CHARACTER_BANNER = 300031;
 const LATEST_WEAPON_BANNER = 400030;
@@ -146,6 +146,28 @@ export default async function (server: FastifyInstance): Promise<void> {
         source = wishSummaryLuck5;
       } else {
         source = wishSummaryLuck4;
+      }
+
+      if (source[req.query.banner] === undefined) {
+        throw new HttpErrors.NotFound();
+      }
+      return source[req.query.banner];
+    },
+  );
+
+  server.get<{ Querystring: WishSummaryLuckRequest }>(
+    '/wish/summary/winrateoff',
+    {
+      schema: {
+        querystring: WishSummaryLuckRequestSchema,
+      },
+    },
+    async function (req, reply) {
+      let source = null;
+      if (req.query.rarity === 'legendary') {
+        source = wishSummaryWinRateOff5;
+      } else {
+        source = wishSummaryWinRateOff4;
       }
 
       if (source[req.query.banner] === undefined) {
