@@ -1,6 +1,6 @@
 import Queue, { Job } from 'bull';
 import XXHash from 'xxhash';
-import { getRepository } from 'typeorm';
+import { getManager, getRepository, IsNull } from 'typeorm';
 
 import { WishConstellationData } from '../types/wishConstellationData';
 import { Constellation } from '../entities/constellation';
@@ -33,7 +33,13 @@ async function submitWishTallyConstellation(job: Job<WishConstellationData>): Pr
     constellations.push(constellation);
   }
 
-  await wishConstellationRepo.save(constellations);
+  await getManager().transaction(async (transactionalEntityManager) => {
+    await transactionalEntityManager.delete(Constellation, {
+      uniqueId,
+      banner: data.banner === undefined ? IsNull() : { id: data.banner },
+    });
+    await wishConstellationRepo.save(constellations);
+  });
 }
 
 void queue.process(submitWishTallyConstellation);
