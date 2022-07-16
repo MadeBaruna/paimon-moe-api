@@ -5,6 +5,7 @@ import isBetween from 'dayjs/plugin/isBetween';
 import { getRepository, MoreThan } from 'typeorm';
 import { banners } from '../data/banners';
 import { Banner } from '../entities/banner';
+import { Constellation } from '../entities/constellation';
 import { Pull } from '../entities/pull';
 import { Wish } from '../entities/wish';
 
@@ -31,7 +32,12 @@ export interface WishTallyResult {
   };
 }
 
+export interface WishTallyConsResult {
+  [key: string]: number[];
+}
+
 const calculated: { [key: number]: WishTallyResult } = {};
+const calculatedCons: { [key: number]: WishTallyConsResult } = {};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function calculateWishTally(job: Job<number>): Promise<void> {
@@ -198,10 +204,10 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
     .groupBy('day')
     .addGroupBy('pity')
     .orderBy('day')
-    .getRawMany<{day: string; pity: number; total: number}>();
+    .getRawMany<{ day: string; pity: number; total: number }>();
   const bannerStart = dayjs(banners[id].start);
   const bannerEnd = dayjs(banners[id].end);
-  const pullByDay: Array<{day: string; total: number}> = [];
+  const pullByDay: Array<{ day: string; total: number }> = [];
   let pullByDayTotal = 0;
   let lastDate = '';
   for (const pull of pullByDayData) {
@@ -222,6 +228,47 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   }
 
   const pullByDayPercentage = pullByDay.map(e => ({ day: e.day, percentage: e.total / pullByDayTotal }));
+
+  // calculate const list
+  const constRepo = getRepository(Constellation);
+
+  const constData = await constRepo.createQueryBuilder()
+    .select(['name', '"count" cons', 'count(*) total'])
+    .where({ banner })
+    .groupBy('name')
+    .addGroupBy('cons')
+    .orderBy('name')
+    .getRawMany<{ name: string; cons: number; total: string }>();
+
+  let curName = '';
+  let curTotal = 0;
+  const constFinal: { [key: string]: number[] } = {};
+  for (const { name, cons, total } of constData) {
+    if (curName !== name) {
+      if (curName !== '') {
+        for (let index = 0; index < constFinal[curName].length; index++) {
+          if (constFinal[curName][index] === undefined) {
+            constFinal[curName][index] = 0;
+          }
+        }
+
+        if (curTotal !== 0) {
+          constFinal[curName][7] = curTotal;
+          curTotal = 0;
+        }
+      }
+
+      constFinal[name] = [];
+    }
+
+    curName = name;
+    if (cons - 1 > 6) {
+      curTotal += Number(total);
+      continue;
+    }
+
+    constFinal[curName][cons - 1] = Number(total);
+  }
 
   const result = {
     time,
@@ -251,6 +298,7 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   };
 
   calculated[id] = result;
+  calculatedCons[id] = constFinal;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -293,4 +341,8 @@ queue.on('failed', (job, error) => {
 
 export function getWishTallyData(id: number): WishTallyResult | undefined {
   return calculated[id];
+}
+
+export function getWishTallyConsData(id: number): WishTallyConsResult | undefined {
+  return calculatedCons[id];
 }

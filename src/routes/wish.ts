@@ -13,7 +13,7 @@ import { WishTotalData } from '../types/wishTotalData';
 import { WishConstellationData } from '../types/wishConstellationData';
 
 import { banners } from '../data/banners';
-import { getWishTallyData } from '../queue/tally';
+import { getWishTallyConsData, getWishTallyData } from '../queue/tally';
 import wishTallyQueue from '../queue/wish';
 import wishTotalQueue from '../queue/wishTotal';
 import wishConstellationQueue from '../queue/wishConstellation';
@@ -53,6 +53,29 @@ export default async function (server: FastifyInstance): Promise<void> {
       }
 
       const result = getWishTallyData(req.query.banner);
+      if (result === undefined) {
+        void reply.status(400);
+        throw new Error('data is not available yet');
+      }
+
+      return result;
+    },
+  );
+
+  server.get<{ Querystring: WishRequest }>(
+    '/wish/constellation',
+    {
+      schema: {
+        querystring: WishRequestSchema,
+      },
+    },
+    async function (req, reply) {
+      if (banners[req.query.banner] === undefined) {
+        void reply.status(404);
+        throw new Error('banner not found');
+      }
+
+      const result = getWishTallyConsData(req.query.banner);
       if (result === undefined) {
         void reply.status(400);
         throw new Error('data is not available yet');
