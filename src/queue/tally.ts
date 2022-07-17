@@ -2,10 +2,9 @@ import Queue, { Job } from 'bull';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 
-import { getRepository, MoreThan } from 'typeorm';
+import { getManager, getRepository, MoreThan } from 'typeorm';
 import { banners } from '../data/banners';
 import { Banner } from '../entities/banner';
-import { Constellation } from '../entities/constellation';
 import { Pull } from '../entities/pull';
 import { Wish } from '../entities/wish';
 
@@ -30,14 +29,10 @@ export interface WishTallyResult {
     legendary: number[];
     rare: number[];
   };
-}
-
-export interface WishTallyConsResult {
-  [key: string]: number[];
+  constellation: { [key: string]: number[] };
 }
 
 const calculated: { [key: number]: WishTallyResult } = {};
-const calculatedCons: { [key: number]: WishTallyConsResult } = {};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function calculateWishTally(job: Job<number>): Promise<void> {
@@ -230,14 +225,19 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   const pullByDayPercentage = pullByDay.map(e => ({ day: e.day, percentage: e.total / pullByDayTotal }));
 
   // calculate const list
-  const constRepo = getRepository(Constellation);
-
-  const constData = await constRepo.createQueryBuilder()
-    .select(['name', '"count" cons', 'sum(count) total'])
-    .where({ banner })
+  const constData = await getManager().createQueryBuilder()
+    .select(['name', 'count cons', 'sum(count) total'])
+    .from((subQuery) => {
+      return subQuery.select(['"wishId"', 'name', 'count(*) count'])
+        .from(Pull, 'pull')
+        .where('"bannerId" = :bid', { bid: id })
+        .groupBy('"wishId"')
+        .addGroupBy('name')
+        .orderBy('name')
+        .addOrderBy('count');
+    }, 'sub')
     .groupBy('name')
     .addGroupBy('cons')
-    .orderBy('name')
     .getRawMany<{ name: string; cons: number; total: string }>();
 
   let curName = '';
@@ -295,10 +295,10 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
     },
     countEachPity,
     pullByDay: pullByDayPercentage,
+    constellation: constFinal,
   };
 
   calculated[id] = result;
-  calculatedCons[id] = constFinal;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -341,8 +341,4 @@ queue.on('failed', (job, error) => {
 
 export function getWishTallyData(id: number): WishTallyResult | undefined {
   return calculated[id];
-}
-
-export function getWishTallyConsData(id: number): WishTallyConsResult | undefined {
-  return calculatedCons[id];
 }
