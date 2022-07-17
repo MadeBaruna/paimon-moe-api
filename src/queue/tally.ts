@@ -233,7 +233,7 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   const constRepo = getRepository(Constellation);
 
   const constData = await constRepo.createQueryBuilder()
-    .select(['name', '"count" cons', 'sum(*) total'])
+    .select(['name', '"count" cons', 'sum(count) total'])
     .where({ banner })
     .groupBy('name')
     .addGroupBy('cons')
