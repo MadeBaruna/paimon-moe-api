@@ -100,7 +100,7 @@ export default async function (server: FastifyInstance): Promise<void> {
       },
     },
     async function (req, reply) {
-      void wishTotalQueue.add(req.body);
+      void wishTotalQueue.add(req.body, { removeOnComplete: true });
       return { status: 'queued' };
     },
   );
@@ -113,7 +113,7 @@ export default async function (server: FastifyInstance): Promise<void> {
       },
     },
     async function (req, reply) {
-      void wishConstellationQueue.add(req.body);
+      void wishConstellationQueue.add(req.body, { removeOnComplete: true });
       return { status: 'queued' };
     },
   );

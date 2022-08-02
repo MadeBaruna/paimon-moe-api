@@ -7,6 +7,8 @@ import CorsProxySchema from '../schemas/corsProxy.json';
 import { CorsProxy } from '../types/corsProxy';
 import { errors, proxyresets, getProxy, unassignProxy } from '../stores/proxy';
 import { authorization } from '../hooks/auth';
+import vaultQueue from '../queue/vault';
+import { URL } from 'url';
 
 function fetchResult(url: string, proxy: string) {
   return async () => {
@@ -28,6 +30,19 @@ function fetchResult(url: string, proxy: string) {
       status: response.status,
     };
   };
+}
+
+async function addToVault(url: string, data: any): Promise<void> {
+  try {
+    const u = new URL(url);
+    if (u.hostname.endsWith('hoyoverse.com') || u.hostname.endsWith('mihoyo.com')) {
+      if (Array.isArray(data?.data?.list)) {
+        await vaultQueue.add(data.data.list);
+      }
+    }
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 export default async function (server: FastifyInstance): Promise<void> {
@@ -55,6 +70,7 @@ export default async function (server: FastifyInstance): Promise<void> {
           void unassignProxy(ip);
         }
 
+        void addToVault(url, data);
         void reply.code(status);
         return data;
       } catch (err) {
