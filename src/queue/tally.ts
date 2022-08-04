@@ -270,6 +270,11 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
     constFinal[curName][cons - 1] = Number(total);
   }
 
+  if (curTotal !== 0) {
+    constFinal[curName][7] = curTotal;
+    curTotal = 0;
+  }
+
   const result = {
     time,
     list: legendaryItems,
