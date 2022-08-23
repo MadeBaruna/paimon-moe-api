@@ -366,6 +366,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['yoimiya'],
     featuredRare: ['yun_jin', 'xinyan', 'bennett'],
   },
+  300034: {
+    name: 'Viridescent Vigil',
+    image: 1,
+    shortName: 'Tighnari',
+    start: '2022-08-24 06:00:00',
+    end: '2022-09-09 17:59:59',
+    color: '#76df81',
+    featured: ['tighnari', 'zhongli'],
+    featuredRare: ['collei', 'fischl', 'diona'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -770,5 +781,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['thundering_pulse', 'summit_shaper'],
     featuredRare: ['wine_and_song', 'alley_hunter', 'the_flute', 'sacrificial_greatsword', 'dragons_bane'],
+  },
+  400033: {
+    name: 'Epitome Invocation',
+    image: 33,
+    start: '2022-08-24 06:00:00',
+    end: '2022-09-09 17:59:59',
+    shortName: 'Hunters',
+    color: '#ffb169',
+    featured: ['hunters_path', 'vortex_vanquisher'],
+    featuredRare: ['favonius_sword', 'the_bell', 'favonius_lance', 'favonius_codex', 'the_stringless'],
+    timezoneDependent: true,
   },
 };
