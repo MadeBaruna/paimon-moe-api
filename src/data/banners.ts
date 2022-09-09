@@ -377,6 +377,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['collei', 'fischl', 'diona'],
     timezoneDependent: true,
   },
+  300035: {
+    name: 'Adrift in the Harbor',
+    image: 3,
+    shortName: 'Ganyu',
+    start: '2022-09-09 18:00:00',
+    end: '2022-09-27 14:59:59',
+    color: '#ceebf3',
+    featured: ['ganyu', 'sangonomiya_kokomi'],
+    featuredRare: ['xingqiu', 'sucrose', 'dori'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -792,5 +802,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['hunters_path', 'vortex_vanquisher'],
     featuredRare: ['favonius_sword', 'the_bell', 'favonius_lance', 'favonius_codex', 'the_stringless'],
     timezoneDependent: true,
+  },
+  400034: {
+    name: 'Epitome Invocation',
+    image: 34,
+    start: '2022-09-09 18:00:00',
+    end: '2022-09-27 14:59:59',
+    shortName: 'Amos',
+    color: '#eae5e1',
+    featured: ['amos_bow', 'everlasting_moonglow'],
+    featuredRare: ['sacrificial_sword', 'favonius_greatsword', 'dragons_bane', 'eye_of_perception', 'rust'],
   },
 };
