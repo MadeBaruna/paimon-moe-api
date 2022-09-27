@@ -22,6 +22,7 @@ const defaultLegendaryRewards = [
   'keqing',
   'mona',
   'diluc',
+  'tighnari',
   'skyward_harp',
   'amos_bow',
   'skyward_atlas',

@@ -387,6 +387,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['ganyu', 'sangonomiya_kokomi'],
     featuredRare: ['xingqiu', 'sucrose', 'dori'],
   },
+  300036: {
+    name: 'Twilight Arbiter',
+    image: 1,
+    shortName: 'Cyno',
+    start: '2022-09-28 06:00:00',
+    end: '2022-10-14 17:59:59',
+    color: '#d8b8f7',
+    featured: ['cyno', 'venti'],
+    featuredRare: ['sayu', 'candace', 'kuki_shinobu'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -812,5 +823,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['amos_bow', 'everlasting_moonglow'],
     featuredRare: ['sacrificial_sword', 'favonius_greatsword', 'dragons_bane', 'eye_of_perception', 'rust'],
+  },
+  400035: {
+    name: 'Epitome Invocation',
+    image: 35,
+    start: '2022-09-28 06:00:00',
+    end: '2022-10-14 17:59:59',
+    shortName: 'Scarlet',
+    color: '#ffb169',
+    featured: ['staff_of_the_scarlet_sands', 'elegy_for_the_end'],
+    featuredRare: ['makhaira_aquamarine', 'lions_roar', 'favonius_lance', 'sacrificial_fragments', 'favonius_warbow'],
+    timezoneDependent: true,
   },
 };
