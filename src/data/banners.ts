@@ -398,6 +398,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['sayu', 'candace', 'kuki_shinobu'],
     timezoneDependent: true,
   },
+  300037: {
+    name: 'Twirling Lotus',
+    image: 1,
+    shortName: 'Nilou',
+    start: '2022-10-14 18:00:00',
+    end: '2022-11-01 14:59:59',
+    color: '#b2e0f0',
+    featured: ['nilou', 'albedo'],
+    featuredRare: ['barbara', 'xiangling', 'beidou'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -834,5 +844,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['staff_of_the_scarlet_sands', 'elegy_for_the_end'],
     featuredRare: ['makhaira_aquamarine', 'lions_roar', 'favonius_lance', 'sacrificial_fragments', 'favonius_warbow'],
     timezoneDependent: true,
+  },
+  400036: {
+    name: 'Epitome Invocation',
+    image: 36,
+    start: '2022-10-14 18:00:00',
+    end: '2022-11-01 14:59:59',
+    shortName: 'Nisut',
+    color: '#eae5e1',
+    featured: ['key_of_khaj-nisut', 'primordial_jade_winged-spear'],
+    featuredRare: ['xiphos_moonlight', 'wandering_evenstar', 'rainslasher', 'dragons_bane', 'sacrificial_bow'],
   },
 };
