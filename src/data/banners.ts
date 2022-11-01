@@ -408,6 +408,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['nilou', 'albedo'],
     featuredRare: ['barbara', 'xiangling', 'beidou'],
   },
+  300038: {
+    name: "The Moongrass' Enlightenment",
+    image: 1,
+    shortName: 'Nahida',
+    start: '2022-11-02 06:00:00',
+    end: '2022-11-18 17:59:59',
+    color: '#d8b8f7',
+    featured: ['nahida', 'yoimiya'],
+    featuredRare: ['bennett', 'razor', 'noelle'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -854,5 +864,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['key_of_khaj-nisut', 'primordial_jade_cutter'],
     featuredRare: ['xiphos_moonlight', 'wandering_evenstar', 'rainslasher', 'dragons_bane', 'sacrificial_bow'],
+  },
+  400037: {
+    name: 'Epitome Invocation',
+    image: 37,
+    start: '2022-11-02 06:00:00',
+    end: '2022-11-18 17:59:59',
+    shortName: 'Dreams',
+    color: '#ffb169',
+    featured: ['a_thousand_floating_dreams', 'thundering_pulse'],
+    featuredRare: ['the_flute', 'sacrificial_greatsword', 'favonius_lance', 'the_widsith', 'rust'],
+    timezoneDependent: true,
   },
 };
