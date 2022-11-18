@@ -418,6 +418,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['nahida', 'yoimiya'],
     featuredRare: ['bennett', 'razor', 'noelle'],
   },
+  300039: {
+    name: 'Everbloom Violet',
+    image: 2,
+    shortName: 'Yae Miko',
+    start: '2022-11-18 18:00:00',
+    end: '2022-12-06 14:59:59',
+    color: '#ffd1f9',
+    featured: ['yae_miko', 'tartaglia'],
+    featuredRare: ['thoma', 'shikanoin_heizou', 'layla'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -875,5 +885,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['a_thousand_floating_dreams', 'thundering_pulse'],
     featuredRare: ['the_flute', 'sacrificial_greatsword', 'favonius_lance', 'the_widsith', 'rust'],
     timezoneDependent: true,
+  },
+  400038: {
+    name: 'Epitome Invocation',
+    image: 38,
+    start: '2022-11-18 18:00:00',
+    end: '2022-12-06 14:59:59',
+    shortName: 'Kagura',
+    color: '#eae5e1',
+    featured: ['kaguras_verity', 'polar_star'],
+    featuredRare: ['favonius_sword', 'the_bell', 'dragons_bane', 'favonius_codex', 'the_stringless'],
   },
 };
