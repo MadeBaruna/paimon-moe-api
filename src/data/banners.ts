@@ -428,6 +428,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['yae_miko', 'tartaglia'],
     featuredRare: ['thoma', 'shikanoin_heizou', 'layla'],
   },
+  300040: {
+    name: 'From Ashes Reborn',
+    image: 1,
+    shortName: 'Wanderer',
+    start: '2022-12-07 06:00:00',
+    end: '2022-12-27 17:59:59',
+    color: '#31cae1',
+    featured: ['wanderer', 'arataki_itto'],
+    featuredRare: ['faruzan', 'yanfei', 'gorou'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -895,5 +906,22 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['kaguras_verity', 'polar_star'],
     featuredRare: ['favonius_sword', 'the_bell', 'dragons_bane', 'favonius_codex', 'the_stringless'],
+  },
+  400039: {
+    name: 'Epitome Invocation',
+    image: 39,
+    start: '2022-12-07 06:00:00',
+    end: '2022-12-27 17:59:59',
+    shortName: 'Tulaytullah',
+    color: '#ffb169',
+    featured: ['tulaytullahs_remembrance', 'redhorn_stonethresher'],
+    featuredRare: [
+      'wavebreakers_fin',
+      'sacrificial_sword',
+      'favonius_greatsword',
+      'eye_of_perception',
+      'favonius_warbow',
+    ],
+    timezoneDependent: true,
   },
 };
