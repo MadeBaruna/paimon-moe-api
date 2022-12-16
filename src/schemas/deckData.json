@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "characters": {
+      "type": "object",
+      "minProperties": 3,
+      "maxProperties": 3,
+      "additionalProperties": false,
+      "patternProperties": {
+        "^.{1,100}$": {
+          "type": "number"
+        }
+      }
+    },
+    "actions": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 30,
+      "additionalProperties": false,
+      "patternProperties": {
+        "^.{1,100}$": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "characters",
+    "actions"
+  ]
+}

@@ -10,6 +10,7 @@ import { Pull } from './entities/pull';
 import { Reminder } from './entities/reminder';
 import { WishTotal } from './entities/wishTotal';
 import { Constellation } from './entities/constellation';
+import { Deck } from './entities/deck';
 
 import { initFirebase } from './services/notification';
 import { startReminderCron } from './services/reminder';
@@ -41,6 +42,7 @@ void server.register(import('./routes/corsProxy'));
 void server.register(import('./routes/reminder'));
 void server.register(import('./routes/visitor'));
 void server.register(import('./routes/news'));
+void server.register(import('./routes/tcg'));
 
 const dbOptions: PostgresConnectionOptions = {
   type: 'postgres',
@@ -56,6 +58,7 @@ const dbOptions: PostgresConnectionOptions = {
     Reminder,
     WishTotal,
     Constellation,
+    Deck,
   ],
   synchronize: false,
   logging: false,
