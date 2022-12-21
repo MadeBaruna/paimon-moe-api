@@ -26,10 +26,36 @@ services:
       - /home/baruna/server/proxies:/proxies
 
   postgres:
-    image: postgres:13.3-alpine
+    image: postgres:15.1
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
+    command: 
+      - "postgres"
+      - "-c"
+      - "shared_buffers=12GB"
+      - "-c"
+      - "effective_cache_size=36GB" 
+      - "-c"
+      - "maintenance_work_mem=2GB"
+      - "-c"
+      - "wal_buffers=16MB"
+      - "-c"
+      - "effective_io_concurrency=200"
+      - "-c"
+      - "work_mem=15728kB"
+      - "-c"
+      - "min_wal_size=1GB"
+      - "-c"
+      - "max_wal_size=4GB"
+      - "-c"
+      - "max_worker_processes=8"
+      - "-c"
+      - "max_parallel_workers_per_gather=4"
+      - "-c"
+      - "max_parallel_workers=8"
+      - "-c"
+      - "max_parallel_maintenance_workers=4"
     environment:
       POSTGRES_DB: ${DB_DATABASE}
       POSTGRES_PASSWORD: ${DB_PASSWORD}

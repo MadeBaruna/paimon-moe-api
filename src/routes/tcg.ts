@@ -25,8 +25,8 @@ export default async function (server: FastifyInstance): Promise<void> {
       throw new Error('deck not found');
     }
 
-    deck.views += 1;
-    await deckRepo.save(deck);
+    // deck.views += 1;
+    // await deckRepo.save(deck);
 
     return deck;
   });
