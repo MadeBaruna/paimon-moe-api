@@ -26,7 +26,7 @@ services:
       - /home/baruna/server/proxies:/proxies
 
   postgres:
-    image: postgres:15.1
+    image: postgres:13.9
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
