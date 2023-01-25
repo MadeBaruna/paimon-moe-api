@@ -306,26 +306,28 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   calculated[id] = result;
 }
 
+const LATEST_CHARACTER_BANNER = 300041;
+const LATEST_WEAPON_BANNER = 400040;
+const TOTAL_BANNER = LATEST_CHARACTER_BANNER - 300009;
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function checkWishTally(job: Job<number>): Promise<void> {
-  const now = dayjs();
-  for (const [idv, banner] of Object.entries(banners)) {
-    const id = Number(idv);
-
-    const bannerDate = dayjs(banner.start);
-    if (calculated[id] !== undefined && now.diff(bannerDate, 'day') > 60 && now.diff(dayjs(calculated[id].time), 'hour') < 24) {
-      continue;
-    }
-
-    void queue.add('wish-tally-calculate', id);
+  for (let i = 0; i < 2; i++) {
+    void queue.add('wish-tally-calculate', LATEST_CHARACTER_BANNER - i);
+    void queue.add('wish-tally-calculate', LATEST_WEAPON_BANNER - i);
   }
 }
 
 void queue.process('wish-tally-check', 0, checkWishTally);
 void queue.process('wish-tally-calculate', 1, calculateWishTally);
 
-void queue.add('wish-tally-check', 1);
-void queue.add('wish-tally-check', 1, { repeat: { cron: '0 * * * *' } });
+void queue.add('wish-tally-calculate', LATEST_CHARACTER_BANNER);
+void queue.add('wish-tally-calculate', LATEST_WEAPON_BANNER);
+for (let i = 0; i <= TOTAL_BANNER; i++) {
+  void queue.add('wish-tally-calculate', LATEST_CHARACTER_BANNER - i);
+  void queue.add('wish-tally-calculate', LATEST_WEAPON_BANNER - i);
+}
+void queue.add('wish-tally-check', 1, { repeat: { cron: '0 */2 * * *' } });
 
 queue.on('active', (job) => {
   const time = dayjs().format();
