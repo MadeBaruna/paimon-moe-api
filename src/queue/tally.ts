@@ -327,6 +327,7 @@ for (let i = 0; i <= TOTAL_BANNER; i++) {
   void queue.add('wish-tally-calculate', LATEST_CHARACTER_BANNER - i);
   void queue.add('wish-tally-calculate', LATEST_WEAPON_BANNER - i);
 }
+void queue.add('wish-tally-calculate', 200001);
 void queue.add('wish-tally-check', 1, { repeat: { cron: '0 */2 * * *' } });
 
 queue.on('active', (job) => {

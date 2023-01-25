@@ -24,7 +24,9 @@ services:
     volumes:
       - /home/baruna/server/service_account:/service_account
       - /home/baruna/server/proxies:/proxies
-
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      
   postgres:
     image: postgres:13.9
     restart: always
