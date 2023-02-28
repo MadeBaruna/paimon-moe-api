@@ -470,6 +470,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['hu_tao', 'yelan'],
     featuredRare: ['beidou', 'ningguang', 'xingqiu'],
   },
+  300044: {
+    name: 'Auric Blaze',
+    image: 1,
+    shortName: 'Dehya',
+    start: '2023-03-01 06:00:00',
+    end: '2023-03-21 17:59:59',
+    color: '#FF7966',
+    featured: ['dehya', 'cyno'],
+    featuredRare: ['bennett', 'collei', 'barbara'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -985,5 +996,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['staff_of_homa', 'aqua_simulacra'],
     featuredRare: ['lithic_blade', 'favonius_sword', 'dragons_bane', 'favonius_codex', 'rust'],
+  },
+  400043: {
+    name: 'Epitome Invocation',
+    image: 43,
+    shortName: 'Incision',
+    start: '2023-03-01 06:00:00',
+    end: '2023-03-21 17:59:59',
+    color: '#ffb169',
+    featured: ['beacon_of_the_reed_sea', 'staff_of_the_scarlet_sands'],
+    featuredRare: ['the_alley_flash', 'alley_hunter', 'sacrificial_greatsword', 'dragons_bane', 'eye_of_perception'],
+    timezoneDependent: true,
   },
 };
