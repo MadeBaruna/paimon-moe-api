@@ -481,6 +481,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['bennett', 'collei', 'barbara'],
     timezoneDependent: true,
   },
+  300045: {
+    name: 'The Transcendent One Returns',
+    image: 2,
+    shortName: 'Shenhe',
+    start: '2022-03-21 18:00:00',
+    end: '2022-04-11 14:59:59',
+    color: '#81DDF0',
+    featured: ['shenhe', 'kamisato_ayaka'],
+    featuredRare: ['mika', 'sucrose', 'diona'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1007,5 +1017,21 @@ export const banners: { [key: number]: Banner } = {
     featured: ['beacon_of_the_reed_sea', 'staff_of_the_scarlet_sands'],
     featuredRare: ['the_alley_flash', 'alley_hunter', 'sacrificial_greatsword', 'dragons_bane', 'eye_of_perception'],
     timezoneDependent: true,
+  },
+  400044: {
+    name: 'Epitome Invocation',
+    image: 44,
+    shortName: 'Mistsplitter',
+    start: '2022-03-21 18:00:00',
+    end: '2022-04-11 14:59:59',
+    color: '#b042f5',
+    featured: ['mistsplitter_reforged', 'calamity_queller'],
+    featuredRare: [
+      'wine_and_song',
+      'sacrificial_sword',
+      'the_bell',
+      'favonius_lance',
+      'favonius_warbow',
+    ],
   },
 };
