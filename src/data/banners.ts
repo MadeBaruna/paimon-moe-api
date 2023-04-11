@@ -491,6 +491,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['shenhe', 'kamisato_ayaka'],
     featuredRare: ['diona', 'sucrose', 'mika'],
   },
+  300046: {
+    name: "The Moongrass' Enlightenment",
+    image: 2,
+    shortName: 'Nahida',
+    start: '2023-04-12 06:00:00',
+    end: '2023-05-02 17:59:59',
+    color: '#b8db94',
+    featured: ['nahida', 'nilou'],
+    featuredRare: ['kuki_shinobu', 'dori', 'layla'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1027,5 +1038,22 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['calamity_queller', 'mistsplitter_reforged'],
     featuredRare: ['wine_and_song', 'sacrificial_sword', 'the_bell', 'favonius_lance', 'favonius_warbow'],
+  },
+  400045: {
+    name: 'Epitome Invocation',
+    image: 45,
+    shortName: 'Dreams',
+    start: '2023-04-12 06:00:00',
+    end: '2023-05-02 17:59:59',
+    color: '#eae5e1',
+    featured: ['key_of_khaj-nisut', 'a_thousand_floating_dreams'],
+    featuredRare: [
+      'xiphos_moonlight',
+      'favonius_greatsword',
+      'dragons_bane',
+      'sacrificial_fragments',
+      'the_stringless',
+    ],
+    timezoneDependent: true,
   },
 };
