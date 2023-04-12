@@ -23,6 +23,7 @@ const defaultLegendaryRewards = [
   'mona',
   'diluc',
   'tighnari',
+  'dehya',
   'skyward_harp',
   'amos_bow',
   'skyward_atlas',
