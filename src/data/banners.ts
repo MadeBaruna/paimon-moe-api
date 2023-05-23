@@ -512,6 +512,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['baizhu', 'ganyu'],
     featuredRare: ['kaveh', 'candace', 'fischl'],
   },
+  300048: {
+    name: 'Tapestry of Golden Flames',
+    image: 4,
+    shortName: 'Yoimiya',
+    start: '2023-05-24 06:00:00',
+    end: '2023-06-13 17:59:59',
+    color: '#fc8976',
+    featured: ['yoimiya', 'yae_miko'],
+    featuredRare: ['kirara', 'yun_jin', 'chongyun'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1075,5 +1086,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['jadefalls_splendor', 'amos_bow'],
     featuredRare: ['makhaira_aquamarine', 'wandering_evenstar', 'lions_roar', 'favonius_lance', 'sacrificial_bow'],
+  },
+  400047: {
+    name: 'Epitome Invocation',
+    image: 47,
+    shortName: 'Thundering',
+    start: '2023-05-24 06:00:00',
+    end: '2023-06-13 17:59:59',
+    color: '#ffb169',
+    featured: ['thundering_pulse', 'kaguras_verity'],
+    featuredRare: ['akuoumaru', 'the_flute', 'dragons_bane', 'the_widsith', 'rust'],
+    timezoneDependent: true,
   },
 };

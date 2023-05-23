@@ -30,6 +30,7 @@ import './queue/plausible';
 const server = fastify({
   logger: { level: 'error' },
   connectionTimeout: 30000,
+  trustProxy: ['127.0.0.1', '172.16.0.0/12'],
 });
 
 void server.register(import('fastify-cors'), {
