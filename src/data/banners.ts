@@ -523,6 +523,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['kirara', 'yun_jin', 'chongyun'],
     timezoneDependent: true,
   },
+  300049: {
+    name: 'Caution in Confidence',
+    image: 2,
+    shortName: 'Alhaitham',
+    start: '2023-06-13 18:00:00',
+    end: '2023-07-04 14:59:59',
+    color: '#5bcbd1',
+    featured: ['alhaitham', 'kaedehara_kazuha'],
+    featuredRare: ['yaoyao', 'shikanoin_heizou', 'xiangling'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1097,5 +1107,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['thundering_pulse', 'kaguras_verity'],
     featuredRare: ['akuoumaru', 'the_flute', 'dragons_bane', 'the_widsith', 'rust'],
     timezoneDependent: true,
+  },
+  400048: {
+    name: 'Epitome Invocation',
+    image: 48,
+    shortName: 'Freedom',
+    start: '2023-06-13 18:00:00',
+    end: '2023-07-04 14:59:59',
+    color: '#eae5e1',
+    featured: ['freedom-sworn', 'light_of_foliar_incision'],
+    featuredRare: ['wavebreakers_fin', 'mouuns_moon', 'favonius_sword', 'sacrificial_greatsword', 'favonius_codex'],
   },
 };
