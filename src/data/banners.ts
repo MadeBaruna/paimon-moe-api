@@ -533,6 +533,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['alhaitham', 'kaedehara_kazuha'],
     featuredRare: ['yaoyao', 'shikanoin_heizou', 'xiangling'],
   },
+  300050: {
+    name: 'Born of Ocean Swell',
+    image: 3,
+    shortName: 'Eula',
+    start: '2023-07-05 06:00:00',
+    end: '2023-07-25 17:59:59',
+    color: '#A6D6E0',
+    featured: ['eula', 'klee'],
+    featuredRare: ['mika', 'razor', 'thoma'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1117,5 +1127,15 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['freedom-sworn', 'light_of_foliar_incision'],
     featuredRare: ['wavebreakers_fin', 'mouuns_moon', 'favonius_sword', 'sacrificial_greatsword', 'favonius_codex'],
+  },
+  400049: {
+    name: 'Epitome Invocation',
+    image: 49,
+    shortName: 'Freedom',
+    start: '2023-07-05 06:00:00',
+    end: '2023-07-25 17:59:59',
+    color: '#ffb169',
+    featured: ['song_of_broken_pines', 'lost_prayer_to_the_sacred_winds'],
+    featuredRare: ['the_alley_flash', 'alley_hunter', 'rainslasher', 'favonius_lance', 'eye_of_perception'],
   },
 };
