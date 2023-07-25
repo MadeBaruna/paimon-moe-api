@@ -542,6 +542,17 @@ export const banners: { [key: number]: Banner } = {
     color: '#A6D6E0',
     featured: ['eula', 'klee'],
     featuredRare: ['mika', 'razor', 'thoma'],
+    timezoneDependent: true,
+  },
+  300051: {
+    name: 'Drifting Luminescence',
+    image: 4,
+    shortName: 'Kokomi',
+    start: '2023-07-25 18:00:00',
+    end: '2023-08-15 17:59:59',
+    color: '#53caf3',
+    featured: ['sangonomiya_kokomi', 'wanderer'],
+    featuredRare: ['yanfei', 'faruzan', 'rosaria'],
   },
 
   400001: {
@@ -1137,5 +1148,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#ffb169',
     featured: ['song_of_broken_pines', 'lost_prayer_to_the_sacred_winds'],
     featuredRare: ['the_alley_flash', 'alley_hunter', 'rainslasher', 'favonius_lance', 'eye_of_perception'],
+    timezoneDependent: true,
+  },
+  400050: {
+    name: 'Epitome Invocation',
+    image: 50,
+    shortName: 'Moonglow',
+    start: '2023-07-25 18:00:00',
+    end: '2023-08-15 17:59:59',
+    color: '#eae5e1',
+    featured: ['everlasting_moonglow', 'tulaytullahs_remembrance'],
+    featuredRare: ['wine_and_song', 'lions_roar', 'the_bell', 'dragons_bane', 'favonius_warbow'],
   },
 };
