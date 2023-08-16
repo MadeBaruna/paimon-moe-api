@@ -554,6 +554,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['sangonomiya_kokomi', 'wanderer'],
     featuredRare: ['yanfei', 'faruzan', 'rosaria'],
   },
+  300052: {
+    name: 'Conjuring Chiaroscuro',
+    image: 1,
+    shortName: 'Lyney',
+    start: '2023-08-16 06:00:00',
+    end: '2023-09-05 17:59:59',
+    color: '#fcc6c8',
+    featured: ['lyney', 'yelan'],
+    featuredRare: ['bennett', 'barbara', 'lynette'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1159,5 +1170,22 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['everlasting_moonglow', 'tulaytullahs_remembrance'],
     featuredRare: ['wine_and_song', 'lions_roar', 'the_bell', 'dragons_bane', 'favonius_warbow'],
+  },
+  400051: {
+    name: 'Epitome Invocation',
+    image: 51,
+    shortName: 'Great Magic',
+    start: '2023-08-16 06:00:00',
+    end: '2023-09-05 17:59:59',
+    color: '#ffb169',
+    featured: ['the_first_great_magic', 'aqua_simulacra'],
+    featuredRare: [
+      'sacrificial_sword',
+      'favonius_greatsword',
+      'favonius_lance',
+      'sacrificial_fragments',
+      'sacrificial_bow',
+    ],
+    timezoneDependent: true,
   },
 };
