@@ -565,6 +565,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['bennett', 'barbara', 'lynette'],
     timezoneDependent: true,
   },
+  300053: {
+    name: 'Gentry of Hermitage',
+    image: 5,
+    shortName: 'Zhongli',
+    start: '2023-09-05 18:00:00',
+    end: '2023-09-26 14:59:59',
+    color: '#D1A55C',
+    featured: ['tartaglia', 'zhongli'],
+    featuredRare: ['freminet', 'sayu', 'noelle'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1187,5 +1197,15 @@ export const banners: { [key: number]: Banner } = {
       'sacrificial_bow',
     ],
     timezoneDependent: true,
+  },
+  400052: {
+    name: 'Epitome Invocation',
+    image: 52,
+    shortName: 'Polar',
+    start: '2023-09-05 18:00:00',
+    end: '2023-09-26 14:59:59',
+    color: '#eae5e1',
+    featured: ['polar_star', 'vortex_vanquisher'],
+    featuredRare: ['the_flute', 'sacrificial_greatsword', 'dragons_bane', 'the_widsith', 'rust'],
   },
 };
