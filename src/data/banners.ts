@@ -575,6 +575,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['tartaglia', 'zhongli'],
     featuredRare: ['freminet', 'sayu', 'noelle'],
   },
+  300054: {
+    name: 'Decree of the Deeps',
+    image: 1,
+    shortName: 'Neuvillette',
+    start: '2023-09-27 06:00:00',
+    end: '2023-10-17 17:59:59',
+    color: '#D1A55C',
+    featured: ['neuvillette', 'hu_tao'],
+    featuredRare: ['fischl', 'xingqiu', 'diona'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1207,5 +1218,22 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['polar_star', 'vortex_vanquisher'],
     featuredRare: ['the_flute', 'sacrificial_greatsword', 'dragons_bane', 'the_widsith', 'rust'],
+  },
+  400053: {
+    name: 'Epitome Invocation',
+    image: 53,
+    shortName: 'Polar',
+    start: '2023-09-27 06:00:00',
+    end: '2023-10-17 17:59:59',
+    color: '#ffb169',
+    featured: ['tome_of_the_eternal_flow', 'staff_of_homa'],
+    featuredRare: [
+      'the_dockhands_assistant',
+      'portable_power_saw',
+      'mitternachts_waltz',
+      'favonius_lance',
+      'favonius_codex',
+    ],
+    timezoneDependent: true,
   },
 };
