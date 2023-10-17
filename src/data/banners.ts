@@ -586,6 +586,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['fischl', 'xingqiu', 'diona'],
     timezoneDependent: true,
   },
+  300055: {
+    name: 'Tempestuous Destiny',
+    image: 1,
+    shortName: 'Wriothesley',
+    start: '2023-10-17 18:00:00',
+    end: '2023-11-17 14:59:59',
+    color: '#b3d7f1',
+    featured: ['wriothesley', 'venti'],
+    featuredRare: ['chongyun', 'thoma', 'dori'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1235,5 +1245,15 @@ export const banners: { [key: number]: Banner } = {
       'favonius_codex',
     ],
     timezoneDependent: true,
+  },
+  400054: {
+    name: 'Epitome Invocation',
+    image: 54,
+    shortName: 'Polar',
+    start: '2023-10-17 18:00:00',
+    end: '2023-11-17 14:59:59',
+    color: '#eae5e1',
+    featured: ['cashflow_supervision', 'elegy_for_the_end'],
+    featuredRare: ['prospectors_drill', 'range_gauge', 'favonius_sword', 'rainslasher', 'eye_of_perception'],
   },
 };
