@@ -596,6 +596,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['wriothesley', 'venti'],
     featuredRare: ['chongyun', 'thoma', 'dori'],
   },
+  300056: {
+    name: 'Chanson of Many Waters',
+    image: 1,
+    shortName: 'Furina',
+    start: '2023-11-08 06:00:00',
+    end: '2023-11-28 17:59:59',
+    color: '#95d6fb',
+    featured: ['furina', 'baizhu'],
+    featuredRare: ['charlotte', 'collei', 'beidou'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1255,5 +1266,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['cashflow_supervision', 'elegy_for_the_end'],
     featuredRare: ['prospectors_drill', 'range_gauge', 'favonius_sword', 'rainslasher', 'eye_of_perception'],
+  },
+  400055: {
+    name: 'Epitome Invocation',
+    image: 55,
+    shortName: 'Tranquil',
+    start: '2023-11-08 06:00:00',
+    end: '2023-11-28 17:59:59',
+    color: '#ffb169',
+    featured: ['splendor_of_tranquil_waters', 'jadefalls_splendor'],
+    featuredRare: ['sacrificial_sword', 'the_bell', 'dragons_bane', 'sacrificial_fragments', 'the_stringless'],
+    timezoneDependent: true,
   },
 };
