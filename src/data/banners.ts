@@ -617,6 +617,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['cyno', 'kamisato_ayato'],
     featuredRare: ['kuki_shinobu', 'xiangling', 'kirara'],
   },
+  300058: {
+    name: 'In the Name of the Rosula',
+    image: 1,
+    shortName: 'Navia',
+    start: '2023-12-20 06:00:00',
+    end: '2024-01-09 17:59:59',
+    color: '#f6e195',
+    featured: ['navia', 'kamisato_ayaka'],
+    featuredRare: ['sucrose', 'candace', 'rosaria'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1297,5 +1308,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['staff_of_the_scarlet_sands', 'haran_geppaku_futsu'],
     featuredRare: ['lions_roar', 'the_widsith', 'favonius_warbow', 'favonius_greatsword', 'favonius_lance'],
+  },
+  400057: {
+    name: 'Epitome Invocation',
+    image: 57,
+    shortName: 'Verdict',
+    start: '2023-12-20 06:00:00',
+    end: '2024-01-09 17:59:59',
+    color: '#ffb169',
+    featured: ['verdict', 'mistsplitter_reforged'],
+    featuredRare: ['akuoumaru', 'mouuns_moon', 'the_flute', 'dragons_bane', 'favonius_codex'],
+    timezoneDependent: true,
   },
 };
