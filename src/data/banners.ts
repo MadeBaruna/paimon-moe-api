@@ -628,6 +628,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['sucrose', 'candace', 'rosaria'],
     timezoneDependent: true,
   },
+  300059: {
+    name: 'Reign of Serenity',
+    image: 4,
+    shortName: 'Raiden',
+    start: '2024-01-09 18:00:00',
+    end: '2024-01-30 14:59:00',
+    color: '#D0AEF2',
+    featured: ['raiden_shogun', 'yoimiya'],
+    featuredRare: ['bennett', 'kujou_sara', 'chevreuse'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1319,5 +1329,15 @@ export const banners: { [key: number]: Banner } = {
     featured: ['verdict', 'mistsplitter_reforged'],
     featuredRare: ['akuoumaru', 'mouuns_moon', 'the_flute', 'dragons_bane', 'favonius_codex'],
     timezoneDependent: true,
+  },
+  400058: {
+    name: 'Epitome Invocation',
+    image: 58,
+    shortName: 'Engulfing',
+    start: '2024-01-09 18:00:00',
+    end: '2024-01-30 14:59:00',
+    color: '#eae5e1',
+    featured: ['engulfing_lightning', 'thundering_pulse'],
+    featuredRare: ['wavebreakers_fin', 'favonius_sword', 'rainslasher', 'eye_of_perception', 'rust'],
   },
 };
