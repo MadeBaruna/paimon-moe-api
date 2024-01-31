@@ -638,6 +638,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['raiden_shogun', 'yoimiya'],
     featuredRare: ['bennett', 'kujou_sara', 'chevreuse'],
   },
+  300060: {
+    name: 'The Crane Soars Skyward',
+    image: 1,
+    shortName: 'Xianyun',
+    start: '2024-01-31 06:00:00',
+    end: '2024-02-20 17:59:00',
+    color: '#affcd1',
+    featured: ['xianyun', 'nahida'],
+    featuredRare: ['gaming', 'faruzan', 'noelle'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1339,5 +1350,22 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['engulfing_lightning', 'thundering_pulse'],
     featuredRare: ['wavebreakers_fin', 'favonius_sword', 'rainslasher', 'eye_of_perception', 'rust'],
+  },
+  400059: {
+    name: 'Epitome Invocation',
+    image: 60,
+    shortName: 'Crane',
+    start: '2024-01-31 06:00:00',
+    end: '2024-02-20 17:59:00',
+    color: '#ffb169',
+    featured: ['cranes_echoing_call', 'a_thousand_floating_dreams'],
+    featuredRare: [
+      'lithic_spear',
+      'sacrificial_sword',
+      'sacrificial_greatsword',
+      'sacrificial_fragments',
+      'sacrificial_bow',
+    ],
+    timezoneDependent: true,
   },
 };
