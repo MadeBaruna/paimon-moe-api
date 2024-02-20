@@ -649,6 +649,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['gaming', 'faruzan', 'noelle'],
     timezoneDependent: true,
   },
+  300061: {
+    name: 'Invitation to Mundane Life',
+    image: 5,
+    shortName: 'Xiao',
+    start: '2024-02-20 18:00:00',
+    end: '2024-03-12 14:59:00',
+    color: '#25d7b8',
+    featured: ['xiao', 'yae_miko'],
+    featuredRare: ['yaoyao', 'xinyan', 'ningguang'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1367,5 +1377,15 @@ export const banners: { [key: number]: Banner } = {
       'sacrificial_bow',
     ],
     timezoneDependent: true,
+  },
+  400060: {
+    name: 'Epitome Invocation',
+    image: 60,
+    shortName: 'Primordial',
+    start: '2024-02-20 18:00:00',
+    end: '2024-03-12 14:59:00',
+    color: '#eae5e1',
+    featured: ['primordial_jade_winged-spear', 'kaguras_verity'],
+    featuredRare: ['lithic_blade', 'lions_roar', 'favonius_lance', 'the_widsith', 'the_stringless'],
   },
 };
