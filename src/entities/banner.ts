@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm';
 import { Pull } from './pull';
 import { Wish } from './wish';
 
-export type BannerType = 'beginners' | 'standard' | 'characters' | 'weapons';
+export type BannerType = 'beginners' | 'standard' | 'characters' | 'weapons' | 'chronicled';
 
 @Entity()
 export class Banner {
@@ -14,7 +14,7 @@ export class Banner {
 
   @Column({
     type: 'enum',
-    enum: ['beginners', 'standard', 'characters', 'weapons'],
+    enum: ['beginners', 'standard', 'characters', 'weapons', 'chronicled'],
   })
   type: BannerType;
 
