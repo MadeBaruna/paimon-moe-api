@@ -308,6 +308,7 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
 
 const LATEST_CHARACTER_BANNER = 300062;
 const LATEST_WEAPON_BANNER = 400061;
+const LATEST_CHRONICLED_BANNER = 500001;
 const TOTAL_BANNER = LATEST_CHARACTER_BANNER - 300009;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -316,6 +317,7 @@ async function checkWishTally(job: Job<number>): Promise<void> {
     void queue.add('wish-tally-calculate', LATEST_CHARACTER_BANNER - i);
     void queue.add('wish-tally-calculate', LATEST_WEAPON_BANNER - i);
   }
+  void queue.add('wish-tally-calculate', LATEST_CHRONICLED_BANNER);
 }
 
 void queue.process('wish-tally-check', 0, checkWishTally);
@@ -323,6 +325,7 @@ void queue.process('wish-tally-calculate', 1, calculateWishTally);
 
 void queue.add('wish-tally-calculate', LATEST_CHARACTER_BANNER);
 void queue.add('wish-tally-calculate', LATEST_WEAPON_BANNER);
+void queue.add('wish-tally-calculate', LATEST_CHRONICLED_BANNER);
 for (let i = 0; i <= TOTAL_BANNER; i++) {
   void queue.add('wish-tally-calculate', LATEST_CHARACTER_BANNER - i);
   void queue.add('wish-tally-calculate', LATEST_WEAPON_BANNER - i);
