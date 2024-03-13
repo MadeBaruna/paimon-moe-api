@@ -65,6 +65,7 @@ const dbOptions: PostgresConnectionOptions = {
   logging: false,
   migrations: ['migrations/*.*'],
   migrationsRun: true,
+  migrationsTransactionMode: 'each',
 };
 
 async function start(): Promise<void> {
