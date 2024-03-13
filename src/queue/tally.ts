@@ -306,8 +306,8 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   calculated[id] = result;
 }
 
-const LATEST_CHARACTER_BANNER = 300061;
-const LATEST_WEAPON_BANNER = 400060;
+const LATEST_CHARACTER_BANNER = 300062;
+const LATEST_WEAPON_BANNER = 400061;
 const TOTAL_BANNER = LATEST_CHARACTER_BANNER - 300009;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -659,6 +659,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['xiao', 'yae_miko'],
     featuredRare: ['yaoyao', 'xinyan', 'ningguang'],
   },
+  300062: {
+    name: 'Of Silken Clouds Woven',
+    image: 1,
+    shortName: 'Chiori',
+    start: '2024-03-13 06:00:00',
+    end: '2024-04-02 17:59:00',
+    color: '#ffbd34',
+    featured: ['chiori', 'arataki_itto'],
+    featuredRare: ['yun_jin', 'gorou', 'dori'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1387,5 +1398,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['primordial_jade_winged-spear', 'kaguras_verity'],
     featuredRare: ['lithic_blade', 'lions_roar', 'favonius_lance', 'the_widsith', 'the_stringless'],
+  },
+  400061: {
+    name: 'Epitome Invocation',
+    image: 61,
+    shortName: 'Misugiri',
+    start: '2024-03-13 06:00:00',
+    end: '2024-04-02 17:59:00',
+    color: '#ffb169',
+    featured: ['uraku_misugiri', 'redhorn_stonethresher'],
+    featuredRare: ['the_alley_flash', 'alley_hunter', 'the_bell', 'dragons_bane', 'favonius_codex'],
+    timezoneDependent: true,
   },
 };
