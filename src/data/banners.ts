@@ -680,6 +680,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['neuvillette', 'kaedehara_kazuha'],
     featuredRare: ['barbara', 'xingqiu', 'yanfei'],
   },
+  300064: {
+    name: "The Hearth's Ashen Shadow",
+    image: 1,
+    shortName: 'Arlecchino',
+    start: '2024-04-24 06:00:00',
+    end: '2024-05-14 17:59:00',
+    color: '#f8f8f8',
+    featured: ['arlecchino', 'lyney'],
+    featuredRare: ['freminet', 'lynette', 'xiangling'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1429,6 +1440,23 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['tome_of_the_eternal_flow', 'freedom-sworn'],
     featuredRare: ['wine_and_song', 'mitternachts_waltz', 'the_flute', 'favonius_greatsword', 'favonius_lance'],
+  },
+  400063: {
+    name: 'Epitome Invocation',
+    image: 63,
+    shortName: 'Crimson',
+    start: '2024-04-24 06:00:00',
+    end: '2024-05-14 17:59:00',
+    color: '#ffb169',
+    featured: ['crimson_moons_semblance', 'the_first_great_magic'],
+    featuredRare: [
+      'the_dockhands_assistant',
+      'portable_power_saw',
+      'dragons_bane',
+      'eye_of_perception',
+      'favonius_warbow',
+    ],
+    timezoneDependent: true,
   },
 
   500001: {
