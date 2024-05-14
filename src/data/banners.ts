@@ -691,6 +691,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['freminet', 'lynette', 'xiangling'],
     timezoneDependent: true,
   },
+  300065: {
+    name: 'From Ashes Reborn',
+    image: 3,
+    shortName: 'Wanderer',
+    start: '2024-05-14 18:00:00',
+    end: '2024-06-04 14:59:00',
+    color: '#31cae1',
+    featured: ['wanderer', 'baizhu'],
+    featuredRare: ['layla', 'faruzan', 'beidou'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1457,6 +1467,16 @@ export const banners: { [key: number]: Banner } = {
       'favonius_warbow',
     ],
     timezoneDependent: true,
+  },
+  400064: {
+    name: 'Epitome Invocation',
+    image: 64,
+    shortName: 'Tulaytullah',
+    start: '2024-05-14 18:00:00',
+    end: '2024-06-04 14:59:00',
+    color: '#eae5e1',
+    featured: ['tulaytullahs_remembrance', 'jadefalls_splendor'],
+    featuredRare: ['prospectors_drill', 'range_gauge', 'favonius_sword', 'rainslasher', 'sacrificial_fragments'],
   },
 
   500001: {
