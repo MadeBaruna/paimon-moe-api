@@ -701,6 +701,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['wanderer', 'baizhu'],
     featuredRare: ['layla', 'faruzan', 'beidou'],
   },
+  300066: {
+    name: 'Illuminating Lightning',
+    image: 1,
+    shortName: 'Clorinde',
+    start: '2024-06-05 06:00:00',
+    end: '2024-06-25 17:59:00',
+    color: '#6968ff',
+    featured: ['clorinde', 'alhaitham'],
+    featuredRare: ['sethos', 'bennett', 'thoma'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1477,6 +1488,17 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['tulaytullahs_remembrance', 'jadefalls_splendor'],
     featuredRare: ['prospectors_drill', 'range_gauge', 'favonius_sword', 'rainslasher', 'sacrificial_fragments'],
+  },
+  400065: {
+    name: 'Epitome Invocation',
+    image: 65,
+    shortName: 'Absolution',
+    start: '2024-06-05 06:00:00',
+    end: '2024-06-25 17:59:00',
+    color: '#ffb169',
+    featured: ['absolution', 'light_of_foliar_incision'],
+    featuredRare: ['lithic_spear', 'sacrificial_sword', 'sacrificial_greatsword', 'the_widsith', 'the_stringless'],
+    timezoneDependent: true,
   },
 
   500001: {
