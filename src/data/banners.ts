@@ -712,6 +712,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['sethos', 'bennett', 'thoma'],
     timezoneDependent: true,
   },
+  300067: {
+    name: 'Romaritime Meluserenity',
+    image: 1,
+    shortName: 'Sigewinne',
+    start: '2024-06-25 18:00:00',
+    end: '2024-07-16 14:59:00',
+    color: '#fadbf8',
+    featured: ['sigewinne', 'furina'],
+    featuredRare: ['noelle', 'gaming', 'rosaria'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1499,6 +1509,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['absolution', 'light_of_foliar_incision'],
     featuredRare: ['lithic_spear', 'sacrificial_sword', 'sacrificial_greatsword', 'the_widsith', 'the_stringless'],
     timezoneDependent: true,
+  },
+  400066: {
+    name: 'Epitome Invocation',
+    image: 66,
+    shortName: 'Silvershower',
+    start: '2024-06-25 18:00:00',
+    end: '2024-07-16 14:59:00',
+    color: '#eae5e1',
+    featured: ['silvershower_heartstrings', 'splendor_of_tranquil_waters'],
+    featuredRare: ['lithic_blade', 'lions_roar', 'favonius_lance', 'favonius_codex', 'sacrificial_bow'],
   },
 
   500001: {
