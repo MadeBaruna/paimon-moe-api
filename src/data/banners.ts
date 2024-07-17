@@ -722,6 +722,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['sigewinne', 'furina'],
     featuredRare: ['noelle', 'gaming', 'rosaria'],
   },
+  300068: {
+    name: 'In the Name of the Rosula',
+    image: 2,
+    shortName: 'Navia',
+    start: '2024-07-17 06:00:00',
+    end: '2024-08-06 17:59:00',
+    color: '#fadbf8',
+    featured: ['navia', 'nilou'],
+    featuredRare: ['kirara', 'kaveh', 'ningguang'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1519,6 +1530,17 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['silvershower_heartstrings', 'splendor_of_tranquil_waters'],
     featuredRare: ['lithic_blade', 'lions_roar', 'favonius_lance', 'favonius_codex', 'sacrificial_bow'],
+  },
+  400067: {
+    name: 'Epitome Invocation',
+    image: 67,
+    shortName: 'Verdict',
+    start: '2024-07-17 06:00:00',
+    end: '2024-08-06 17:59:00',
+    color: '#eae5e1',
+    featured: ['verdict', 'key_of_khaj-nisut'],
+    featuredRare: ['xiphos_moonlight', 'the_bell', 'dragons_bane', 'eye_of_perception', 'rust'],
+    timezoneDependent: true,
   },
 
   500001: {
