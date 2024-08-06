@@ -733,6 +733,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['kirara', 'kaveh', 'ningguang'],
     timezoneDependent: true,
   },
+  300069: {
+    name: 'Ambrosial Essence',
+    image: 1,
+    shortName: 'Emilie',
+    start: '2024-08-06 18:00:00',
+    end: '2024-08-27 14:59:00',
+    color: '#cde8a4',
+    featured: ['emilie', 'yelan'],
+    featuredRare: ['yanfei', 'xiangling', 'razor'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1541,6 +1551,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['verdict', 'key_of_khaj-nisut'],
     featuredRare: ['xiphos_moonlight', 'the_bell', 'dragons_bane', 'eye_of_perception', 'rust'],
     timezoneDependent: true,
+  },
+  400068: {
+    name: 'Epitome Invocation',
+    image: 68,
+    shortName: 'Lumidouce',
+    start: '2024-08-06 18:00:00',
+    end: '2024-08-27 14:59:00',
+    color: '#eae5e1',
+    featured: ['lumidouce_elegy', 'aqua_simulacra'],
+    featuredRare: ['makhaira_aquamarine', 'wandering_evenstar', 'the_flute', 'favonius_lance', 'favonius_warbow'],
   },
 
   500001: {
