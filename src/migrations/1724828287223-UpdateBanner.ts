@@ -3,16 +3,16 @@ import { Banner } from '../entities/banner';
 
 const banners = {
   characters: {
-    name: 'Ambrosial Essence',
-    start: '2024-08-06 18:00:00',
-    end: '2024-08-27 14:59:00',
-    id: 300069,
+    name: 'Sharktacular Surfari',
+    start: '2024-08-28 06:00:00',
+    end: '2024-09-17 17:59:00',
+    id: 300070,
   },
   weapons: {
     name: 'Epitome Invocation',
-    start: '2024-08-06 18:00:00',
-    end: '2024-08-27 14:59:00',
-    id: 400068,
+    start: '2024-08-28 06:00:00',
+    end: '2024-09-17 17:59:00',
+    id: 400069,
   },
 };
 
