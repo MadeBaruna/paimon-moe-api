@@ -754,6 +754,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['kachina', 'xinyan', 'bennett'],
     timezoneDependent: true,
   },
+  300071: {
+    name: 'Seeker of Flame-Wrought Secrets',
+    image: 1,
+    shortName: 'Kinich',
+    start: '2024-09-17 18:00:00',
+    end: '2024-10-08 14:59:00',
+    color: '#53dcb9',
+    featured: ['kinich', 'raiden_shogun'],
+    featuredRare: ['thoma', 'kujou_sara', 'chevreuse'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1589,6 +1599,16 @@ export const banners: { [key: number]: Banner } = {
       'the_stringless',
     ],
     timezoneDependent: true,
+  },
+  400070: {
+    name: 'Epitome Invocation',
+    image: 70,
+    shortName: 'Mountain King',
+    start: '2024-09-17 18:00:00',
+    end: '2024-10-08 14:59:00',
+    color: '#eae5e1',
+    featured: ['fang_of_the_mountain_king', 'engulfing_lightning'],
+    featuredRare: ['sacrificial_sword', 'rainslasher', 'favonius_lance', 'the_widsith', 'sacrificial_bow'],
   },
 
   500001: {
