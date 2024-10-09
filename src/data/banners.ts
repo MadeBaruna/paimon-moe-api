@@ -1629,7 +1629,7 @@ export const banners: { [key: number]: Banner } = {
     end: '2024-10-29 17:59:00',
     color: '#eae5e1',
     featured: ['peak_patrol_song', 'uraku_misugiri'],
-    featuredRare: ['sturdy_bone', 'bracing_bolt', 'sacrificial_greatsword', 'favonius_codex', 'rust'],
+    featuredRare: ['sturdy_bone', 'mountain-bracing_bolt', 'sacrificial_greatsword', 'favonius_codex', 'rust'],
     timezoneDependent: true,
   },
 
