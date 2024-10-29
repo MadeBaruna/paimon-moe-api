@@ -775,6 +775,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['dori', 'candace', 'collei'],
     timezoneDependent: true,
   },
+  300073: {
+    name: "The Moongrass' Enlightenment",
+    image: 4,
+    shortName: 'Nahida',
+    start: '2024-10-29 18:00:00',
+    end: '2024-11-19 14:59:00',
+    color: '#b8db94',
+    featured: ['nahida', 'hu_tao'],
+    featuredRare: ['sethos', 'xingqiu', 'kuki_shinobu'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1631,6 +1641,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['peak_patrol_song', 'uraku_misugiri'],
     featuredRare: ['sturdy_bone', 'mountain-bracing_bolt', 'sacrificial_greatsword', 'favonius_codex', 'rust'],
     timezoneDependent: true,
+  },
+  400072: {
+    name: 'Epitome Invocation',
+    image: 72,
+    shortName: 'Dreams',
+    start: '2024-10-29 18:00:00',
+    end: '2024-11-19 14:59:00',
+    color: '#eae5e1',
+    featured: ['a_thousand_floating_dreams', 'staff_of_homa'],
+    featuredRare: ['fruitful_hook', 'lions_roar', 'dragons_bane', 'eye_of_perception', 'favonius_warbow'],
   },
 
   500001: {

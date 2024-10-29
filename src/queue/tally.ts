@@ -306,8 +306,8 @@ async function calculateWishTally(job: Job<number>): Promise<void> {
   calculated[id] = result;
 }
 
-const LATEST_CHARACTER_BANNER = 300072;
-const LATEST_WEAPON_BANNER = 400071;
+const LATEST_CHARACTER_BANNER = 300073;
+const LATEST_WEAPON_BANNER = 400072;
 const LATEST_CHRONICLED_BANNER = 500001;
 const TOTAL_BANNER = LATEST_CHARACTER_BANNER - 300009;
 
