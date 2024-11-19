@@ -785,6 +785,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['nahida', 'hu_tao'],
     featuredRare: ['sethos', 'xingqiu', 'kuki_shinobu'],
   },
+  300074: {
+    name: "Piercing Shot's Crimson Wake",
+    image: 1,
+    shortName: 'Chasca',
+    start: '2024-11-20 06:00:00',
+    end: '2024-12-10 17:59:00',
+    color: '#fe7391',
+    featured: ['chasca', 'lyney'],
+    featuredRare: ['ororon', 'sucrose', 'barbara'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1651,6 +1662,16 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['a_thousand_floating_dreams', 'staff_of_homa'],
     featuredRare: ['fruitful_hook', 'lions_roar', 'dragons_bane', 'eye_of_perception', 'favonius_warbow'],
+  },
+  400073: {
+    name: 'Epitome Invocation',
+    image: 73,
+    shortName: 'Astral',
+    start: '2024-11-20 06:00:00',
+    end: '2024-12-10 17:59:00',
+    color: '#ffb169',
+    featured: ['astral_vultures_crimson_plumage', 'the_first_great_magic'],
+    featuredRare: ['waveriding_whirl', 'flower-wreathed_feathers', 'the_flute', 'the_bell', 'favonius_lance'],
   },
 
   500001: {
