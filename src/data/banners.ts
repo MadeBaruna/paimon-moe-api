@@ -796,6 +796,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['ororon', 'sucrose', 'barbara'],
     timezoneDependent: true,
   },
+  300075: {
+    name: 'Decree of the Deeps',
+    image: 3,
+    shortName: 'Neuvillette',
+    start: '2024-12-10 18:00:00',
+    end: '2024-12-31 14:59:00',
+    color: '#72fefd',
+    featured: ['neuvillette', 'zhongli'],
+    featuredRare: ['shikanoin_heizou', 'fischl', 'yaoyao'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1672,6 +1682,22 @@ export const banners: { [key: number]: Banner } = {
     color: '#ffb169',
     featured: ['astral_vultures_crimson_plumage', 'the_first_great_magic'],
     featuredRare: ['waveriding_whirl', 'flower-wreathed_feathers', 'the_flute', 'the_bell', 'favonius_lance'],
+  },
+  400074: {
+    name: 'Epitome Invocation',
+    image: 74,
+    shortName: 'Tome',
+    start: '2024-12-10 18:00:00',
+    end: '2024-12-31 14:59:00',
+    color: '#eae5e1',
+    featured: ['tome_of_the_eternal_flow', 'vortex_vanquisher'],
+    featuredRare: [
+      'mitternachts_waltz',
+      'favonius_sword',
+      'favonius_greatsword',
+      'dragons_bane',
+      'sacrificial_fragments',
+    ],
   },
 
   500001: {
