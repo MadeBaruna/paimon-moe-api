@@ -12,8 +12,8 @@ import { WishTotal } from './entities/wishTotal';
 import { Constellation } from './entities/constellation';
 import { Deck } from './entities/deck';
 
-import { initFirebase } from './services/notification';
-import { startReminderCron } from './services/reminder';
+// import { initFirebase } from './services/notification';
+// import { startReminderCron } from './services/reminder';
 
 dotenv.config();
 
@@ -71,8 +71,8 @@ const dbOptions: PostgresConnectionOptions = {
 async function start(): Promise<void> {
   try {
     await createConnection(dbOptions);
-    initFirebase();
-    startReminderCron();
+    // initFirebase();
+    // startReminderCron();
 
     const address = await server.listen(3001, '0.0.0.0');
     console.log(`Server listening at ${address}`);
