@@ -806,6 +806,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['neuvillette', 'zhongli'],
     featuredRare: ['shikanoin_heizou', 'fischl', 'yaoyao'],
   },
+  300076: {
+    name: 'Ancient Flame Ablaze',
+    image: 1,
+    shortName: 'Mavuika',
+    start: '2025-01-01 06:00:00',
+    end: '2025-01-21 17:59:00',
+    color: '#ff6b37',
+    featured: ['mavuika', 'citlali'],
+    featuredRare: ['kachina', 'bennett', 'diona'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1698,6 +1709,17 @@ export const banners: { [key: number]: Banner } = {
       'dragons_bane',
       'sacrificial_fragments',
     ],
+  },
+  400075: {
+    name: 'Epitome Invocation',
+    image: 75,
+    shortName: 'Blazing',
+    start: '2025-01-01 06:00:00',
+    end: '2025-01-21 17:59:00',
+    color: '#ffb169',
+    featured: ['a_thousand_blazing_suns', 'starcallers_watch'],
+    featuredRare: ['lithic_blade', 'sacrificial_sword', 'favonius_lance', 'favonius_codex', 'the_stringless'],
+    timezoneDependent: true,
   },
 
   500001: {
