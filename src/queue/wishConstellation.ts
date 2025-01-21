@@ -42,7 +42,7 @@ async function submitWishTallyConstellation(job: Job<WishConstellationData>): Pr
   });
 }
 
-void queue.process(4, submitWishTallyConstellation);
+void queue.process(submitWishTallyConstellation);
 
 queue.on('active', (job) => {
   console.log(JSON.stringify({ message: 'processing wish tally constellation', id: job.id, data: job.data }));
