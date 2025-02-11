@@ -827,6 +827,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['arlecchino', 'clorinde'],
     featuredRare: ['lan_yan', 'chevreuse', 'rosaria'],
   },
+  300078: {
+    name: "Dawn's Drifting Reverie",
+    image: 1,
+    shortName: 'Mizuki',
+    start: '2025-02-12 06:00:00',
+    end: '2025-03-04 17:59:00',
+    color: '#f8f8f8',
+    featured: ['yumemizuki_mizuki', 'sigewinne'],
+    featuredRare: ['gorou', 'sayu', 'xiangling'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1740,6 +1751,17 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['crimson_moons_semblance', 'absolution'],
     featuredRare: ['lithic_spear', 'lions_roar', 'rainslasher', 'the_widsith', 'sacrificial_bow'],
+  },
+  400077: {
+    name: 'Epitome Invocation',
+    image: 77,
+    shortName: 'Blazing',
+    start: '2025-02-12 06:00:00',
+    end: '2025-03-04 17:59:00',
+    color: '#ffb169',
+    featured: ['sunny_morning_sleep-in', 'silvershower_heartstrings'],
+    featuredRare: ['akuoumaru', 'wavebreakers_fin', 'mouuns_moon', 'the_flute', 'eye_of_perception'],
+    timezoneDependent: true,
   },
 
   500001: {
