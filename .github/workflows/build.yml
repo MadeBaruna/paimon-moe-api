@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 18
       - name: Install pnpm
-        run: sudo npm i -g pnpm
+        run: sudo npm i -g pnpm@9.3.0
       - name: Install modules
         run: pnpm install
       - name: Run linter
