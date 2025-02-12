@@ -1,7 +1,7 @@
 FROM node:18.15.0-alpine3.16 AS builder
 WORKDIR /api
 RUN apk add --no-cache python3 make g++
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9.3.0
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --shamefully-hoist=true
 COPY tsconfig.json .
