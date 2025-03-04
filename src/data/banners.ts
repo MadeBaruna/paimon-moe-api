@@ -838,6 +838,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['gorou', 'sayu', 'xiangling'],
     timezoneDependent: true,
   },
+  300079: {
+    name: 'Tempestuous Destiny',
+    image: 2,
+    shortName: 'Wriothesley',
+    start: '2025-03-04 18:00:00',
+    end: '2025-03-25 14:59:00',
+    color: '#b3d7f1',
+    featured: ['wriothesley', 'furina'],
+    featuredRare: ['charlotte', 'chongyun', 'mika'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1762,6 +1772,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['sunny_morning_sleep-in', 'silvershower_heartstrings'],
     featuredRare: ['akuoumaru', 'wavebreakers_fin', 'mouuns_moon', 'the_flute', 'eye_of_perception'],
     timezoneDependent: true,
+  },
+  400078: {
+    name: 'Epitome Invocation',
+    image: 78,
+    shortName: 'Splendor',
+    start: '2025-03-04 18:00:00',
+    end: '2025-03-25 14:59:00',
+    color: '#eae5e1',
+    featured: ['splendor_of_tranquil_waters', 'cashflow_supervision'],
+    featuredRare: ['favonius_sword', 'sacrificial_greatsword', 'dragons_bane', 'sacrificial_fragments', 'rust'],
   },
 
   500001: {
