@@ -1,15 +1,15 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
-import { Banner } from "../entities/banner";
+import { MigrationInterface, QueryRunner } from 'typeorm';
+import { Banner } from '../entities/banner';
 
 const banners = {
   characters: {
-    name: "Tempestuous Destiny",
+    name: 'Tempestuous Destiny',
     start: '2025-03-04 18:00:00',
     end: '2025-03-25 14:59:00',
     id: 300079,
   },
   weapons: {
-    name: "Epitome Invocation",
+    name: 'Epitome Invocation',
     start: '2025-03-04 18:00:00',
     end: '2025-03-25 14:59:00',
     id: 400078,
@@ -21,7 +21,7 @@ export class UpdateBanner1741077621025 implements MigrationInterface {
     const newCharacterBanner = banners.characters;
     const characterBanner = new Banner();
     characterBanner.id = newCharacterBanner.id;
-    characterBanner.type = "characters";
+    characterBanner.type = 'characters';
     characterBanner.name = newCharacterBanner.name;
     characterBanner.start = `${newCharacterBanner.start}+8`;
     characterBanner.end = `${newCharacterBanner.end}+8`;
@@ -29,7 +29,7 @@ export class UpdateBanner1741077621025 implements MigrationInterface {
     const newWeaponBanner = banners.weapons;
     const weaponBanner = new Banner();
     weaponBanner.id = newWeaponBanner.id;
-    weaponBanner.type = "weapons";
+    weaponBanner.type = 'weapons';
     weaponBanner.name = newWeaponBanner.name;
     weaponBanner.start = `${newWeaponBanner.start}+8`;
     weaponBanner.end = `${newWeaponBanner.end}+8`;
