@@ -859,6 +859,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['iansan', 'chevreuse', 'gaming'],
     timezoneDependent: true,
   },
+  300081: {
+    name: "Forgefire's Blessing",
+    image: 2,
+    shortName: 'Xilonen',
+    start: '2025-04-15 18:00:00',
+    end: '2025-05-06 14:59:00',
+    color: '#fae3a4',
+    featured: ['xilonen', 'venti'],
+    featuredRare: ['faruzan', 'beidou', 'yanfei'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1810,6 +1820,16 @@ export const banners: { [key: number]: Banner } = {
       'flower-wreathed_feathers',
     ],
     timezoneDependent: true,
+  },
+  400080: {
+    name: 'Epitome Invocation',
+    image: 80,
+    shortName: 'Vivid',
+    start: '2025-04-15 18:00:00',
+    end: '2025-05-06 14:59:00',
+    color: '#eae5e1',
+    featured: ['peak_patrol_song', 'elegy_for_the_end'],
+    featuredRare: ['sacrificial_sword', 'the_bell', 'favonius_lance', 'favonius_codex', 'favonius_warbow'],
   },
 
   500001: {
