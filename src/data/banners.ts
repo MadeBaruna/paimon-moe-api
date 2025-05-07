@@ -869,6 +869,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['xilonen', 'venti'],
     featuredRare: ['faruzan', 'beidou', 'yanfei'],
   },
+  300082: {
+    name: 'La Chanson Cerise',
+    image: 1,
+    shortName: 'Escoffier',
+    start: '2025-05-07 06:00:00',
+    end: '2025-05-27 17:59:00',
+    color: '#7af8fd',
+    featured: ['escoffier', 'navia'],
+    featuredRare: ['ifa', 'ororon', 'layla'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1830,6 +1841,22 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['peak_patrol_song', 'elegy_for_the_end'],
     featuredRare: ['sacrificial_sword', 'the_bell', 'favonius_lance', 'favonius_codex', 'favonius_warbow'],
+  },
+  400081: {
+    name: 'Epitome Invocation',
+    image: 81,
+    shortName: 'Scents',
+    start: '2025-05-07 06:00:00',
+    end: '2025-05-27 17:59:00',
+    color: '#ffb169',
+    featured: ['symphonist_of_scents', 'verdict'],
+    featuredRare: [
+      'the_dockhands_assistant',
+      'portable_power_saw',
+      'prospectors_drill',
+      'range_gauge',
+      'the_widsith',
+    ],
   },
 
   500001: {
