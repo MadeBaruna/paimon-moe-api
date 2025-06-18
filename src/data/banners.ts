@@ -890,6 +890,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['kinich', 'raiden_shogun'],
     featuredRare: ['thoma', 'kujou_sara', 'lynette'],
   },
+  300084: {
+    name: "Void Star's Advent",
+    image: 1,
+    shortName: 'Skirk',
+    start: '2025-06-18 06:00:00',
+    end: '2025-07-08 17:59:00',
+    color: '#adcdff',
+    featured: ['skirk', 'shenhe'],
+    featuredRare: ['dahlia', 'candace', 'diona'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1877,6 +1888,23 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['fang_of_the_mountain_king', 'engulfing_lightning'],
     featuredRare: ['lions_roar', 'favonius_greatsword', 'dragons_bane', 'eye_of_perception', 'the_stringless'],
+  },
+  400083: {
+    name: 'Epitome Invocation',
+    image: 83,
+    shortName: 'Azurelight',
+    start: '2025-06-18 06:00:00',
+    end: '2025-07-08 17:59:00',
+    color: '#ffb169',
+    featured: ['azurelight', 'calamity_queller'],
+    featuredRare: [
+      'xiphos_moonlight',
+      'makhaira_aquamarine',
+      'wandering_evenstar',
+      'favonius_lance',
+      'sacrificial_bow',
+    ],
+    timezoneDependent: true,
   },
 
   500001: {
