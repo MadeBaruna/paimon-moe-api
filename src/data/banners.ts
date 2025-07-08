@@ -901,6 +901,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['dahlia', 'candace', 'diona'],
     timezoneDependent: true,
   },
+  300085: {
+    name: 'Ancient Flame Ablaze',
+    image: 2,
+    shortName: 'Skirk',
+    start: '2025-07-08 18:00:00',
+    end: '2025-07-29 14:59:00',
+    color: '#ff6b37',
+    featured: ['mavuika', 'emilie'],
+    featuredRare: ['iansan', 'yaoyao', 'xiangling'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1905,6 +1915,16 @@ export const banners: { [key: number]: Banner } = {
       'sacrificial_bow',
     ],
     timezoneDependent: true,
+  },
+  400084: {
+    name: 'Epitome Invocation',
+    image: 84,
+    shortName: 'Blazing',
+    start: '2025-07-08 18:00:00',
+    end: '2025-07-29 14:59:00',
+    color: '#eae5e1',
+    featured: ['a_thousand_blazing_suns', 'calamity_queller'],
+    featuredRare: ['the_flute', 'rainslasher', 'dragons_bane', 'sacrificial_fragments', 'rust'],
   },
 
   500001: {
