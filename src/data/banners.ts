@@ -911,6 +911,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['mavuika', 'emilie'],
     featuredRare: ['iansan', 'yaoyao', 'xiangling'],
   },
+  300086: {
+    name: 'Astral Actuation',
+    image: 1,
+    shortName: 'Ineffa',
+    start: '2025-07-30 06:00:00',
+    end: '2025-08-19 17:59:00',
+    color: '#e3ffff',
+    featured: ['ineffa', 'citlali'],
+    featuredRare: ['sethos', 'xingqiu', 'fischl'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1925,6 +1936,23 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['a_thousand_blazing_suns', 'calamity_queller'],
     featuredRare: ['the_flute', 'rainslasher', 'dragons_bane', 'sacrificial_fragments', 'rust'],
+  },
+  400085: {
+    name: 'Epitome Invocation',
+    image: 85,
+    shortName: 'Halo',
+    start: '2025-07-30 06:00:00',
+    end: '2025-08-19 17:59:00',
+    color: '#ffb169',
+    featured: ['fractured_halo', 'starcallers_watch'],
+    featuredRare: [
+      'sturdy_bone',
+      'mountain-bracing_bolt',
+      'sacrificial_greatsword',
+      'favonius_codex',
+      'favonius_warbow',
+    ],
+    timezoneDependent: true,
   },
 
   500001: {
