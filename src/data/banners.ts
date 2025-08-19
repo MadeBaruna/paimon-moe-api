@@ -922,6 +922,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['sethos', 'xingqiu', 'fischl'],
     timezoneDependent: true,
   },
+  300087: {
+    name: 'Sharktacular Surfari',
+    image: 2,
+    shortName: 'Mualani',
+    start: '2025-08-19 18:00:00',
+    end: '2025-09-09 14:59:00',
+    color: '#6fc5e2',
+    featured: ['mualani', 'chasca'],
+    featuredRare: ['ifa', 'ororon', 'bennett'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -1953,6 +1963,22 @@ export const banners: { [key: number]: Banner } = {
       'favonius_warbow',
     ],
     timezoneDependent: true,
+  },
+  400086: {
+    name: 'Epitome Invocation',
+    image: 86,
+    shortName: "Surf's Up",
+    start: '2025-08-19 18:00:00',
+    end: '2025-09-09 14:59:00',
+    color: '#eae5e1',
+    featured: ['surfs_up', 'astral_vultures_crimson_plumage'],
+    featuredRare: [
+      'fruitful_hook',
+      'waveriding_whirl',
+      'flower-wreathed_feathers',
+      'favonius_sword',
+      'favonius_lance',
+    ],
   },
 
   500001: {

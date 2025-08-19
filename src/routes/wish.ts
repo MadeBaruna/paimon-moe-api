@@ -23,8 +23,8 @@ import { WishSummaryRequest } from '../types/wishSummaryRequest';
 import { WishSummaryLuckRequest } from '../types/wishSummaryLuckRequest';
 import { wishSummary, wishSummaryLuck4, wishSummaryLuck5, wishSummaryWinRateOff4, wishSummaryWinRateOff5 } from '../stores/wishSummary';
 
-const LATEST_CHARACTER_BANNER = 300086;
-const LATEST_WEAPON_BANNER = 400085;
+const LATEST_CHARACTER_BANNER = 300087;
+const LATEST_WEAPON_BANNER = 400086;
 
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(
