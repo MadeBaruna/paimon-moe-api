@@ -943,6 +943,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['barbara', 'kuki_shinobu', 'kaveh'],
     timezoneDependent: true,
   },
+  300089: {
+    name: 'The Lone Light Knocks at Night',
+    image: 1,
+    shortName: 'Flins',
+    start: '2025-09-30 18:00:00',
+    end: '2025-10-21 17:59:00',
+    color: '#84a3fb',
+    featured: ['flins', 'yelan'],
+    featuredRare: ['aino', 'sucrose', 'dori'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2001,6 +2011,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['nightweavers_looking_glass', 'a_thousand_floating_dreams'],
     featuredRare: ['the_flute', 'sacrificial_greatsword', 'dragons_bane', 'sacrificial_fragments', 'the_stringless'],
     timezoneDependent: true,
+  },
+  400088: {
+    name: 'Epitome Invocation',
+    image: 88,
+    shortName: "Nightweaver's",
+    start: '2025-09-30 18:00:00',
+    end: '2025-10-21 17:59:00',
+    color: '#eae5e1',
+    featured: ['bloodsoaked_ruins', 'aqua_simulacra'],
+    featuredRare: ['lions_roar', 'favonius_greatsword', 'favonius_lance', 'favonius_codex', 'sacrificial_bow'],
   },
 
   500001: {
