@@ -953,6 +953,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['flins', 'yelan'],
     featuredRare: ['aino', 'sucrose', 'dori'],
   },
+  300090: {
+    name: 'Temptation of the Crimson Sands',
+    image: 1,
+    shortName: 'Nefer',
+    start: '2025-10-22 06:00:00',
+    end: '2025-11-11 17:59:00',
+    color: '#2dd891',
+    featured: ['nefer', 'furina'],
+    featuredRare: ['xingqiu', 'collei', 'yaoyao'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2021,6 +2032,17 @@ export const banners: { [key: number]: Banner } = {
     color: '#eae5e1',
     featured: ['bloodsoaked_ruins', 'aqua_simulacra'],
     featuredRare: ['lions_roar', 'favonius_greatsword', 'favonius_lance', 'favonius_codex', 'sacrificial_bow'],
+  },
+  400089: {
+    name: 'Epitome Invocation',
+    image: 89,
+    shortName: 'Truth',
+    start: '2025-10-22 06:00:00',
+    end: '2025-11-11 17:59:00',
+    color: '#ffb169',
+    featured: ['reliquary_of_truth', 'splendor_of_tranquil_waters'],
+    featuredRare: ['moonweavers_dawn', 'sacrificers_staff', 'dawning_frost', 'the_bell', 'favonius_warbow'],
+    timezoneDependent: true,
   },
 
   500001: {
