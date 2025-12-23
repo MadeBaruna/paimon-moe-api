@@ -985,6 +985,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['bennett', 'faruzan', 'jahoda'],
     timezoneDependent: true,
   },
+  300093: {
+    name: 'Cornucopia of Contention',
+    image: 2,
+    shortName: 'Varesa',
+    start: '2025-12-23 18:00:00',
+    end: '2026-01-13 14:59:00',
+    color: '#ffa3af',
+    featured: ['varesa', 'xilonen'],
+    featuredRare: ['iansan', 'chevreuse', 'gaming'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2091,6 +2101,16 @@ export const banners: { [key: number]: Banner } = {
     featured: ['athame_artis', 'the_daybreak_chronicles'],
     featuredRare: ['the_alley_flash', 'prospectors_drill', 'wine_and_song', 'rainslasher', 'the_stringless'],
     timezoneDependent: true,
+  },
+  400092: {
+    name: 'Epitome Invocation',
+    image: 92,
+    shortName: 'Vivid',
+    start: '2025-12-23 18:00:00',
+    end: '2026-01-13 14:59:00',
+    color: '#eae5e1',
+    featured: ['vivid_notions', 'peak_patrol_song'],
+    featuredRare: ['fruitful_hook', 'alley_hunter', 'favonius_sword', 'favonius_lance', 'the_widsith'],
   },
 
   500001: {
