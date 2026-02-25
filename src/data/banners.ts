@@ -1021,7 +1021,7 @@ export const banners: { [key: number]: Banner } = {
     image: 1,
     shortName: 'Varka',
     start: '2026-02-25 06:00:00',
-    end: '2026-03-07 17:59:00',
+    end: '2026-03-17 17:59:00',
     color: '#47c2d5',
     featured: ['varka', 'flins'],
     featuredRare: ['bennett', 'xiangling', 'sucrose'],
@@ -2176,7 +2176,7 @@ export const banners: { [key: number]: Banner } = {
     image: 95,
     shortName: 'Mighty Wolf',
     start: '2026-02-25 06:00:00',
-    end: '2026-03-07 17:59:00',
+    end: '2026-03-17 17:59:00',
     color: '#ffb169',
     featured: ['gest_of_the_mighty_wolf', 'bloodsoaked_ruins'],
     featuredRare: [
@@ -2425,7 +2425,7 @@ export const banners: { [key: number]: Banner } = {
     image: 2,
     shortName: 'Mondstadt',
     start: '2026-02-25 06:00:00',
-    end: '2026-03-07 17:59:00',
+    end: '2026-03-17 17:59:00',
     color: '#eee8e1',
     featured: [
       'eula',
