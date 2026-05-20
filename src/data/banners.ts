@@ -1058,6 +1058,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['lauma', 'nefer'],
     featuredRare: ['xingqiu', 'kirara', 'jahoda'],
   },
+  300100: {
+    name: "Angel's Reverie",
+    image: 1,
+    shortName: 'Nicole',
+    start: '2026-05-20 06:00:00',
+    end: '2026-06-09 17:59:00',
+    color: '#fef4ca',
+    featured: ['nicole', 'durin'],
+    featuredRare: ['prune', 'fischl', 'razor'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2615,6 +2626,23 @@ export const banners: { [key: number]: Banner } = {
       'favonius_lance',
       'favonius_warbow',
     ],
+  },
+  400099: {
+    name: 'Epitome Invocation',
+    image: 99,
+    shortName: 'Angelos',
+    start: '2026-05-20 06:00:00',
+    end: '2026-06-09 17:59:00',
+    color: '#ffb169',
+    featured: ['angelos_heptades', 'athame_artis'],
+    featuredRare: [
+      'moonweavers_dawn',
+      'mitternachts_waltz',
+      'the_bell',
+      'dragons_bane',
+      'the_widsith',
+    ],
+    timezoneDependent: true,
   },
 
   500001: {
