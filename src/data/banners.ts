@@ -1069,6 +1069,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['prune', 'fischl', 'razor'],
     timezoneDependent: true,
   },
+  300101: {
+    name: 'Frostedge Nocturne',
+    image: 1,
+    shortName: 'Lohen',
+    start: '2026-06-09 18:00:00',
+    end: '2026-06-30 14:59:00',
+    color: '#efe8e6',
+    featured: ['lohen', 'mavuika'],
+    featuredRare: ['mika', 'xiangling', 'bennett'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2643,6 +2653,22 @@ export const banners: { [key: number]: Banner } = {
       'the_widsith',
     ],
     timezoneDependent: true,
+  },
+  400100: {
+    name: 'Epitome Invocation',
+    image: 100,
+    shortName: 'Disaster',
+    start: '2026-06-09 18:00:00',
+    end: '2026-06-30 14:59:00',
+    color: '#eae5e1',
+    featured: ['disaster_and_remorse', 'a_thousand_blazing_suns'],
+    featuredRare: [
+      'the_alley_flash',
+      'wine_and_song',
+      'alley_hunter',
+      'rainslasher',
+      'favonius_lance',
+    ],
   },
 
   500001: {
