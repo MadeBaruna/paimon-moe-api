@@ -1090,6 +1090,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['beidou', 'diona', 'freminet'],
     timezoneDependent: true,
   },
+  300103: {
+    name: 'Somnias a Luna',
+    image: 2,
+    shortName: 'Columbina',
+    start: '2026-07-21 18:00:00',
+    end: '2026-08-11 14:59:00',
+    color: '#ddeafd',
+    featured: ['columbina', 'raiden_shogun'],
+    featuredRare: ['jahoda', 'ororon', 'sethos'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2697,6 +2707,22 @@ export const banners: { [key: number]: Banner } = {
       'sacrificial_bow',
     ],
     timezoneDependent: true,
+  },
+  400102: {
+    name: 'Epitome Invocation',
+    image: 102,
+    shortName: 'Nocturne',
+    start: '2026-07-21 18:00:00',
+    end: '2026-08-11 14:59:00',
+    color: '#eae5e1',
+    featured: ['nocturnes_curtain_call', 'engulfing_lightning'],
+    featuredRare: [
+      'waveriding_whirl',
+      'sacrificial_sword',
+      'the_bell',
+      'favonius_lance',
+      'favonius_warbow',
+    ],
   },
 
   500001: {
