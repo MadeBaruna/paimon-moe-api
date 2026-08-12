@@ -1100,6 +1100,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['columbina', 'raiden_shogun'],
     featuredRare: ['jahoda', 'ororon', 'sethos'],
   },
+  300104: {
+    name: "Swan's Shadow in Silken Ice",
+    image: 1,
+    shortName: 'Odette',
+    start: '2026-08-12 06:00:00',
+    end: '2026-09-01 17:59:00',
+    color: '#ffffff',
+    featured: ['odette', 'arlecchino'],
+    featuredRare: ['alyosha', 'sucrose', 'lynette'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2723,6 +2734,23 @@ export const banners: { [key: number]: Banner } = {
       'favonius_lance',
       'favonius_warbow',
     ],
+  },
+  400103: {
+    name: 'Epitome Invocation',
+    image: 103,
+    shortName: 'Epitome Invocation',
+    start: '2026-08-12 06:00:00',
+    end: '2026-09-01 17:59:00',
+    color: '#ffffff',
+    featured: ['whitelake_frostfeather', 'crimson_moons_semblance'],
+    featuredRare: [
+      'favonius_sword',
+      'the_bell',
+      'dragons_bane',
+      'sacrificial_fragments',
+      'rust',
+    ],
+    timezoneDependent: true,
   },
 
   500001: {
