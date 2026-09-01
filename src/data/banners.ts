@@ -1111,6 +1111,16 @@ export const banners: { [key: number]: Banner } = {
     featuredRare: ['alyosha', 'sucrose', 'lynette'],
     timezoneDependent: true,
   },
+  300105: {
+    name: 'The Lone Light Knocks at Night',
+    image: 3,
+    shortName: 'Flins',
+    start: '2026-09-01 18:00:00',
+    end: '2026-09-22 14:59:00',
+    color: '#47c2d5',
+    featured: ['flins', 'ineffa'],
+    featuredRare: ['aino', 'iansan', 'lan_yan'],
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2738,10 +2748,10 @@ export const banners: { [key: number]: Banner } = {
   400103: {
     name: 'Epitome Invocation',
     image: 103,
-    shortName: 'Epitome Invocation',
+    shortName: 'Whitelake',
     start: '2026-08-12 06:00:00',
     end: '2026-09-01 17:59:00',
-    color: '#ffffff',
+    color: '#ffb169',
     featured: ['whitelake_frostfeather', 'crimson_moons_semblance'],
     featuredRare: [
       'favonius_sword',
@@ -2751,6 +2761,22 @@ export const banners: { [key: number]: Banner } = {
       'rust',
     ],
     timezoneDependent: true,
+  },
+  400104: {
+    name: 'Epitome Invocation',
+    image: 104,
+    shortName: 'Bloodsoaked',
+    start: '2026-09-01 18:00:00',
+    end: '2026-09-22 14:59:00',
+    color: '#eae5e1',
+    featured: ['bloodsoaked_ruins', 'fractured_halo'],
+    featuredRare: [
+      'the_flute',
+      'favonius_greatsword',
+      'favonius_lance',
+      'eye_of_perception',
+      'the_stringless',
+    ],
   },
 
   500001: {
