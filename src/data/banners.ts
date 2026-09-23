@@ -1121,6 +1121,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['flins', 'ineffa'],
     featuredRare: ['aino', 'iansan', 'lan_yan'],
   },
+  300106: {
+    name: 'When Warm Winds Cavort',
+    image: 1,
+    shortName: 'Vesna',
+    start: '2026-09-23 06:00:00',
+    end: '2026-10-13 17:59:59',
+    color: '#8dd6d9',
+    featured: ['vesna', 'vodyanitsa'],
+    featuredRare: ['diona', 'faruzan', 'chongyun'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2777,6 +2788,23 @@ export const banners: { [key: number]: Banner } = {
       'eye_of_perception',
       'the_stringless',
     ],
+  },
+  400105: {
+    name: 'Epitome Invocation',
+    image: 105,
+    shortName: 'Chrysalis',
+    start: '2026-09-23 06:00:00',
+    end: '2026-10-13 17:59:59',
+    color: '#ffb169',
+    featured: ['beyond_the_chrysalis', 'hymn_of_the_maelstrom'],
+    featuredRare: [
+      'new_bough',
+      'winters_heavy_heart',
+      'breezeborne_refrain',
+      'favonius_greatsword',
+      'dragons_bane',
+    ],
+    timezoneDependent: true,
   },
 
   500001: {
