@@ -9,8 +9,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
       - name: Install pnpm and Node.js
-        uses: pnpm/setup@c9883cc79df532ad1a7b81bf9ab944ceb090d65c
+        uses: pnpm/setup@v3
         with:
+          version: 12.15.0
           runtime: node@24
           cache: true
       - name: Install modules
