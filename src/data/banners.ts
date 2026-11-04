@@ -1142,6 +1142,17 @@ export const banners: { [key: number]: Banner } = {
     featured: ['skirk', 'escoffier'],
     featuredRare: ['dahlia', 'candace', 'mika'],
   },
+  300108: {
+    name: 'Myriad Patterns Unfold',
+    image: 1,
+    shortName: 'Mitya',
+    start: '2026-11-04 06:00:00',
+    end: '2026-11-24 17:59:59',
+    color: '#aeadeb',
+    featured: ['mitya', 'furina'],
+    featuredRare: ['valeriy', 'charlotte', 'rosaria'],
+    timezoneDependent: true,
+  },
 
   400001: {
     name: 'Epitome Invocation',
@@ -2831,6 +2842,23 @@ export const banners: { [key: number]: Banner } = {
       'the_widsith',
       'sacrificial_bow',
     ],
+  },
+  400107: {
+    name: 'Epitome Invocation',
+    image: 107,
+    shortName: 'Starsealed',
+    start: '2026-11-04 06:00:00',
+    end: '2026-11-24 17:59:59',
+    color: '#ffb169',
+    featured: ['starsealed_edict', 'splendor_of_tranquil_waters'],
+    featuredRare: [
+      'the_dockhands_assistant',
+      'prospectors_drill',
+      'dawning_frost',
+      'rainslasher',
+      'rust',
+    ],
+    timezoneDependent: true,
   },
 
   500001: {

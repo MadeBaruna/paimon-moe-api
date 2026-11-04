@@ -29,8 +29,8 @@ import {
   wishSummaryWinRateOff5,
 } from '../stores/wishSummary';
 
-const LATEST_CHARACTER_BANNER = 300107;
-const LATEST_WEAPON_BANNER = 400106;
+const LATEST_CHARACTER_BANNER = 300108;
+const LATEST_WEAPON_BANNER = 400107;
 
 export default async function (server: FastifyInstance): Promise<void> {
   server.get(
